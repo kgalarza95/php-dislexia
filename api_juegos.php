@@ -21,53 +21,28 @@ try {
 
     if ($opcion == "IN") {
 
-        $SQL = " SELECT MAX(ID) +1 ID_NEXT
-		         FROM db_app_dislexia.app_mensaje_relacion R ";
-
-
-        // Ejecutar la sentencia
-        $sentencia   = $conexion->prepare($SQL);
-        $sentencia->execute();
-        $resultado   = $sentencia->get_result();
-
-        $fila = $resultado->fetch_assoc();
-
-        $id_next = $fila["ID_NEXT"];
+        $id_usuario = $_POST['id_usuario'];
+        $score = $_POST['score'];
 
         // Preparar las consultas para la inserción en ambas tablas
-        $SQL1 = " INSERT INTO app_mensaje_relacion (ID, ID_PERSONA1,ID_PERSONA2) VALUES(?,?,?)";
+        $SQL1 = " INSERT INTO app_score (id_usuario, score)
+                  VALUES (?, ?)
+                  ON DUPLICATE KEY UPDATE score = ?  ";
 
         // Preparar las sentencias
         $stmt1 = $conexion->prepare($SQL1);
         // Vincular los parámetros
-        $stmt1->bind_param('sss', $id_next, $id_persona1, $id_persona2);
+        $stmt1->bind_param('sss', $id_usuario, $score, $score);
         // Ejecutar las consultas
         $stmt1->execute();
         // Cerrar las sentencias
         $stmt1->close();
-
-
-        $id_duenio = $_POST['id_duenio'];
-        $mensaje = $_POST['mensaje'];
-
-        // Preparar las consultas para la inserción en ambas tablas
-        $SQL2 = " INSERT INTO app_mensaje (ID_MENSAJE_RELACION, ID_DUENIO_SMS, MENSAJE)  VALUES(?,?,?)";
-
-        // Preparar las sentencias
-        $stmt2 = $conexion->prepare($SQL2);
-        // Vincular los parámetros
-        $stmt2->bind_param('sss', $id_next, $id_duenio, $mensaje);
-        // Ejecutar las consultas
-        $stmt2->execute();
-        // Cerrar las sentencias
-        $stmt2->close();
 
         // Crear respuesta
         $respuesta = array(
             'codResponse' => '00',
             'msjResponse' => 'TRANSACCIÓN OK'
         );
-
 
         $sentencia->close();
         $conexion->close();
@@ -78,6 +53,46 @@ try {
 
         $SQL = " SELECT CAST(ID AS VARCHAR(10)) as ID, PALABRA_INC, PALABRA, OP1, OP2, OP3, OP4, OP_CORRECTA
                  FROM app_jg_palabras
+                
+                ";
+
+      
+        // Ejecutar la sentencia
+        $sentencia = $conexion->prepare($SQL);
+
+        $sentencia->execute();
+
+        $resultado = $sentencia->get_result();
+        $num_filas = $resultado->num_rows;
+
+        if ($num_filas > 0) {
+            $filas = array();
+
+            while ($fila = $resultado->fetch_assoc()) {
+                $filas[] = $fila;
+            }
+            // Crear respuesta
+            $respuesta = array(
+                'codResponse' => '00',
+                'msjResponse' => 'TRANSACCIÓN OK',
+                'data' => $filas
+            );
+        } else {
+
+            // Crear respuesta
+            $respuesta = array(
+                'codResponse' => '02',
+                'msjResponse' => 'NO HAY DATOS',
+            );
+        }
+        $sentencia->close();
+        $conexion->close();
+    }
+
+    if ($opcion == "CF") { //CONSULTA
+
+        $SQL = " SELECT CAST(ID AS VARCHAR(10)) as ID, FRASE, PALABRA_ERRADA, PALABRA_CORRECTA
+                 FROM app_jg_farses
                 
                 ";
 
