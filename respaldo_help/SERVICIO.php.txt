@@ -1,0 +1,31 @@
+<?php
+// Datos de conexión a la base de datos
+$host = "localhost";
+$usuario = "nombre_usuario";
+$contraseña = "contraseña";
+$base_datos = "nombre_base_datos";
+
+// Crear conexión a la base de datos
+$conexion = mysqli_connect($host, $usuario, $contraseña, $base_datos);
+
+// Verificar conexión
+if (!$conexion) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+// Consulta SELECT
+$consulta = "SELECT * FROM app_usuarios_sistema";
+$resultado = mysqli_query($conexion, $consulta);
+
+// Mostrar resultados
+if (mysqli_num_rows($resultado) > 0) {
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+        echo "id: " . $fila["id"] . " - Usuario: " . $fila["usuario"] . "<br>";
+    }
+} else {
+    echo "No se encontraron resultados";
+}
+
+// Cerrar conexión
+mysqli_close($conexion);
+?>
