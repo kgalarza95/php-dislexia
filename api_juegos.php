@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-
+require_once 'util/funciones.php';
 
 // Configuración de las cabeceras HTTP para permitir CORS
 header("Access-Control-Allow-Origin: *");
@@ -23,16 +23,18 @@ try {
 
         $id_usuario = $_POST['id_usuario'];
         $score = $_POST['score'];
+        $id_juego = $_POST['id_juego'];
 
-        // Preparar las consultas para la inserción en ambas tablas
-        $SQL1 = " INSERT INTO app_score (id_usuario, score)
-                  VALUES (?, ?)
-                  ON DUPLICATE KEY UPDATE score = ?  ";
+        //echo "score ======>  ".$score;
+        $SQL1 = " INSERT INTO app_score (id_usuario, score, id_juego)
+                  VALUES (?, ?, ?)
+                  ON DUPLICATE KEY UPDATE score = CASE WHEN score < ? THEN ? ELSE score END 
+                ";
 
         // Preparar las sentencias
         $stmt1 = $conexion->prepare($SQL1);
         // Vincular los parámetros
-        $stmt1->bind_param('sss', $id_usuario, $score, $score);
+        $stmt1->bind_param('siiii', $id_usuario, $score, $id_juego, $score, $score);
         // Ejecutar las consultas
         $stmt1->execute();
         // Cerrar las sentencias
@@ -44,7 +46,6 @@ try {
             'msjResponse' => 'TRANSACCIÓN OK'
         );
 
-        $sentencia->close();
         $conexion->close();
     }
 
@@ -56,7 +57,7 @@ try {
                 
                 ";
 
-      
+
         // Ejecutar la sentencia
         $sentencia = $conexion->prepare($SQL);
 
@@ -96,7 +97,7 @@ try {
                 
                 ";
 
-      
+
         // Ejecutar la sentencia
         $sentencia = $conexion->prepare($SQL);
 
@@ -128,6 +129,62 @@ try {
         $sentencia->close();
         $conexion->close();
     }
+
+    if ($opcion == "SC") { //CONSULTA
+
+       /* $SQL = " SELECT CAST(U.ID AS VARCHAR(10)) as ID, U.USUARIO,  
+                        CONCAT(D.NOMBRES, ' ', D.APELLIDOS) AS NOMBRES, 
+                        S.SCORE
+                FROM APP_SCORE S
+                JOIN APP_USUARIOS_SISTEMA U ON U.ID = S.ID_USUARIO
+                JOIN APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
+                "; */
+
+        
+        $SQL = "    SELECT CAST(U.ID AS VARCHAR(10)) as ID, U.USUARIO,  
+                            CONCAT(D.NOMBRES, ' ', D.APELLIDOS) AS NOMBRES, 
+                            S.SCORE,
+                            S.ID_JUEGO,
+                            J.NOMBRE_JUEGO
+                    FROM APP_SCORE S
+                    JOIN APP_USUARIOS_SISTEMA U ON U.ID = S.ID_USUARIO
+                    JOIN APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
+                    JOIN APP_LISTA_JUEGOS J ON J.ID = S.ID_JUEGO
+            ";
+
+
+        // Ejecutar la sentencia
+        $sentencia = $conexion->prepare($SQL);
+
+        $sentencia->execute();
+
+        $resultado = $sentencia->get_result();
+        $num_filas = $resultado->num_rows;
+
+        if ($num_filas > 0) {
+            $filas = array();
+
+            while ($fila = $resultado->fetch_assoc()) {
+                $filas[] = $fila;
+            }
+            // Crear respuesta
+            $respuesta = array(
+                'codResponse' => '00',
+                'msjResponse' => 'TRANSACCIÓN OK',
+                'data' => $filas
+            );
+        } else {
+
+            // Crear respuesta
+            $respuesta = array(
+                'codResponse' => '02',
+                'msjResponse' => 'NO HAY DATOS',
+            );
+        }
+        $sentencia->close();
+        $conexion->close();
+    }
+
 } catch (Exception $e) {
     // Capturar la excepción y devolver un mensaje de error
     $respuesta = array(
@@ -137,30 +194,4 @@ try {
 }
 
 
-// Devolver respuesta en formato JSON
-header('Content-Type: application/json');
-
-function recursive_utf8_encode($input)
-{
-    if (is_array($input)) {
-        foreach ($input as &$value) {
-            if (is_array($value)) {
-                $value = recursive_utf8_encode($value);
-            } elseif (is_string($value)) {
-                $value = utf8_encode($value);
-            }
-        }
-        unset($value);
-    } elseif (is_string($input)) {
-        $input = utf8_encode($input);
-    }
-    return $input;
-}
-
-
-$respuesta = recursive_utf8_encode($respuesta);
-
-$json = json_encode($respuesta, JSON_UNESCAPED_UNICODE);
-
-echo $json;
-//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+devolver_respuesta($respuesta);

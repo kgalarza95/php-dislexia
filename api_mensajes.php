@@ -201,6 +201,47 @@ try {
 		$conexion->close();
 	}
 
+	if ($opcion == "CP") { //consulta de profesores
+
+		$SQL = " SELECT CAST(P.ID AS VARCHAR(10)) as ID, E.USUARIO, P.NOMBRES, P.APELLIDOS, P.SEXO
+		 		 FROM APP_USUARIOS_SISTEMA E
+				 JOIN APP_DATOS_PERSONALES P ON P.ID_USUARIO = E.ID
+				 JOIN APP_ROL R 		     ON R.ID = P.ID_ROL AND R.ID IN (1,2)
+				 
+				 ";
+
+		// Ejecutar la sentencia
+		$sentencia = $conexion->prepare($SQL);
+
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		$num_filas = $resultado->num_rows;
+
+		if ($num_filas > 0) {
+			$filas = array();
+
+			while ($fila = $resultado->fetch_assoc()) {
+				$filas[] = $fila;
+			}
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '00',
+				'msjResponse' => 'TRANSACCIÓN OK',
+				'data' => $filas
+			);
+		} else {
+
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '02',
+				'msjResponse' => 'NO HAY DATOS',
+			);
+		}
+		$sentencia->close();
+		$conexion->close();
+	}
+
 	if ($opcion == "CT") { //consulta de todos
 
 		$SQL = " SELECT CAST(P.ID AS VARCHAR(10)) as ID, E.USUARIO, P.NOMBRES, P.APELLIDOS, P.SEXO

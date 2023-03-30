@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-
+require_once 'util/funciones.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$opcion = $_GET['opcion'];
@@ -115,8 +115,8 @@ try {
 			);
 
 			// Devolver respuesta en formato JSON
-			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//header('Content-Type: application/json');
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -126,14 +126,14 @@ try {
 			);
 
 			// Devolver respuesta en formato JSON
-			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//header('Content-Type: application/json');
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$sentencia_2->close();
 		$conexion->close();
 	} else if ($opcion == "AC") {
-		
+
 		$SQL = "UPDATE app_usuarios_sistema
 				SET USUARIO = ?,
 					contrasenia = SHA2(?, 256)
@@ -164,8 +164,8 @@ try {
 		);
 
 		// Devolver respuesta en formato JSON
-		header('Content-Type: application/json');
-		echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		//header('Content-Type: application/json');
+		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
 		$sentencia->close();
 		$sentencia_2->close();
@@ -199,17 +199,58 @@ try {
 		);
 
 		// Devolver respuesta en formato JSON
-		header('Content-Type: application/json');
-		echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		//header('Content-Type: application/json');
+		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+
+		$sentencia->close();
+		$conexion->close();
+	} else if ($opcion == "CNC") { //CONSULTA POR CEDULA
+		$SQL = " SELECT CAST(U.ID AS VARCHAR(10)) AS ID, R.ROL, U.USUARIO, U.CAMBIAR_CONTRASENIA,
+						D.NOMBRES, D.APELLIDOS, D.CEDULA, D.SEXO, 
+						CAST(D.EDAD  AS VARCHAR(10)) as EDAD,
+						CAST(R.ID  AS VARCHAR(10)) as ID_ROL
+				FROM DB_APP_DISLEXIA.APP_USUARIOS_SISTEMA U
+				JOIN DB_APP_DISLEXIA.APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
+				JOIN DB_APP_DISLEXIA.APP_ROL R ON R.ID = D.ID_ROL
+				WHERE 1=1
+				AND D.CEDULA = ? ";
+
+		// Ejecutar la sentencia
+		$sentencia   = $conexion->prepare($SQL);
+		$sentencia->bind_param('s', $cedula);
+		$sentencia->execute();
+		$resultado   = $sentencia->get_result();
+
+		$fila = $resultado->fetch_assoc();
+		//$es_persona = $fila["ES_PERSONAL"];
+
+		// Crear respuesta
+		$respuesta = array(
+			'codResponse' => '00',
+			'msjResponse' => 'TRANSACCIÓN OK',
+			'data' => $fila
+		);
+
+		// Devolver respuesta en formato JSON
+		//header('Content-Type: application/json');
+		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 
 		$sentencia->close();
 		$conexion->close();
 	}
 } catch (Exception $e) {
 	// Capturar la excepción y devolver un mensaje de error
-	header('Content-Type: application/json');
+	/*header('Content-Type: application/json');
 	echo json_encode(array(
 		'codResponse' => '99',
 		'msjResponse' => $e->getMessage()
-	), JSON_UNESCAPED_UNICODE);
+	), JSON_UNESCAPED_UNICODE);*/
+
+	$respuesta = array(
+		'codResponse' => '99',
+		'msjResponse' =>  $e->getMessage()
+	);
 }
+
+
+devolver_respuesta($respuesta);

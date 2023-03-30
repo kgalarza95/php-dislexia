@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-
+require_once 'util/funciones.php';
 
 
 // Configuración de las cabeceras HTTP para permitir CORS
@@ -84,7 +84,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -95,7 +95,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$conexion->close();
@@ -132,7 +132,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -143,13 +143,13 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$conexion->close();
 	}
 
-	if ($opcion == "CP") {//consulta de participantes pendientes para el curso
+	if ($opcion == "CP") { //consulta de participantes pendientes para el curso
 		$id_curso = $_POST['id_curso'];
 		$SQL = " SELECT P.ID, E.USUARIO, P.NOMBRES, P.APELLIDOS, P.SEXO
 				 FROM APP_USUARIOS_SISTEMA E
@@ -183,7 +183,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -194,7 +194,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$conexion->close();
@@ -229,10 +229,10 @@ try {
 
 		// Devolver respuesta en formato JSON
 		header('Content-Type: application/json');
-		echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 	}
 
-	if ($opcion == "CPC") {//consulta de participantes de el curso
+	if ($opcion == "CPC") { //consulta de participantes de el curso
 
 		$id_curso = $_POST['id_curso'];
 
@@ -269,7 +269,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -280,7 +280,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$conexion->close();
@@ -288,7 +288,7 @@ try {
 
 	if ($opcion == "CX") { //CONSULTA DE LOS CURSOS DE LOS ESTUDIANTES
 
-		$SQL = " SELECT CAST(E.ID AS VARCHAR(10)) as ID, NOMBRE, DESCRIPCION, ANIO, ESTADO
+		$SQL = " SELECT CAST(C.ID AS VARCHAR(10)) as ID, NOMBRE, DESCRIPCION, ANIO, ESTADO
 			 	 FROM app_estud_x_curso E
 			 	 JOIN app_curso C ON E.ID_CURSO = C.ID
 				 WHERE E.ID_ESTUDIANTE = ? ";
@@ -296,7 +296,7 @@ try {
 		// Ejecutar la sentencia
 		$sentencia = $conexion->prepare($SQL);
 
-		$sentencia->bind_param('i', $id_profesor);// id del estudiante 
+		$sentencia->bind_param('i', $id_profesor); // id del estudiante 
 		$sentencia->execute();
 
 		$resultado = $sentencia->get_result();
@@ -317,7 +317,7 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		} else {
 
 			// Crear respuesta
@@ -328,16 +328,77 @@ try {
 
 			// Devolver respuesta en formato JSON
 			header('Content-Type: application/json');
-			echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 		}
 		$sentencia->close();
 		$conexion->close();
 	}
+
+
+	if ($opcion == "CT") { //CONSULTA TAREA POR CURSO
+		$id_curso = $_POST['id_curso'];
+
+		$SQL = " SELECT CAST(ID AS VARCHAR(25)) AS ID, 
+                        CAST(ID_CURSO AS VARCHAR(25)) AS ID_CURSO, 
+                        TITULO, INSTRUCCIONES, 
+                        DATE_FORMAT(FECHA_VENCIMIENTO, '%d/%m/%Y') FECHA_VENCIMIENTO
+                 FROM DB_APP_DISLEXIA.APP_ASIGNACIONES A
+                 WHERE ID_CURSO = ?
+
+                ";
+
+		// Preparar la sentencia
+		$sentencia = $conexion->prepare($SQL);
+		$sentencia->bind_param('i', $id_curso);
+
+		// Ejecutar la sentencia
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		$num_filas = $resultado->num_rows;
+
+		if ($num_filas > 0) {
+			$filas = array();
+
+			while ($fila = $resultado->fetch_assoc()) {
+				$filas[] = $fila;
+			}
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '00',
+				'msjResponse' => 'TRANSACCIÓN OK',
+				'data' => $filas
+			);
+		} else {
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '02',
+				'msjResponse' => 'NO HAY DATOS',
+			);
+		}
+
+		// Devolver respuesta en formato JSON
+		header('Content-Type: application/json');
+		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		$sentencia->close();
+		$conexion->close();
+	}
+
+	
 } catch (Exception $e) {
 	// Capturar la excepción y devolver un mensaje de error
-	header('Content-Type: application/json');
+	/* header('Content-Type: application/json');
 	echo json_encode(array(
 		'codResponse' => '99',
 		'msjResponse' => $e->getMessage()
-	), JSON_UNESCAPED_UNICODE);
+	), JSON_UNESCAPED_UNICODE); */
+
+	$respuesta = array(
+		'codResponse' => '99',
+		'msjResponse' =>  $e->getMessage()
+	);
 }
+
+
+
+devolver_respuesta($respuesta);
