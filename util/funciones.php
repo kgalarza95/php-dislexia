@@ -17,7 +17,7 @@ function recursive_utf8_encode($input){
 }
 
 function devolver_respuesta($respuesta) {
-    $respuesta = recursive_utf8_encode($respuesta);
+    //$respuesta = recursive_utf8_encode($respuesta);
     $json = json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     header('Content-Type: application/json');
     echo $json;

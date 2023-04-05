@@ -224,12 +224,21 @@ try {
 		$fila = $resultado->fetch_assoc();
 		//$es_persona = $fila["ES_PERSONAL"];
 
-		// Crear respuesta
-		$respuesta = array(
-			'codResponse' => '00',
-			'msjResponse' => 'TRANSACCIÓN OK',
-			'data' => $fila
-		);
+		// Verificar si existe registro
+		if ($fila) {
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '00',
+				'msjResponse' => 'TRANSACCIÓN OK',
+				'data' => $fila
+			);
+		} else {
+			// Crear respuesta de mensaje
+			$respuesta = array(
+				'codResponse' => '02',
+				'msjResponse' => 'No se encontró ningún registro con la cédula especificada.'
+			);
+		}
 
 		// Devolver respuesta en formato JSON
 		//header('Content-Type: application/json');
