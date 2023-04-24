@@ -7,8 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['opcion'])) {
 
         if ($_POST['opcion'] == "CN") {
-            $SQL = " SELECT * 
-                     FROM db_app_dislexia.app_material_x_curso ";
+            /* $SQL = " SELECT * 
+                     FROM db_app_dislexia.app_material_x_curso "; */
+            $SQL = " SELECT cast(m.ID as varchar(10)) ID,  m.ID_CURSO , m.NOMBRE , m.RUTA , m.ESTADO 
+            FROM db_app_dislexia.app_material_x_curso m
+            where nombre like '%.pdf%' ";
 
             // Ejecutar la sentencia
             $sentencia   = $conexion->prepare($SQL);
@@ -101,6 +104,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'msjResponse' => 'TRANSACCIÓN OK',
                 'data' => $base64
             );
+        } else if ($_POST['opcion'] == "EL") {
+            $id_registro = $_POST['id_registro'];
+            $nombre_archivo = $_POST['nombre_archivo'];
+            $ruta_archivo = __DIR__ . '/reapldos_archivos/' . $nombre_archivo;
+            if (unlink($ruta_archivo)) {
+                // Archivo eliminado exitosamente
+
+                $query = "DELETE FROM app_material_x_curso WHERE ID = ?";
+                $stmt = $conexion->prepare($query);
+                $stmt->bind_param('i', $id_registro);
+                $stmt->execute();
+                $stmt->close();
+
+                $respuesta = array(
+                    'codResponse' => '00',
+                    'msjResponse' => 'TRANSACCIÓN OK',
+                );
+            } else {
+                // Error al eliminar el archivo
+                $respuesta = array(
+                    'codResponse' => '02',
+                    'msjResponse' => 'NO SE PUDO ELIMINAR EL ARCHIVO.',
+                );
+            }
         }
 
 

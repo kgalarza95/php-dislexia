@@ -76,12 +76,17 @@ try {
 
 		if ($es_persona == "0" && $es_usuario == "0") {
 
+			$texto_encriptado = encriptar($contrasenia, $reemplazos);
+			//$texto_encriptado = encrypt($contrasenia, $clave);
+			//$texto_encriptado = openssl_encrypt($contrasenia, "aes-256-cbc", $clave, 0, $iv);
+
 			// Preparar las consultas para la inserción en ambas tablas
 			$query1 = "INSERT INTO app_usuarios_sistema 
 							  (id, usuario, contrasenia, bloqueado, cambiar_contrasenia, estado, usuario_creacion, fecha_creacion) 
 							   VALUES ((SELECT max(id)+1
 										FROM db_app_dislexia.app_usuarios_sistema u), 
-										?, SHA2(?, 256), 'N', ?,'S', 'ADMIN', now())";
+										?, ?, 'N', ?,'S', 'ADMIN', now()) ";
+			//?, SHA2(?, 256), 'N', ?,'S', 'ADMIN', now())";
 
 
 			$query2 = "INSERT INTO app_datos_personales 
@@ -89,14 +94,14 @@ try {
 							   VALUES ((SELECT max(id)+1
 										FROM db_app_dislexia.app_datos_personales d), 
 										?, (SELECT max(id) FROM db_app_dislexia.app_usuarios_sistema u), 
-										?, ?, ?, ?, ?, 'S', 'ADMIN', now())";
+										?, ?, ?, ?, ?, 'S', 'ADMIN', now()) ";
 
 			// Preparar las sentencias
 			$stmt1 = $conexion->prepare($query1);
 			$stmt2 = $conexion->prepare($query2);
 
 			// Vincular los parámetros
-			$stmt1->bind_param("sss", $usuario, $contrasenia, $solicitarPass);
+			$stmt1->bind_param("sss", $usuario, $texto_encriptado, $solicitarPass);
 			$stmt2->bind_param("ssssss", $rol, $nombres, $apellidos, $cedula, $edad, $sexo);
 
 			// Ejecutar las consultas
@@ -136,12 +141,15 @@ try {
 
 		$SQL = "UPDATE app_usuarios_sistema
 				SET USUARIO = ?,
-					contrasenia = SHA2(?, 256)
+					##contrasenia = SHA2(?, 256)
+					contrasenia = ?
 				WHERE ID = ? ";
+
+		$texto_encriptado = encriptar($contrasenia, $reemplazos);
 
 		$sentencia = $conexion->prepare($SQL);
 
-		$sentencia->bind_param('ssi', $usuario, $contrasenia, $id_usuario);
+		$sentencia->bind_param('ssi', $usuario, $texto_encriptado, $id_usuario);
 		$sentencia->execute();
 
 		$SQL_2 = "UPDATE app_datos_personales a
@@ -208,7 +216,8 @@ try {
 		$SQL = " SELECT CAST(U.ID AS VARCHAR(10)) AS ID, R.ROL, U.USUARIO, U.CAMBIAR_CONTRASENIA,
 						D.NOMBRES, D.APELLIDOS, D.CEDULA, D.SEXO, 
 						CAST(D.EDAD  AS VARCHAR(10)) as EDAD,
-						CAST(R.ID  AS VARCHAR(10)) as ID_ROL
+						CAST(R.ID  AS VARCHAR(10)) as ID_ROL,
+						U.CONTRASENIA
 				FROM DB_APP_DISLEXIA.APP_USUARIOS_SISTEMA U
 				JOIN DB_APP_DISLEXIA.APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
 				JOIN DB_APP_DISLEXIA.APP_ROL R ON R.ID = D.ID_ROL
@@ -223,6 +232,9 @@ try {
 
 		$fila = $resultado->fetch_assoc();
 		//$es_persona = $fila["ES_PERSONAL"];
+
+		$fila["CONTRASENIA"] = desencriptar($fila["CONTRASENIA"], $reemplazos) ;
+		//echo "esto tiene fila: ".$fila["CONTRASENIA"];
 
 		// Verificar si existe registro
 		if ($fila) {
