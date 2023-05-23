@@ -1,0 +1,24 @@
+[2023-05-23 05:42:28] [OK] ..:crud_asignaciones:..
+[2023-05-23 05:42:28] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-05-23 05:42:28] [OK] Respuesta: null
+[2023-05-23 05:42:30] [OK] ..:crud_asignaciones:..
+[2023-05-23 05:42:30] [OK] Inicio de operacion op: CNA
+[2023-05-23 05:42:30] [OK] filaString: {"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigaci\u00f3n de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Luisa Maria Rodriguez"}
+[2023-05-23 05:42:30] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigación de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Luisa Maria Rodriguez"}]}
+[2023-05-23 05:42:33] [OK] ..:crud_asignaciones:..
+[2023-05-23 05:42:33] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-05-23 05:42:33] [OK] Respuesta: null
+[2023-05-23 05:51:45] [OK] ..:crud_asignaciones:..
+[2023-05-23 05:51:45] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-05-23 05:51:45] [OK] Respuesta: null
+[2023-05-23 05:55:28] [OK] ..:asignaciones_no_entregadas:..
+[2023-05-23 05:55:28] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-05-23 05:55:28] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-05-23 06:15:37] [OK] ..:asignaciones_no_entregadas:..
+[2023-05-23 06:15:37] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-05-23 06:15:37] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-05-23 06:16:06] [OK] ..:crud_asignaciones:..
+[2023-05-23 06:16:06] [OK] Inicio de operacion op: CNA
+[2023-05-23 06:16:06] [OK] filaString: {"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigaci\u00f3n de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Luisa Maria Rodriguez"}
+[2023-05-23 06:16:06] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigación de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Luisa Maria Rodriguez"}]}
+[2023-05-23 06:16:12] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"1","USUARIO":"ADMIN","NOMBRES":"Juan Garcia","SCORE":"200","ID_JUEGO":1,"NOMBRE_JUEGO":"Palabras con d, b, p, q"},{"ID":"3","USUARIO":"profesor","NOMBRES":"Javier Eli Fernandez Vera","SCORE":"20","ID_JUEGO":8,"NOMBRE_JUEGO":"Dibujos"},{"ID":"4","USUARIO":"alumno","NOMBRES":"Luisa Maria Rodriguez","SCORE":"500","ID_JUEGO":1,"NOMBRE_JUEGO":"Palabras con d, b, p, q"},{"ID":"4","USUARIO":"alumno","NOMBRES":"Luisa Maria Rodriguez","SCORE":"500","ID_JUEGO":6,"NOMBRE_JUEGO":"Cuento1"}]}

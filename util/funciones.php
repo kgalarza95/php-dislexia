@@ -1,5 +1,7 @@
 <?php
 
+require_once 'util/log.php';
+
 $clave = "ugdisle";
 $patron = 'nopqrstuvwxyzabcdefghijklm';
 $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("aes-256-cbc"));
@@ -93,6 +95,7 @@ function devolver_respuesta($respuesta)
     $json = json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     header('Content-Type: application/json');
     echo $json;
+    writeLog("Respuesta: " .  $json);
 }
 
 

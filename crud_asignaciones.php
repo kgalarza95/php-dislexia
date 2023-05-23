@@ -1,11 +1,13 @@
 <?php
 include 'conexion.php';
 require_once 'util/funciones.php';
+require_once 'util/log.php';
 
 // Configuración de las cabeceras HTTP para permitir CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
+header('Content-Type: text/html; charset=utf-8');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $opcion = $_GET['opcion'];
@@ -14,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $opcion = $_POST['opcion'];
 }
+
+writeLog("..:crud_asignaciones:..");
+writeLog("Inicio de operacion op: " . $opcion);
 
 try {
     if ($opcion == "IN") {
@@ -127,14 +132,14 @@ try {
     if ($opcion == "EN") {
         $conexion->set_charset("utf8");
 
-		$idTarea = $_POST['id_tarea'];
-		$idEstudiante = $_POST['id_estudiante'];
-		$entrega = $_POST['entrega'];
-		$fechaEntrega = $_POST['fecha_entrega'];
-		$calificacion = $_POST['calificacion'];
-		
-		// Preparar las consultas para la inserción en ambas tablas
-		$query1 = " INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion)
+        $idTarea = $_POST['id_tarea'];
+        $idEstudiante = $_POST['id_estudiante'];
+        $entrega = $_POST['entrega'];
+        $fechaEntrega = $_POST['fecha_entrega'];
+        $calificacion = $_POST['calificacion'];
+
+        // Preparar las consultas para la inserción en ambas tablas
+        $query1 = " INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion)
                     VALUES (?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?)
                      ON DUPLICATE KEY 
                      UPDATE entrega = ?,
@@ -142,41 +147,43 @@ try {
         
                   ";
 
-          /* INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion)
+        /* INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion)
                     VALUES (?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?)  */
 
 
-		// Preparar las sentencias
-		$stmt1 = $conexion->prepare($query1);
+        // Preparar las sentencias
+        $stmt1 = $conexion->prepare($query1);
 
-		// Vincular los parámetros con los marcadores de posición
-		$stmt1->bind_param("iisssss", $idTarea, $idEstudiante, $entrega, $fechaEntrega, $calificacion, $entrega, $fechaEntrega );
-
-
-		// Ejecutar las consultas
-		$stmt1->execute();
+        // Vincular los parámetros con los marcadores de posición
+        $stmt1->bind_param("iisssss", $idTarea, $idEstudiante, $entrega, $fechaEntrega, $calificacion, $entrega, $fechaEntrega);
 
 
-		// Cerrar las sentencias
-		$stmt1->close();
+        // Ejecutar las consultas
+        $stmt1->execute();
 
 
-		// Crear respuesta
-		$respuesta = array(
-			'codResponse' => '00',
-			'msjResponse' => 'TRANSACCIÓN OK'
-		);
+        // Cerrar las sentencias
+        $stmt1->close();
 
-		// Devolver respuesta en formato JSON
-		header('Content-Type: application/json');
-		//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
-	}
-   
+
+        // Crear respuesta
+        $respuesta = array(
+            'codResponse' => '00',
+            'msjResponse' => 'TRANSACCIÓN OK'
+        );
+
+        // Devolver respuesta en formato JSON
+        header('Content-Type: application/json');
+        //echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+    }
+
 
 
     if ($opcion == "CNA") { //CONSULTA ASIGNACIONES
+
         $SQL = " SELECT CAST(E.ID_TAREA AS VARCHAR(15)) ID, E.ENTREGA, E.FECHA_ENTREGA, E.CALIFICACION,
-                        A.TITULO, A.FECHA_VENCIMIENTO, 
+                        A.TITULO, 
+                        A.FECHA_VENCIMIENTO, 
                         CONCAT(P.NOMBRES, ' ', P.APELLIDOS) AS NOMBRES
                 FROM DB_APP_DISLEXIA.APP_ENTREGA_ASIGNACION  E
                 JOIN APP_ASIGNACIONES A ON A.ID= E.ID_TAREA
@@ -196,13 +203,18 @@ try {
 
             while ($fila = $resultado->fetch_assoc()) {
                 $filas[] = $fila;
+                // Convertir la fila a una cadena de texto
+                $filaString = json_encode($fila);
+                writeLog("filaString: " . $filaString );
             }
+
             // Crear respuesta
             $respuesta = array(
                 'codResponse' => '00',
                 'msjResponse' => 'TRANSACCIÓN OK',
                 'data' => $filas
             );
+
         } else {
             // Crear respuesta
             $respuesta = array(
@@ -220,7 +232,7 @@ try {
 
         $calificacion = $_POST['calificacion'];
         $id_tarea = $_POST['id_tarea'];
-       
+
 
         $SQL1 = " UPDATE APP_ENTREGA_ASIGNACION
                   set CALIFICACION = ? 
@@ -245,13 +257,13 @@ try {
 
         $conexion->close();
     }
-
 } catch (Exception $e) {
     // Capturar la excepción y devolver un mensaje de error
     $respuesta = array(
         'codResponse' => '99',
         'msjResponse' =>  $e->getMessage()
     );
+    writeLog("Error: " .  $e->getMessage(), true);
 }
 
 devolver_respuesta($respuesta);
