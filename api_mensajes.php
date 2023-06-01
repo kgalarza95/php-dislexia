@@ -113,7 +113,7 @@ try {
 		$conexion->close();
 	}
 
-	if ($opcion == "CN") { //CONSULTA DE MENSAJES
+	if ($opcion == "CN") { //CONSULTA DE MENSAJES 
 
 		$SQL = " SELECT ID, CAST(ID_MENSAJE_RELACION AS VARCHAR(10)) as ID_MENSAJE_RELACION, ID_DUENIO_SMS, mensaje,
 				        CASE ID_DUENIO_SMS WHEN ? THEN 'S' ELSE 'N' END AS esEmisor
@@ -165,7 +165,7 @@ try {
 		$SQL = " SELECT CAST(P.ID AS VARCHAR(10)) as ID, E.USUARIO, P.NOMBRES, P.APELLIDOS, P.SEXO
 		 		 FROM APP_USUARIOS_SISTEMA E
 				 JOIN APP_DATOS_PERSONALES P ON P.ID_USUARIO = E.ID
-				 JOIN APP_ROL R 		     ON R.ID = P.ID_ROL AND R.ID = 3
+				 JOIN APP_ROL R 		     ON R.ID = P.ID_ROL AND R.ID IN (1,3) ##AND R.ID = 3
 				 
 				 ";
 

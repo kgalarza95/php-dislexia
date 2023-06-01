@@ -1,6 +1,6 @@
 <?php
 	include 'conexion.php';
-
+	require_once 'util/funciones.php';
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$usu_usuario=$_GET['usuario'];
@@ -22,16 +22,21 @@
 			JOIN DB_APP_DISLEXIA.APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
 			JOIN DB_APP_DISLEXIA.APP_ROL R ON R.ID = D.ID_ROL
 			WHERE U.USUARIO = ?
-			AND U.CONTRASENIA = SHA2(?, 256)
+			##AND U.CONTRASENIA = SHA2(?, 256)
+			AND U.CONTRASENIA = ?
 			AND U.BLOQUEADO = 'N'
 			AND U.ESTADO = 'S' ";
 
 
 	try {
+
+		$texto_encriptado = encriptar($usu_password, $reemplazos);
+		$nueva_pass_en = encriptar($nueva_password, $reemplazos);
 			// Ejecutar la sentencia
 			$sentencia=$conexion->prepare($SQL);
 
-			$sentencia->bind_param('ss',$usu_usuario,$usu_password);
+			$sentencia->bind_param('ss',$usu_usuario,$texto_encriptado);
+			##$sentencia->bind_param('ss',$usu_usuario,$usu_password);
 			$sentencia->execute();
 
 			$resultado = $sentencia->get_result();
@@ -42,16 +47,18 @@
 						echo "pass... ";*/
 						
 						$SQL = "UPDATE DB_APP_DISLEXIA.APP_USUARIOS_SISTEMA U
-						SET CONTRASENIA = SHA2(?, 256),
+						SET #CONTRASENIA = SHA2(?, 256),
+						    CONTRASENIA = ?,
 						    CAMBIAR_CONTRASENIA = 'N'
 						WHERE U.USUARIO = ?
-						AND U.CONTRASENIA = SHA2(?, 256)
+						##AND U.CONTRASENIA = SHA2(?, 256)
+						AND U.CONTRASENIA = ?
 						AND U.BLOQUEADO = 'N'
 						AND U.ESTADO = 'S' ";
 						
 						$sentencia=$conexion->prepare($SQL);
 
-						$sentencia->bind_param('sss',$nueva_password,$usu_usuario,$usu_password);
+						$sentencia->bind_param('sss',$nueva_pass_en,$usu_usuario,$texto_encriptado);
 						$sentencia->execute();
 			
 						// Crear respuesta
