@@ -1,12 +1,14 @@
 <?php
 include 'conexion.php';
 require_once 'util/funciones.php';
-
+require_once 'util/log.php';
 
 // Configuración de las cabeceras HTTP para permitir CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$opcion = $_GET['opcion'];
@@ -27,9 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$estado = $_POST['estado'];
 }
 
-
-
-
+writeLog("..:crud_cursos:..");
+writeLog("Inicio de operacion op: " . $opcion);
 
 try {
 
@@ -102,7 +103,7 @@ try {
 	}
 
 
-	if ($opcion == "CN") {
+	if ($opcion == "CN") { // consulta de curso por id profesor
 
 		$SQL = " SELECT CAST(ID AS VARCHAR(10)) as ID, ID_PROFESOR, NOMBRE, DESCRIPCION, ANIO, ESTADO
 				 FROM db_app_dislexia.app_curso 
@@ -384,7 +385,87 @@ try {
 		$conexion->close();
 	}
 
-	
+	if ($opcion == "EL_CURSO") { //ELIMINAR CURSO
+		$id_curso = $_POST['id_curso'];
+		$query = "DELETE FROM app_curso WHERE ID = ?";
+		$stmt = $conexion->prepare($query);
+		$stmt->bind_param('i', $id_curso);
+		$stmt->execute();
+		$stmt->close();
+
+		$respuesta = array(
+			'codResponse' => '00',
+			'msjResponse' => 'TRANSACCIÓN OK',
+		);
+	}
+
+	if ($opcion == "CN_CURSO") { // consulta de curso por id del curso
+		$id_curso = $_POST['id_curso'];
+		$SQL = " SELECT CAST(ID AS VARCHAR(10)) as ID, ID_PROFESOR, NOMBRE, DESCRIPCION, ANIO, ESTADO
+				 FROM db_app_dislexia.app_curso 
+				 where ID = ? ";
+
+		// Ejecutar la sentencia
+		$sentencia = $conexion->prepare($SQL);
+
+		$sentencia->bind_param('i', $id_curso);
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		$num_filas = $resultado->num_rows;
+
+		if ($num_filas > 0) {
+			$fila = $resultado->fetch_assoc();
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '00',
+				'msjResponse' => 'TRANSACCIÓN OK',
+				'data' => $fila
+			);
+
+			// Devolver respuesta en formato JSON
+			header('Content-Type: application/json');
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		} else {
+
+			// Crear respuesta
+			$respuesta = array(
+				'codResponse' => '02',
+				'msjResponse' => 'NO HAY DATOS',
+			);
+
+			// Devolver respuesta en formato JSON
+			header('Content-Type: application/json');
+			//echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+		}
+		$sentencia->close();
+		$conexion->close();
+	}
+
+	if ($opcion == "AC_CURSO") { // actualizar curso 
+		
+		$id_curso = $_POST['id_curso'];
+
+		$SQL = "UPDATE app_curso
+				SET DESCRIPCION = ?,
+				NOMBRE = ?
+				WHERE ID = ? ";
+
+
+		$sentencia = $conexion->prepare($SQL);
+
+		$sentencia->bind_param('ssi', $descripcion, $nombre, $id_curso);
+		$sentencia->execute();
+
+		// Crear respuesta
+		$respuesta = array(
+			'codResponse' => '00',
+			'msjResponse' => 'TRANSACCIÓN OK'
+		);
+
+		$sentencia->close();
+		$conexion->close();
+	}
 } catch (Exception $e) {
 	// Capturar la excepción y devolver un mensaje de error
 	/* header('Content-Type: application/json');
@@ -397,6 +478,7 @@ try {
 		'codResponse' => '99',
 		'msjResponse' =>  $e->getMessage()
 	);
+	writeLog("Error: " .  $e->getMessage(), true);
 }
 
 

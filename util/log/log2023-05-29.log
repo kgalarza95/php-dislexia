@@ -1,0 +1,33 @@
+[2023-05-29 04:53:32] [OK] ..:crud_cursos:..
+[2023-05-29 04:53:32] [OK] Inicio de operacion op: CP
+[2023-05-29 04:53:32] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":6,"USUARIO":"usu2","NOMBRES":"Marco Anton","APELLIDOS":"Ruiz","SEXO":"M"},{"ID":7,"USUARIO":"usu02","NOMBRES":"Moises Armijo","APELLIDOS":"Montero Alai","SEXO":"M"},{"ID":8,"USUARIO":"usu03","NOMBRES":"Anna Belen","APELLIDOS":"Rui Sala","SEXO":"F"}]}
+[2023-05-29 04:53:32] [OK] ..:crud_cursos:..
+[2023-05-29 04:53:32] [OK] Inicio de operacion op: CPC
+[2023-05-29 04:53:32] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":4,"USUARIO":"alumno","NOMBRES":"Luisa Maria","APELLIDOS":"Rodriguez","SEXO":"F"}]}
+[2023-05-29 04:53:57] [OK] ..:crud_cursos:..
+[2023-05-29 04:53:57] [OK] Inicio de operacion op: EL_CURSO
+[2023-05-29 04:53:57] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-05-29 04:54:20] [OK] ..:crud_cursos:..
+[2023-05-29 04:54:20] [OK] Inicio de operacion op: CN
+[2023-05-29 04:54:20] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"matematicas","DESCRIPCION":"matematicas","ANIO":2023,"ESTADO":"S"},{"ID":"3","ID_PROFESOR":3,"NOMBRE":"fisica","DESCRIPCION":"fisica","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"ciencias","DESCRIPCION":"ciencias","ANIO":2023,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"letras","DESCRIPCION":"letras","ANIO":2023,"ESTADO":"S"},{"ID":"9","ID_PROFESOR":3,"NOMBRE":"lenguaje 1","DESCRIPCION":"lenguaje 1","ANIO":2023,"ESTADO":"S"},{"ID":"10","ID_PROFESOR":3,"NOMBRE":"ejercicios","DESCRIPCION":"ejercicios","ANIO":2023,"ESTADO":"S"}]}
+[2023-05-29 05:09:21] [OK] ..:crud_cursos:..
+[2023-05-29 05:09:21] [OK] Inicio de operacion op: CN
+[2023-05-29 05:09:21] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"matematicas","DESCRIPCION":"matematicas","ANIO":2023,"ESTADO":"S"},{"ID":"3","ID_PROFESOR":3,"NOMBRE":"fisica","DESCRIPCION":"fisica","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"ciencias","DESCRIPCION":"ciencias","ANIO":2023,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"letras","DESCRIPCION":"letras","ANIO":2023,"ESTADO":"S"},{"ID":"9","ID_PROFESOR":3,"NOMBRE":"lenguaje 1","DESCRIPCION":"lenguaje 1","ANIO":2023,"ESTADO":"S"},{"ID":"10","ID_PROFESOR":3,"NOMBRE":"ejercicios","DESCRIPCION":"ejercicios","ANIO":2023,"ESTADO":"S"}]}
+[2023-05-29 05:09:28] [OK] ..:crud_cursos:..
+[2023-05-29 05:09:28] [OK] Inicio de operacion op: EL_CURSO
+[2023-05-29 05:09:28] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-05-29 05:11:38] [OK] ..:crud_cursos:..
+[2023-05-29 05:11:38] [OK] Inicio de operacion op: CN
+[2023-05-29 05:11:38] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"matematicas","DESCRIPCION":"matematicas","ANIO":2023,"ESTADO":"S"},{"ID":"3","ID_PROFESOR":3,"NOMBRE":"fisica","DESCRIPCION":"fisica","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"ciencias","DESCRIPCION":"ciencias","ANIO":2023,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"letras","DESCRIPCION":"letras","ANIO":2023,"ESTADO":"S"},{"ID":"9","ID_PROFESOR":3,"NOMBRE":"lenguaje 1","DESCRIPCION":"lenguaje 1","ANIO":2023,"ESTADO":"S"}]}
+[2023-05-29 05:11:47] [OK] ..:crud_cursos:..
+[2023-05-29 05:11:47] [OK] Inicio de operacion op: EL_CURSO
+[2023-05-29 05:11:47] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-05-29 05:12:08] [OK] ..:crud_cursos:..
+[2023-05-29 05:12:08] [OK] Inicio de operacion op: CN
+[2023-05-29 05:12:08] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"matematicas","DESCRIPCION":"matematicas","ANIO":2023,"ESTADO":"S"},{"ID":"3","ID_PROFESOR":3,"NOMBRE":"fisica","DESCRIPCION":"fisica","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"ciencias","DESCRIPCION":"ciencias","ANIO":2023,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"letras","DESCRIPCION":"letras","ANIO":2023,"ESTADO":"S"}]}
+[2023-05-29 05:14:49] [OK] ..:crud_cursos:..
+[2023-05-29 05:14:49] [OK] Inicio de operacion op: CN
+[2023-05-29 05:14:49] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"matematicas","DESCRIPCION":"matematicas","ANIO":2023,"ESTADO":"S"},{"ID":"3","ID_PROFESOR":3,"NOMBRE":"fisica","DESCRIPCION":"fisica","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"ciencias","DESCRIPCION":"ciencias","ANIO":2023,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"letras","DESCRIPCION":"letras","ANIO":2023,"ESTADO":"S"}]}
+[2023-05-29 05:14:53] [OK] ..:crud_cursos:..
+[2023-05-29 05:14:53] [OK] Inicio de operacion op: EL_CURSO
+[2023-05-29 05:14:53] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
