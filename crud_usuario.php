@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$contrasenia = $_POST['contrasenia'];
 	$sexo = $_POST['esMasculino'];
 	$solicitarPass = $_POST['solicitarPass'];
+	$num_curso = $_POST['numCurso'];
 }
 
 try {
@@ -90,11 +91,12 @@ try {
 
 
 			$query2 = "INSERT INTO app_datos_personales 
-							   (ID, id_rol, id_usuario, nombres, apellidos, cedula, edad, sexo, estado, usuario_creacion, fecha_creacion) 
+							   (ID, id_rol, id_usuario, nombres, apellidos, cedula, edad, sexo, estado, 
+							    usuario_creacion, fecha_creacion, curso) 
 							   VALUES ((SELECT max(id)+1
 										FROM db_app_dislexia.app_datos_personales d), 
 										?, (SELECT max(id) FROM db_app_dislexia.app_usuarios_sistema u), 
-										?, ?, ?, ?, ?, 'S', 'ADMIN', now()) ";
+										?, ?, ?, ?, ?, 'S', 'ADMIN', now(), ?) ";
 
 			// Preparar las sentencias
 			$stmt1 = $conexion->prepare($query1);
@@ -102,7 +104,7 @@ try {
 
 			// Vincular los parámetros
 			$stmt1->bind_param("sss", $usuario, $texto_encriptado, $solicitarPass);
-			$stmt2->bind_param("ssssss", $rol, $nombres, $apellidos, $cedula, $edad, $sexo);
+			$stmt2->bind_param("sssssss", $rol, $nombres, $apellidos, $cedula, $edad, $sexo, $num_curso);
 
 			// Ejecutar las consultas
 			$stmt1->execute();
@@ -157,12 +159,13 @@ try {
 						A.APELLIDOS = ?,
 						A.CEDULA = ?,
 						A.EDAD = ?,
-						A.SEXO = ?
+						A.SEXO = ?,
+						A.CURSO = ?
 					WHERE A.ID_USUARIO = ?";
 
 		$sentencia_2 = $conexion->prepare($SQL_2);
 
-		$sentencia_2->bind_param('sssssi', $nombres, $apellidos, $cedula, $edad, $sexo, $id_usuario);
+		$sentencia_2->bind_param('ssssssi', $nombres, $apellidos, $cedula, $edad, $sexo, $num_curso, $id_usuario);
 		$sentencia_2->execute();
 
 		// Crear respuesta
@@ -183,7 +186,8 @@ try {
 		$SQL = " SELECT CAST(U.ID AS VARCHAR(10)) AS ID, R.ROL, U.USUARIO, U.CAMBIAR_CONTRASENIA,
 						D.NOMBRES, D.APELLIDOS, D.CEDULA, D.SEXO, 
 						CAST(D.EDAD  AS VARCHAR(10)) as EDAD,
-						CAST(R.ID  AS VARCHAR(10)) as ID_ROL
+						CAST(R.ID  AS VARCHAR(10)) as ID_ROL,
+						CURSO
 				FROM DB_APP_DISLEXIA.APP_USUARIOS_SISTEMA U
 				JOIN DB_APP_DISLEXIA.APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
 				JOIN DB_APP_DISLEXIA.APP_ROL R ON R.ID = D.ID_ROL
@@ -217,7 +221,8 @@ try {
 						D.NOMBRES, D.APELLIDOS, D.CEDULA, D.SEXO, 
 						CAST(D.EDAD  AS VARCHAR(10)) as EDAD,
 						CAST(R.ID  AS VARCHAR(10)) as ID_ROL,
-						U.CONTRASENIA
+						U.CONTRASENIA,
+						CURSO
 				FROM DB_APP_DISLEXIA.APP_USUARIOS_SISTEMA U
 				JOIN DB_APP_DISLEXIA.APP_DATOS_PERSONALES D ON D.ID_USUARIO = U.ID
 				JOIN DB_APP_DISLEXIA.APP_ROL R ON R.ID = D.ID_ROL
