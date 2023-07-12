@@ -160,12 +160,13 @@ try {
 						A.CEDULA = ?,
 						A.EDAD = ?,
 						A.SEXO = ?,
-						A.CURSO = ?
+						A.CURSO = ?,
+						A.ID_ROL = ?
 					WHERE A.ID_USUARIO = ?";
 
 		$sentencia_2 = $conexion->prepare($SQL_2);
 
-		$sentencia_2->bind_param('ssssssi', $nombres, $apellidos, $cedula, $edad, $sexo, $num_curso, $id_usuario);
+		$sentencia_2->bind_param('sssssssi', $nombres, $apellidos, $cedula, $edad, $sexo, $num_curso, $rol, $id_usuario);
 		$sentencia_2->execute();
 
 		// Crear respuesta

@@ -1,8 +1,11 @@
 <?php
 include 'conexion.php';
 require_once 'util/funciones.php';
+require_once 'util/log.php';
 /*
 */
+
+writeLog("..:validar_usuario:..");
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -16,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$usu_password = $_POST['password'];
 }
 
+writeLog("Inicio de operacion op: consulta de" . $usu_usuario);
 //$sentencia=$conexion->prepare("SELECT * FROM usuario WHERE usu_usuario=? AND usu_password=?");
 
 try {
@@ -90,4 +94,5 @@ try {
 		'codResponse' => '99',
 		'msjResponse' => $e->getMessage()
 	), JSON_UNESCAPED_UNICODE);
+	writeLog("Error: " .  $e->getMessage(), true);
 }
