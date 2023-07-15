@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .input-width {
+            width: 100px;
+        }
+
+        .draggable-word {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #f1f1f1;
+            cursor: move;
+        }
+    </style>
+    <title>Oraciones incompletas</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Oraciones incompletas</h1>
+
+        <ul class="list-group">
+            <li class="list-group-item d-flex align-items-center">
+                ¿
+                <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
+                    placeholder="">
+                de estas peliculas prefieres ver?
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                Te llamé por teléfono
+                <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
+                    placeholder="">
+                me expliques la tarea de Ciencias Naturales.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                Cuando llegues de la escuela, ¿
+                <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
+                    placeholder="">
+                harás primero?
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                No te lo dije
+                <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
+                    placeholder="">
+                te ibas a enojar.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                ¿
+                <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
+                    placeholder="">
+                no me llamas por teléfono?
+            </li>
+        </ul>
+
+        <h2>Palabras faltantes</h2>
+
+        <div class="draggable-word"> Para qué</div>
+        <div class="draggable-word">Para que</div>
+        <div class="draggable-word">Cuál</div>
+        <div class="draggable-word">Cual</div>
+
+        <div class="draggable-word">Por qué</div>
+        <div class="draggable-word">Porque</div>
+        <div class="draggable-word">Qué</div>
+        <div class="draggable-word">que</div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $(".draggable-word").draggable({ revert: "invalid" });
+            $(".word-input").droppable({
+                drop: function (event, ui) {
+                    var currentInput = $(this);
+                    var previousWord = currentInput.attr("data-word");
+                    if (previousWord !== "") {
+                        var previousWordElement = $('<div class="draggable-word">' + previousWord + '</div>');
+                        previousWordElement.draggable({ revert: "invalid" });
+                        currentInput.parent().append(previousWordElement);
+                    }
+                    currentInput.attr("data-word", ui.draggable.text());
+                    currentInput.val(ui.draggable.text());
+                    ui.draggable.remove();
+                }
+            });
+            $(".word-input").val("").attr("data-word", "");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".word-input").on("click", function () {
+                $(this).select();
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
