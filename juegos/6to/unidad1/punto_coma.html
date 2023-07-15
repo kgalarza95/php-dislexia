@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Texto con Puntos y Comas</title>
+  <style>
+    .text-line {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="text-container">
+    <p>Juan ha trabajado de fontanero (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) cajero (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) camarero y carpintero (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>)</p>
+    <p>Cuando termines los deberes (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) podrás ir al parque (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>)</p>
+    <p>Ha llovido toda la tarde (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) Al final (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) no iremos mañana al campo (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>)</p>
+    <p>Mariana (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) la hermana de Pedro (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) no viene a la boda (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>)</p>
+    <p>Hemos comprado patatas (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>) gusanitos y piruletas para el cumpleaños (<select class="punctuation-select"><option value=".">.</option><option value=",">,</option></select>)</p>
+  </div>
+
+  <script>
+    /*window.onload = function() {
+      var selectElements = document.getElementsByClassName("punctuation-select");
+
+      // Función para reemplazar el punto o coma seleccionado en cada select
+      function updateText(event) {
+        var selectedPunctuation = event.target.value;
+        var parentParagraph = event.target.parentNode;
+        var text = parentParagraph.innerText;
+        parentParagraph.innerHTML = text.replace(/(<select.*<\/select>)/, selectedPunctuation);
+      }
+
+      // Asignar el evento onchange a todos los select
+      for (var i = 0; i < selectElements.length; i++) {
+        selectElements[i].onchange = updateText;
+      }
+    };*/
+  </script>
+</body>
+</html>
