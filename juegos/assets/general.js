@@ -54,3 +54,9 @@ function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
             mostrarAlerta('danger', 'Error al enviar la solicitud al servidor');
         });
 }
+
+
+// Función para recargar la página
+function reload() {
+    location.reload();
+}
