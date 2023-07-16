@@ -165,16 +165,47 @@
   </div>
 
 
-  <div class="container_boton mt-5">
-  </div>
+  <div id="alert-container"></div>
 
 
   <script>
+    // Variables globales
+    var idEstudiante;
     var evaluacion = 5;
     var puntaje = 0;
     const JUEGO = "punto_coma";
     const CURSO = "5to";
     const UNIDAD = "1";
+    const IP = "192.168.1.48";
+    const txtScore = document.getElementById('txt_score');
+    const alertContainer = document.getElementById('alert-container');
+
+    // Asignar eventos a los botones
+    const btnEvaluar = document.getElementById('btn_evaluar');
+    btnEvaluar.addEventListener('click', evaluarJuego);
+
+    const btnNuevo = document.getElementById('btn_nuevo');
+    btnNuevo.addEventListener('click', reload);
+
+    // Mostrar puntaje inicial
+    txtScore.innerHTML = puntaje;
+
+    function asignarIdEstudiante(valor) {
+      idEstudiante = valor;
+    }
+
+    // Función para mostrar una alerta temporal
+    function mostrarAlerta(tipo, mensaje) {
+      const alertElement = document.createElement('div');
+      alertElement.classList.add('alert', `alert-${tipo}`, 'mt-3');
+      alertElement.textContent = mensaje;
+      alertContainer.appendChild(alertElement);
+
+      setTimeout(function () {
+        alertContainer.removeChild(alertElement);
+      }, 3000);
+    }
+
     // Función para evaluar los selectores
     function evaluarJuego() {
       const selects = document.querySelectorAll('.punctuation-select');
@@ -196,50 +227,62 @@
         }
       });
 
-
       // Mostrar el resultado final
       if (resultado) {
-        alert('¡Todos los selectores son correctos!');
+        mostrarAlerta('success', '¡Todos los selectores son correctos!');
       } else {
-        alert('Algunos selectores son incorrectos. Por favor, revísalos nuevamente.');
+        mostrarAlerta('danger', 'Algunos selectores son incorrectos. Por favor, revísalos nuevamente.');
       }
 
+      guardarScore(idEstudiante, 'Matemáticas', 'Unidad 1', 'Ahorcado', 85);
     }
 
+    // Función para recargar la página
     function reload() {
       location.reload();
     }
-    // Asignar evento 'click' al botón "Evaluar Juego"
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
+    // Configurar la URL de la solicitud
+    var url = `http://${IP}/php_api_dislexia/save_score.php`;
 
-    const txtScore = document.getElementById('txt_score');
+    // Función para enviar la puntuación al servidor
+    function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
+      var datos = {
+        id_estudiante: idEstudiante,
+        curso: curso,
+        unidad: unidad,
+        juego: juego,
+        puntaje: puntaje
+      };
 
-    txtScore.innerHTML = puntaje;
-    /*window.onload = function() {
-      var selectElements = document.getElementsByClassName("punctuation-select");
+      var opciones = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+      };
 
-      // Función para reemplazar el punto o coma seleccionado en cada select
-      function updateText(event) {
-        var selectedPunctuation = event.target.value;
-        var parentParagraph = event.target.parentNode;
-        var text = parentParagraph.innerText;
-        parentParagraph.innerHTML = text.replace(/(<select.*<\/select>)/, selectedPunctuation);
-      }
-
-      // Asignar el evento onchange a todos los select
-      for (var i = 0; i < selectElements.length; i++) {
-        selectElements[i].onchange = updateText;
-      }
-    };*/
-
-
-    function guardarScore(idStudiante, curso, unidad, juego, puntaje) {
-
+      // Realizar la solicitud al servidor
+      fetch(url, opciones)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          // Manejar la respuesta del servidor
+          console.log(data);
+          if (data.codResponse === '00') {
+            mostrarAlerta('success', data.msjResponse);
+          } else {
+            mostrarAlerta('danger', data.msjResponse);
+          }
+        })
+        .catch(function (error) {
+          mostrarAlerta('danger', 'Error al enviar la solicitud al servidor');
+        });
     }
+
+
   </script>
 </body>
 

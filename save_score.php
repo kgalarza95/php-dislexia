@@ -14,28 +14,43 @@ writeLog("..:save_score:..");
 writeLog("Inicio de operación");
 
 try {
-    echo 'hola mundo';
+    $data = json_decode(file_get_contents('php://input'), true);
 
-    // Crear respuesta
-    $respuesta = array(
-        'codResponse' => '00',
-        'msjResponse' => 'TRANSACCIÓN OK'
-    );
+    $idEstudiante = isset($data['id_estudiante']) ? $data['id_estudiante'] : '';
+    $curso = isset($data['curso']) ? $data['curso'] : '';
+    $unidad = isset($data['unidad']) ? $data['unidad'] : '';
+    $juego = isset($data['juego']) ? $data['juego'] : '';
+    $puntaje = isset($data['puntaje']) ? $data['puntaje'] : '';
+    $mensajeResp;
+
+    if ($idEstudiante != '' && $curso != '' && $unidad != '' && $juego != '' && $puntaje != '') {
+        // Preparar la sentencia SQL
+        $sql = "INSERT INTO app_historial_juego (ID_ESTUDIANTE, CURSO, UNIDAD, JUEGO, PUNTAJE) 
+            VALUES ('$idEstudiante', '$curso', '$unidad', '$juego', '$puntaje')";
+
+        if ($conexion && $conexion->query($sql) === TRUE) {
+            $mensajeResp = "TRANSACCIÓN OK";
+        } else {
+            $mensajeResp = "Error al insertar datos: " . $conexion->error;
+        }
+
+        // Crear respuesta
+        $respuesta = array(
+            'codResponse' => '00',
+            'msjResponse' => $mensajeResp
+        );
+    } else {
+        $respuesta = array(
+            'codResponse' => '99',
+            'msjResponse' => 'Faltan datos'
+        );
+    }
 } catch (Exception $e) {
-    // Capturar la excepción y devolver un mensaje de error
-    /* header('Content-Type: application/json');
-	echo json_encode(array(
-		'codResponse' => '99',
-		'msjResponse' => $e->getMessage()
-	), JSON_UNESCAPED_UNICODE); */
-
     $respuesta = array(
         'codResponse' => '99',
         'msjResponse' =>  $e->getMessage()
     );
     writeLog("Error: " .  $e->getMessage(), true);
 }
-
-
 
 devolver_respuesta($respuesta);
