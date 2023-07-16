@@ -76,16 +76,40 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script>
+
+        /*  $(function () {
+             $(".draggable-word").draggable({ revert: "invalid" });
+             $(".word-input").droppable({
+                 drop: function (event, ui) {
+                     var currentInput = $(this);
+                     var previousWord = currentInput.attr("data-word");
+                     if (previousWord !== "") {
+                         var previousWordElement = $('<div class="draggable-word">' + previousWord + '</div>');
+                         previousWordElement.draggable({ revert: "invalid" });
+                         currentInput.parent().append(previousWordElement);
+                     }
+                     currentInput.attr("data-word", ui.draggable.text());
+                     currentInput.val(ui.draggable.text());
+                     ui.draggable.remove();
+                 }
+             });
+             $(".word-input").val("").attr("data-word", "");
+         }); */
+
         $(function () {
-            $(".draggable-word").draggable({ revert: "invalid" });
+            $(".draggable-word").draggable({ revert: "invalid", zIndex: 100 });
             $(".word-input").droppable({
                 drop: function (event, ui) {
                     var currentInput = $(this);
                     var previousWord = currentInput.attr("data-word");
                     if (previousWord !== "") {
                         var previousWordElement = $('<div class="draggable-word">' + previousWord + '</div>');
-                        previousWordElement.draggable({ revert: "invalid" });
+                        previousWordElement.draggable({ revert: "invalid", zIndex: 100 });
                         currentInput.parent().append(previousWordElement);
                     }
                     currentInput.attr("data-word", ui.draggable.text());
@@ -95,6 +119,7 @@
             });
             $(".word-input").val("").attr("data-word", "");
         });
+
     </script>
     <script>
         $(document).ready(function () {

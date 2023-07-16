@@ -109,3 +109,136 @@
 [2023-07-16 04:50:26] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
 [2023-07-16 04:57:21] [OK] ..:validar_usuario:..
 [2023-07-16 04:57:21] [OK] Inicio de operacion op: consulta dealumno
+[2023-07-16 05:45:46] [OK] ..:save_score:..
+[2023-07-16 05:45:46] [OK] Inicio de operación
+[2023-07-16 05:45:46] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:46] [OK] ..:save_score:..
+[2023-07-16 05:45:46] [OK] Inicio de operación
+[2023-07-16 05:45:46] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:54] [OK] ..:save_score:..
+[2023-07-16 05:45:54] [OK] Inicio de operación
+[2023-07-16 05:45:54] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:54] [OK] ..:save_score:..
+[2023-07-16 05:45:54] [OK] Inicio de operación
+[2023-07-16 05:45:54] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:55] [OK] ..:save_score:..
+[2023-07-16 05:45:55] [OK] Inicio de operación
+[2023-07-16 05:45:55] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:55] [OK] ..:save_score:..
+[2023-07-16 05:45:55] [OK] Inicio de operación
+[2023-07-16 05:45:55] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:56] [OK] ..:save_score:..
+[2023-07-16 05:45:56] [OK] Inicio de operación
+[2023-07-16 05:45:56] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:56] [OK] ..:save_score:..
+[2023-07-16 05:45:56] [OK] Inicio de operación
+[2023-07-16 05:45:56] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:56] [OK] ..:save_score:..
+[2023-07-16 05:45:56] [OK] Inicio de operación
+[2023-07-16 05:45:56] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:56] [OK] ..:save_score:..
+[2023-07-16 05:45:56] [OK] Inicio de operación
+[2023-07-16 05:45:56] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:57] [OK] ..:save_score:..
+[2023-07-16 05:45:57] [OK] Inicio de operación
+[2023-07-16 05:45:57] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 05:45:57] [OK] ..:save_score:..
+[2023-07-16 05:45:57] [OK] Inicio de operación
+[2023-07-16 05:45:57] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:55:57] [OK] ..:save_score:..
+[2023-07-16 06:55:57] [OK] Inicio de operación
+[2023-07-16 06:55:57] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:55:57] [OK] ..:save_score:..
+[2023-07-16 06:55:57] [OK] Inicio de operación
+[2023-07-16 06:55:57] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:01] [OK] ..:save_score:..
+[2023-07-16 06:56:01] [OK] Inicio de operación
+[2023-07-16 06:56:01] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:01] [OK] ..:save_score:..
+[2023-07-16 06:56:01] [OK] Inicio de operación
+[2023-07-16 06:56:01] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:13] [OK] ..:save_score:..
+[2023-07-16 06:56:13] [OK] Inicio de operación
+[2023-07-16 06:56:13] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:13] [OK] ..:save_score:..
+[2023-07-16 06:56:13] [OK] Inicio de operación
+[2023-07-16 06:56:13] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:47] [OK] ..:save_score:..
+[2023-07-16 06:56:47] [OK] Inicio de operación
+[2023-07-16 06:56:47] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:56:47] [OK] ..:save_score:..
+[2023-07-16 06:56:47] [OK] Inicio de operación
+[2023-07-16 06:56:47] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:01] [OK] ..:save_score:..
+[2023-07-16 06:57:01] [OK] Inicio de operación
+[2023-07-16 06:57:01] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:01] [OK] ..:save_score:..
+[2023-07-16 06:57:01] [OK] Inicio de operación
+[2023-07-16 06:57:01] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:22] [OK] ..:save_score:..
+[2023-07-16 06:57:22] [OK] Inicio de operación
+[2023-07-16 06:57:22] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:22] [OK] ..:save_score:..
+[2023-07-16 06:57:22] [OK] Inicio de operación
+[2023-07-16 06:57:22] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:38] [OK] ..:save_score:..
+[2023-07-16 06:57:38] [OK] Inicio de operación
+[2023-07-16 06:57:38] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:57:38] [OK] ..:save_score:..
+[2023-07-16 06:57:38] [OK] Inicio de operación
+[2023-07-16 06:57:38] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:25] [OK] ..:save_score:..
+[2023-07-16 06:58:25] [OK] Inicio de operación
+[2023-07-16 06:58:25] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:25] [OK] ..:save_score:..
+[2023-07-16 06:58:25] [OK] Inicio de operación
+[2023-07-16 06:58:25] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:29] [OK] ..:save_score:..
+[2023-07-16 06:58:29] [OK] Inicio de operación
+[2023-07-16 06:58:29] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:29] [OK] ..:save_score:..
+[2023-07-16 06:58:29] [OK] Inicio de operación
+[2023-07-16 06:58:29] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:44] [OK] ..:save_score:..
+[2023-07-16 06:58:44] [OK] Inicio de operación
+[2023-07-16 06:58:44] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:58:44] [OK] ..:save_score:..
+[2023-07-16 06:58:44] [OK] Inicio de operación
+[2023-07-16 06:58:44] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:59:25] [OK] ..:save_score:..
+[2023-07-16 06:59:25] [OK] Inicio de operación
+[2023-07-16 06:59:25] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 06:59:25] [OK] ..:save_score:..
+[2023-07-16 06:59:25] [OK] Inicio de operación
+[2023-07-16 06:59:25] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:00:32] [OK] ..:save_score:..
+[2023-07-16 07:00:32] [OK] Inicio de operación
+[2023-07-16 07:00:32] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:00:32] [OK] ..:save_score:..
+[2023-07-16 07:00:32] [OK] Inicio de operación
+[2023-07-16 07:00:32] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:00:32] [OK] ..:save_score:..
+[2023-07-16 07:00:32] [OK] Inicio de operación
+[2023-07-16 07:00:32] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:00:32] [OK] ..:save_score:..
+[2023-07-16 07:00:32] [OK] Inicio de operación
+[2023-07-16 07:00:32] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:20:46] [OK] ..:validar_usuario:..
+[2023-07-16 07:20:46] [OK] Inicio de operacion op: consulta dealumno
+[2023-07-16 07:24:06] [OK] ..:validar_usuario:..
+[2023-07-16 07:24:06] [OK] Inicio de operacion op: consulta dealumno
+[2023-07-16 07:30:39] [OK] ..:save_score:..
+[2023-07-16 07:30:39] [OK] Inicio de operación
+[2023-07-16 07:30:39] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-07-16 07:37:10] [OK] ..:save_score:..
+[2023-07-16 07:37:10] [OK] Inicio de operación
+[2023-07-16 07:37:10] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:37:10] [OK] ..:save_score:..
+[2023-07-16 07:37:10] [OK] Inicio de operación
+[2023-07-16 07:37:10] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-07-16 07:47:39] [OK] ..:validar_usuario:..
+[2023-07-16 07:47:39] [OK] Inicio de operacion op: consulta dealumno
+[2023-07-16 08:06:07] [OK] ..:validar_usuario:..
+[2023-07-16 08:06:07] [OK] Inicio de operacion op: consulta dealumno
+[2023-07-16 09:31:00] [OK] ..:validar_usuario:..
+[2023-07-16 09:31:00] [OK] Inicio de operacion op: consulta dealumno
