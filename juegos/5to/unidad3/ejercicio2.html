@@ -11,7 +11,31 @@
             text-align: center;
             color: #f00;
             font-size: 2.5rem;
+            font-family: "Comic Sans MS", cursive;
         }
+
+        .boton_dislexia {
+            border-radius: 20px;
+            background-color: #3CA48D;
+            color: #ffffff;
+            border: 1px solid #000000;
+
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 50%;
+
+        }
+
+        .boton_dislexia:hover {
+            background-color: #00ffd5;
+            color: #000000;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: center;
+        }
+
 
         /* Estilos para cada elemento de palabra */
         .word-item {
@@ -229,27 +253,83 @@
             </ul>
         </div>
         <div style="display: flex; justify-content: center;">
-            <button type="submit" class="btn btn-primary">Evaluar</button>
+            <!-- <button type="submit" class="btn btn-primary" id="btn_evaluar">Evaluar</button> -->
+            <button type="button" id="btn_evaluar" class="btn btn-primary boton_dislexia" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Evaluar
+            </button>
         </div>
 
     </div>
 
+
+
+
+
+
+    <!-- modal de respuesta -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Puntuación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="sp_respuesta"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary boton_dislexia">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-         function obtenerResultados() {
+
+        const letra = ['V', 'V', 'B', 'B', 'B', 'V', 'V', 'V', 'B', 'B', 'V', 'V', 'B', 'V'];
+
+        const btn_evaluar = document.getElementById('btn_evaluar');
+        btn_evaluar.addEventListener('click', e => {
+            let resultados = [];
             const selectElements = document.querySelectorAll('.custom-select');
-            const resultados = [];
 
             selectElements.forEach(select => {
-                const valorSeleccionado = select.value;
-                const palabra = select.parentNode.textContent.trim();
-                const resultadoCompleto = palabra + ' ' + (valorSeleccionado === 'v' ? 'con V' : 'con B');
-                resultados.push(resultadoCompleto);
+                let valorSeleccionado = select.value;
+                resultados.push(valorSeleccionado.toUpperCase());
             });
 
-            console.log(resultados);
-            // Aquí puedes hacer lo que desees con los resultados obtenidos
+            if (letra.length !== resultados.length) {
+                console.log('Error: Las matrices tienen diferente longitud.');
+                return;
+            }
+
+            let puntos = 0;
+            for (let i = 0; i < letra.length; i++) {
+                if (letra[i] === resultados[i]) {
+                    puntos += 0.714;
+                }
+            }
+            document.getElementById('sp_respuesta').innerHTML = `Su puntuación es: ${redondearDecimal(puntos)}`;
+
+        });
+
+
+        function redondearDecimal(valor) {
+            if (valor % 1 >= 0.5) {
+                return Math.ceil(valor);
+            } else {
+                return Math.floor(valor);
+            }
         }
+
+
     </script>
 </body>
 
