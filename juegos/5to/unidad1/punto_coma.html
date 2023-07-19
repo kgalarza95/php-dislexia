@@ -204,12 +204,13 @@
 
   <script>
     // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
+    var idEstudiante = 999;
+    const CURSO = "5";
+    const UNIDAD = "unidad 1";
     const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
+    var puntaje = 0;
+
+    var evaluacion = 5;
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
 
@@ -258,7 +259,7 @@
         mostrarAlerta('danger', 'Algunos selectores son incorrectos. Por favor, revísalos nuevamente.');
       }
 
-      guardarScore(idEstudiante, 'Matemáticas', 'Unidad 1', 'Ahorcado', puntaje);
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     

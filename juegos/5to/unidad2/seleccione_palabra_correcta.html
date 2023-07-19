@@ -114,7 +114,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
+                <input class="form-check-input" type="radio" name="opciona" id="opciona1" es-correcto="true">
                 <label class="form-check-label" for="opciona1">
                   A) LA NARRACIÓN ORAL
                 </label>
@@ -124,7 +124,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
+                <input class="form-check-input" type="radio" name="opciona" id="opciona2" es-correcto="false">
                 <label class="form-check-label" for="opciona2">
                   A) LA NARRASIÓN ORAL
                 </label>
@@ -137,7 +137,7 @@
         <div class="col-sm-6">
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" respuesta="B">
             </div>
             <div class="col-sm-8">
               <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
@@ -155,7 +155,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
+                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1" es-correcto="false">
                 <label class="form-check-label" for="opcionb1">
                   B) LA LELLENDA
                 </label>
@@ -165,7 +165,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
+                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2" es-correcto="true">
                 <label class="form-check-label" for="opcionb2">
                   B) LA LEYENDA
                 </label>
@@ -178,9 +178,9 @@
         <div class="col-sm-6">
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control " respuesta="A">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 ">
               <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
                 Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
                 comunidades desde la antigüedad. </p>
@@ -217,12 +217,14 @@
 
   <script>
     // Variables globales
-    var idEstudiante;
+    var idEstudiante = 999;
+    const CURSO = "5";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "seleccione_palabra_correcta";
+    var puntaje = 0;
+
     var evaluacion = 5;
     var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
 
@@ -236,26 +238,95 @@
     // Mostrar puntaje inicial
     txtScore.innerHTML = puntaje;
 
+    // Función para evaluar los selectores
+    function evaluarJuego() {
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      const inputs = document.querySelectorAll('input[type="text"]');
+      puntaje = 0;
+      let resultado = true;
 
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
+      let dosChecked = 0;
+      radioButtons.forEach(radioButton => {
+        if (radioButton.checked) {
+          dosChecked++;
         }
       });
 
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
+      if (dosChecked >= 2) {
+        radioButtons.forEach(radioButton => {
+          const esCorrecto = radioButton.getAttribute('es-correcto');
+          const respuestaCorrecta = radioButton.getAttribute('respuesta');
+
+          const label = document.querySelector(`label[for="${radioButton.id}"]`);
+
+          if (esCorrecto === 'true' && !radioButton.checked) {
+            resultado = false;
+            label.classList.add('incorrecto');
+            label.classList.remove('correcto');
+          } else if (esCorrecto === 'false' && radioButton.checked) {
+            resultado = false;
+            label.classList.add('incorrecto');
+            label.classList.remove('correcto');
+          } else {
+            puntaje += evaluacion;
+            txtScore.innerHTML = puntaje;
+            label.classList.remove('incorrecto');
+            label.classList.add('correcto');
+          }
+        });
+      } else {
+        radioButtons.forEach(radioButton => {
+          const esCorrecto = radioButton.getAttribute('es-correcto');
+          const respuestaCorrecta = radioButton.getAttribute('respuesta');
+
+          const label = document.querySelector(`label[for="${radioButton.id}"]`);
+          label.classList.add('incorrecto');
+        });
+      }
+
+      let dosInputs = 0;
+      inputs.forEach(input => {
+        const valorInput = input.value.trim();
+        if (valorInput.length > 0) {
+          dosInputs++;
+        }
       });
-    });
+
+      if (dosInputs >= 2) {
+        inputs.forEach(input => {
+          const respuestaCorrecta = input.getAttribute('respuesta');
+          const valorInput = input.value.trim();
+
+          const paragraph = input.closest('.row').querySelector('p');
+
+          if (valorInput.toUpperCase() !== respuestaCorrecta.toUpperCase()) {
+            resultado = false;
+            paragraph.classList.add('incorrecto');
+            paragraph.classList.remove('correcto');
+          } else {
+            puntaje += evaluacion;
+            txtScore.innerHTML = puntaje;
+            paragraph.classList.remove('incorrecto');
+            paragraph.classList.add('correcto');
+          }
+        });
+      } else {
+        inputs.forEach(input => {
+          // Obtener el párrafo correspondiente al input
+          const paragraph = input.closest('.row').querySelector('p');
+          paragraph.classList.add('incorrecto');
+        });
+      }
+
+      if (resultado) {
+        mostrarAlerta('success', '¡Todas las respuestas son correctas!');
+      } else {
+        mostrarAlerta('danger', 'Algunas respuestas son incorrectas. Por favor, revísalas nuevamente.');
+      }
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
 
 
   </script>

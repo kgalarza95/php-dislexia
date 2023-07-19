@@ -139,7 +139,8 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <select id="cmb_opcion2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+              <select id="cmb_opcion2" class="form-select form-select-lg mb-3" 
+              aria-label=".form-select-lg example"
                 data-correcta="Seleccione">
                 <option value="Seleccione" selected>..Seleccione..</option>
                 <option value="Leyenda">Leyenda</option>
@@ -197,12 +198,14 @@
 
 
     // Variables globales
-    var idEstudiante;
+    var idEstudiante = 999;
+    const CURSO = "5";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "leyenda";
+    var puntaje = 0;
+
     var evaluacion = 5;
     var puntaje = 0;
-    const JUEGO = "leyenda";
-    const CURSO = "5to";
-    const UNIDAD = "1";
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
 
@@ -257,10 +260,10 @@
       if (resultado) {
         mostrarAlerta('success', '¡Todas las respuestas son correctas!');
       } else {
-        mostrarAlerta('danger', 'Algunos selectores son incorrectos. Por favor, revísalos nuevamente.');
+        mostrarAlerta('danger', 'Algunos respuestas son incorrectos. Por favor, revísalos nuevamente.');
       }
 
-      guardarScore(idEstudiante, 'Matemáticas', 'Unidad 1', 'Ahorcado', puntaje);
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
   </script>

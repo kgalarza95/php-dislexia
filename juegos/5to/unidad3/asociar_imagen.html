@@ -199,12 +199,14 @@
 
   <script>
     // Variables globales
-    var idEstudiante;
+    var idEstudiante = 999;
+    const CURSO = "5";
+    const UNIDAD = "unidad 3";
+    const JUEGO = "asociar_imagen";
+    var puntaje = 0;
+
     var evaluacion = 5;
     var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
 
@@ -219,25 +221,6 @@
     txtScore.innerHTML = puntaje;
 
 
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
 
 
   </script>

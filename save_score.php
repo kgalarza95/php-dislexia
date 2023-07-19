@@ -14,8 +14,10 @@ writeLog("..:save_score:..");
 writeLog("Inicio de operación");
 
 try {
+  
     $data = json_decode(file_get_contents('php://input'), true);
 
+    writeLog("entrada: " . json_encode($data));
     $idEstudiante = isset($data['id_estudiante']) ? $data['id_estudiante'] : '';
     $curso = isset($data['curso']) ? $data['curso'] : '';
     $unidad = isset($data['unidad']) ? $data['unidad'] : '';
@@ -23,7 +25,7 @@ try {
     $puntaje = isset($data['puntaje']) ? $data['puntaje'] : '';
     $mensajeResp;
 
-    if ($idEstudiante != '' && $curso != '' && $unidad != '' && $juego != '' && $puntaje != '') {
+    if ($idEstudiante != '' && $curso != '' && $unidad != '' && $juego != '') {
         // Preparar la sentencia SQL
         $sql = "INSERT INTO app_historial_juego (ID_ESTUDIANTE, CURSO, UNIDAD, JUEGO, PUNTAJE) 
             VALUES ('$idEstudiante', '$curso', '$unidad', '$juego', '$puntaje')";
