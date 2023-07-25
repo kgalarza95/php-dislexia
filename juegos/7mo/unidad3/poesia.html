@@ -15,9 +15,7 @@
       height: 100%;
     }
 
-    .custom-checkbox .form-check-input {
-      transform: scale(2); /* Tamaño más grande para el checkbox */
-    }
+
 
     /* Estilos para el título del formulario con diseño infantil */
     .form-title {
@@ -38,12 +36,47 @@
     .custom-checkbox .form-check-input {
       width: 30px;
       height: 30px;
+      margin-top: 25px;
       margin-bottom: 50px;
     }
 
     .custom-checkbox .form-check-input:checked {
       background-color: #ff6b6b;
       border-color: #ff6b6b;
+    }
+
+    /* Estilos para los contenedores col con bordes y colores para niños */
+    .col-infantil {
+      border: 4px solid #ff6b6b;
+      background-color: #ffefef;
+      border-radius: 10px;
+      padding: 10px;
+      position: relative;
+      /* Para posicionar el texto en relación a este contenedor */
+    }
+
+    /* Estilos para el texto de "Imagen A" y "Imagen B" */
+    .imagen-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff6b6b;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Estilos para el botón de "Evaluar" con colores para niños */
+    .btn-evaluar {
+      background-color: #ff6b6b;
+      border-color: #ff6b6b;
+      color: #fff;
+    }
+
+    .btn-evaluar:hover {
+      background-color: #ff8f8f;
+      border-color: #ff8f8f;
     }
   </style>
 </head>
@@ -53,34 +86,40 @@
   <div class="container my-4">
     <h1 class="form-title">Seleccione cuál de las dos imágenes es una poesía, según su estructura.</h1>
     <div class="row my-4">
-      <div class="col-md-6">
+      <div class="col-md-6 col-infantil">
         <img src="https://cdn0.parabebes.com/es/posts/1/6/1/dentro_de_una_pera_5161_10_600.jpg" alt="Imagen Izquierda"
           class="img-fluid float-start">
+        <div class="imagen-label">Imagen A</div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-infantil">
         <img src="https://files.liveworksheets.com/def_files/2021/11/8/111080502452572193/111080502452572193001.jpg"
           alt="Imagen Derecha" class="img-fluid float-end">
+        <div class="imagen-label">Imagen B</div>
       </div>
     </div>
     <div class="row my-4">
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <h1>Seleccione la imagen correcta:</h1>
+      <div class="col-md-6 d-flex justify-content-start align-items-center">
         <!-- Utilizamos flexbox para centrar el checkbox -->
-        <div class="custom-checkbox">
+        <div class="custom-checkbox form-check-inline">
           <input type="radio" class="form-check-input" name="option" id="option1">
+          <label class="form-check-label ms-2" for="option1">Imagen A</label>
         </div>
       </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <!-- Utilizamos flexbox para centrar el checkbox -->
-        <div class="custom-checkbox">
-          <input type="radio" class="form-check-input" name="option" id="option2">
+      <div class="col-md-6 d-flex justify-content-start align-items-start">
+        <div class="custom-checkbox form-check-inline">
+            <input type="radio" class="form-check-input" name="option" id="option2">
+            <label class="form-check-label ms-2" for="option2">Imagen B</label>
         </div>
-      </div>
+    </div>
+    
     </div>
 
     <div class="row my-4">
-     
-        <input type="button" value="Evaluar" class="btn btn-primary">
-      
+      <div class="col-md-12 d-flex justify-content-center align-items-center">
+        <!-- Utilizamos flexbox para centrar el botón -->
+        <input type="button" value="Evaluar" class="btn btn-evaluar fw-bold">
+      </div>
     </div>
   </div>
 
