@@ -1,264 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-  <link rel="stylesheet" href="../../assets/general.css">
   <style>
     body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f0f0f0;
     }
 
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
+    h1, h3 {
+      color: #ff6600;
     }
 
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 20px;
     }
 
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
+    .row {
+      margin-bottom: 20px;
+      border: 2px solid #ff6600;
+      padding: 10px;
+      border-radius: 5px;
     }
 
-    .btn_dislexia {
+    .btn-primary {
+      background-color: #ff6600;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff8533;
+    }
+
+    /* Estilo de las tablas */
+    table {
+      border-collapse: collapse;
       width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
+      border: 2px solid #ff6600;
     }
 
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
+    th, td {
+      border: 1px solid #ff6600;
+      padding: 8px;
       text-align: center;
-      margin: 10px;
+    }
+
+    th {
+      background-color: #ff6600;
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
+    <h1 class="text-center">Selecciona la oración escrita correctamente.</h1>
+    <h3 class="text-center">Lee cada situación comunicativa y elige la respuesta correcta para cada elemento.</h3>
+
     <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            El abuelo lee en el periódico que la selección de Ecuador ganó el campeonato.
+            <input type="radio" name="option1" value="opcion1" id="option1">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            El abuelo lee en el periódico que la selección de Ecuador ganó el campeonato.
+            <input type="radio" name="option1" value="opcion2" id="option2">
+          </div>
+        </div>
+
+        <table>
+          <tr>
+            <th>EMISOR</th>
+            <th>Periódico</th>
+          </tr>
+          <tr>
+            <td>MENSAJE</td>
+            <td>La selección de Ecuador ganó el campeonato</td>
+          </tr>
+          <tr>
+            <td>RECEPTOR</td>
+            <td>Abuelo</td>
+          </tr>
+        </table>
+
+        <img src="https://images.vexels.com/media/users/3/191102/isolated/preview/8087e6fe027b9c97ef7cbad5157b5f11-personaje-de-abuelo-leyendo-plano.png"
+          class="img-fluid" alt="Abuelo leyendo periódico">
       </div>
     </div>
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            Luciana y Julián usan su teléfono casero para comunicarse.
+            <input type="radio" name="option2" value="opcion3" id="option3">
           </div>
         </div>
 
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
+        <div class="row">
+          <div class="col-sm-12">
+            Luciana y Julián usan su teléfono casero para comunicarse.
+            <input type="radio" name="option2" value="opcion4" id="option4">
           </div>
         </div>
 
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
-
+        <table>
+          <tr>
+            <th>EMISOR</th>
+            <th>Luciana</th>
+          </tr>
+          <tr>
+            <td>MENSAJE</td>
+            <td>¿Quieres jugar a las escondidas?</td>
+          </tr>
+          <tr>
+            <td>RECEPTOR</td>
+            <td>Julián</td>
+          </tr>
+        </table>
+        <img src="https://www.shutterstock.com/image-vector/hand-drawn-doodle-line-art-260nw-1397800682.jpg"
+          class="img-fluid" alt="Niños usando teléfono casero">
       </div>
     </div>
 
-    <div class="row text-center">
-      <div class="col-sm-2 ">
-      </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
+    <div class="row border-0">
+      <div class="col-sm-12 text-center">
+        <input type="button" value="Evaluar" class="btn btn-primary">
       </div>
     </div>
   </div>
-
-  <div id="alert-container"></div>
-
-  <script src="../../assets/general.js"></script>
-
-  <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
-
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
-
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
-
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
-
-
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
-
-
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
