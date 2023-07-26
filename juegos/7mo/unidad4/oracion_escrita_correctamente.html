@@ -21,7 +21,8 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    h1, h3 {
+    h1,
+    h3 {
       color: #ff6600;
     }
 
@@ -55,7 +56,8 @@
       border: 2px solid #ff6600;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #ff6600;
       padding: 8px;
       text-align: center;
@@ -104,7 +106,8 @@
           </tr>
         </table>
 
-        <img src="https://images.vexels.com/media/users/3/191102/isolated/preview/8087e6fe027b9c97ef7cbad5157b5f11-personaje-de-abuelo-leyendo-plano.png"
+        <img
+          src="https://images.vexels.com/media/users/3/191102/isolated/preview/8087e6fe027b9c97ef7cbad5157b5f11-personaje-de-abuelo-leyendo-plano.png"
           class="img-fluid" alt="Abuelo leyendo periódico">
       </div>
     </div>
@@ -146,13 +149,53 @@
 
     <div class="row border-0">
       <div class="col-sm-12 text-center">
-        <input type="button" value="Evaluar" class="btn btn-primary">
+        <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
       </div>
     </div>
   </div>
+
+
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
+
+
+    <script>
+      // Función para generar un número aleatorio
+      function generarNumeroAleatorio(minimo, maximo) {
+        return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+      }
+  
+      // Función que se ejecutará cuando se haga clic en el botón
+      function handleClick() {
+        var numeroAleatorio = generarNumeroAleatorio(1, 10);
+        var modalBody = document.getElementById("modalPuntajeBody");
+        modalBody.textContent = "Número aleatorio: " + numeroAleatorio;
+        // Mostrar el modal
+        var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+        modal.show();
+      }
+  
+      // Vincular el evento de clic al botón
+      document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+    </script>
 </body>
 
 </html>

@@ -94,6 +94,7 @@
       margin: 10px;
     }
   </style>
+
 </head>
 
 <body>
@@ -195,9 +196,11 @@
       <div class="col-sm-2 ">
       </div>
       <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
+      <!--   <button id="btn_evaluar" class="boton_dislexia ">
           Evaluar Juego
-        </button>
+        </button> -->
+
+        <input type="button" value=" Evaluar Juego" class="boton_dislexia " id="btn_evaluar">
       </div>
       <div class="col-sm-2">
       </div>
@@ -213,8 +216,26 @@
 
   <div id="alert-container"></div>
 
+   <!-- Modal -->
+   <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="../../assets/general.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <script>
     // Variables globales
     var idEstudiante;
@@ -227,8 +248,8 @@
     const alertContainer = document.getElementById('alert-container');
 
     // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
+/*     const btnEvaluar = document.getElementById('btn_evaluar');
+    btnEvaluar.addEventListener('click', evaluarJuego); */
 
     const btnNuevo = document.getElementById('btn_nuevo');
     btnNuevo.addEventListener('click', reload);
@@ -258,6 +279,28 @@
     });
 
 
+
+
+
+
+
+    /* aleatorio */
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = "Número aleatorio: " + numeroAleatorio;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn_evaluar").addEventListener("click", handleClick);
   </script>
 </body>
 
