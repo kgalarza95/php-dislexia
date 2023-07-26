@@ -76,9 +76,50 @@
         </select>
       </div>
     </div>
+
+    <div class="row border-0">
+      <div class="col-sm-12 text-center">
+        <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Función para generar un número aleatorio
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = "Número aleatorio: " + numeroAleatorio;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+  </script>
 </body>
 
 </html>
