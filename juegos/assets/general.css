@@ -100,3 +100,28 @@ option {
     margin-top: 50px;
     text-align: left;
 }
+
+
+.btn {
+   /*  width: 100% !important; */
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important; 
+  }
+
+  .btn {
+    border-radius: 20px !important;
+    background-color: #3CA48D !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+
+    padding: 10px 20px !important;
+    cursor: pointer !important;
+   /*  width: 100% !important; */
+
+  }
+
+  .btn:hover {
+    background-color: #00ffd5 !important;
+    color: #000000 !important;
+  }
