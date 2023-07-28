@@ -63,6 +63,30 @@ label {
     font-family: var(--fuente-principal) !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-primario8) !important;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px #333;
+}
+
+* {
+    border-color: var(--color-primario8) !important;
+}
+
+/* Cambiar el color del texto dentro del select a azul */
+option {
+    color: var(--color-primario7) !important;
+}
+
+
+
 /* .fondo_container {
     background-color: rgba(0, 0, 0, 0.5);
 } */
