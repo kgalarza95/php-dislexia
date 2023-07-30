@@ -1,264 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo Row con 4 Col-sm-6</title>
+  <!-- Enlace al archivo CSS de Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/general.css">
   <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
+    /* Cambiar el ancho de los select (combos) con la clase "miCombo" a 100px */
+    .miCombo {
+      width: 150px;
+      display: inline;
     }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
 
     p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+      /* Opcional: añade un espacio entre el texto y el select */
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
+    <h1 class="text-center mt-3">Ordeno la estructura de un artículo informativo</h1>
+    <p class="fw-bold">Un artículo informativo es un texto que busca informar a los lectores, de forma neutra y
+      objetiva, sobre un tema en el cual el autor o escritor es un experto.</p>
     <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
+      <div class="col-sm-6">
+        <div class="border p-3 text-center my-4">
+          <h2>Texto A</h2>
+          <p>Guía al lector sobre el
+            tema que tratará el
+            texto
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="border p-3 text-center my-4">
+          <h2>Texto B</h2>
+          <p>Presenta el tema, razón
+            por la que se trata, a
+            quiénes va dirigido y
+            fuentes que utilizó.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="border p-3 text-center my-4">
+          <h2>Texto C</h2>
+          <p>Es el desarrollo de las ideas
+            del artículo organizadas en
+            subtemas. Una idea por
+            párrafo y estos concatenados
+            de manera lógica. Cada
+            subtema puede estar
+            encabezado por un subtítulo.</p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="border p-3 text-center my-4">
+          <h2>Texto D</h2>
+          <p>En esta parte del texto, el autor
+            puede expresar sus opciones
+            sobre el tema; puede presentar
+            las consecuencias de las ideas
+            desarrolladas; puede apelar a
+            que los lectores actúen de una
+            manera determinada o hacer un
+            breve resume</p>
+        </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
 
-      <div class="row">
+        <h3 class="text-center mt-3">Seleccione la respuesta correcta</h3>
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p><select class="form-select miCombo" aria-label="Default select example">
+            <option value="1">Texto A</option>
+            <option value="2">Texto B</option>
+            <option value="3">Texto C</option>
+            <option value="3">Texto D</option>
+          </select> Causas humanas del calentamiento global.</p>
 
+        <p><select class="form-select miCombo" aria-label="Default select example">
+            <option value="1">Texto A</option>
+            <option value="2">Texto B</option>
+            <option value="3">Texto C</option>
+            <option value="3">Texto D</option>
+          </select> El siguiente artículo busca informar a lo estudiantes de 6to año sobre el fenómeno del calentamiento
+          global.
+          Este tema ha causado mucha inquietud en los habitantes de nuestros países. Pero muchos de nosotros no estamos
+          bien informados sobre en que consiste el, Cómo sucedió y sus consecuencias. Tampoco sabemos qué podemos hacer
+          para prevenirlo o frenarlo.</p>
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
-          </div>
-        </div>
+        <p><select class="form-select miCombo" aria-label="Default select example">
+            <option value="1">Texto A</option>
+            <option value="2">Texto B</option>
+            <option value="3">Texto C</option>
+            <option value="3">Texto D</option>
+          </select> El cambio climático puede referirse a cualquier modificación climática hacia temperaturas más altas
+          o
+          más
+          bajas, A lo largo de las eras geológicas, la tierra registró también épocas de enfrentamiento, como la "Edad
+          de Hielo".</p>
 
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
-
+        <p><select class="form-select miCombo" aria-label="Default select example">
+            <option value="1">Texto A</option>
+            <option value="2">Texto B</option>
+            <option value="3">Texto C</option>
+            <option value="3">Texto D</option>
+          </select> Solo tenemos un planeta y debemos conservarlo como un tesoro. Es hora de que tomemos conciencia de
+          cómo
+          estamos contribuyendo al desastre. También es momento de que empecemos a idear soluciones para evitar esta
+          catástrofe que hemos producido. Todos tenenemos la obligación de hacer pequeños cambios...</p>
       </div>
     </div>
 
-    <div class="row text-center">
-      <div class="col-sm-2 ">
-      </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <input type="button" value="Evaluar" class="btn btn-primary">
       </div>
     </div>
   </div>
 
-  <div id="alert-container"></div>
-
-  <script src="../../assets/general.js"></script>
-
-  <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
-
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
-
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
-
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
+  <!-- Enlace al archivo JS de Bootstrap 5 (requerido para algunas funcionalidades) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
-
-
-  </script>
 </body>
 
 </html>
