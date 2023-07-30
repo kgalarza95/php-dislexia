@@ -1,264 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Agrega los enlaces a Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Opciones con Radios</title>
   <link rel="stylesheet" href="../../assets/general.css">
-  <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
-    <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
+  <div class="container my-4">
+    <h1 class="text-center">Seleccione el refrán correctamente escrito</h1>
+    <form>
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://images.vexels.com/media/users/3/149524/isolated/preview/059ef5ac23f89494f3954f6f706197dc-ilustracion-de-tiroteo-de-fogata.png"
+            width="20%" class="mx-auto d-block">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion1" value="N1" id="opcion1-1">
+            <label class="form-check-label" for="opcion1-1">En octubre la casa con leña se cudre.</label>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion1" value="N2" id="opcion1-2">
+            <label class="form-check-label" for="opcion1-2">En octubre la casa con leña se cubre.</label>
           </div>
         </div>
+      </div>
 
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/009/398/166/non_2x/tree-clipart-design-illustration-free-png.png"
+            width="10%" class="mx-auto d-block">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion2" value="N1" id="opcion2-1">
+            <label class="form-check-label" for="opcion2-1">Quien a duen Arbol se arrima, buena sombra le
+              cobija.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion2" value="N2" id="opcion2-2">
+            <label class="form-check-label" for="opcion2-2">Quien a buen árbol se arrima, buena sombra le
+              cobija.</label>
           </div>
         </div>
-
       </div>
 
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1f381.png" width="20%"
+            class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion3" value="N1" id="opcion3-1">
+            <label class="form-check-label" for="opcion3-1">A caballo REegalado, no le mires el bentado.</label>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion3" value="N2" id="opcion3-2">
+            <label class="form-check-label" for="opcion3-2">A caballo regalado, no le mires el dentado.</label>
           </div>
         </div>
+      </div>
 
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/009/665/205/non_2x/father-hugging-his-son-inside-a-house-vector-flat-character-illustration-with-a-home-interior-concept-father-and-son-hugging-house-interior-with-blue-sofa-wall-clock-table-lamp-and-bookshelf-free-png.png"
+            width="20%" class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion4" value="N1" id="opcion4-1">
+            <label class="form-check-label" for="opcion4-1">De tal Palo, tal astillA</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion4" value="N2" id="opcion4-2">
+            <label class="form-check-label" for="opcion4-2">De tal palo, tal astilla</label>
           </div>
         </div>
+      </div>
 
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img src="https://i.pinimg.com/originals/5a/61/a7/5a61a78270bc986dbc40ca71a2b5c6d4.png" width="20%"
+            class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion5" value="N1" id="opcion5-1">
+            <label class="form-check-label" for="opcion5-1">Las flores de mayo, me eleban el Animo.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion5" value="N2" id="opcion5-2">
+            <label class="form-check-label" for="opcion5-2">Las flores de mayo, me elevan el ánimo.</label>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col-sm-2 ">
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
       </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
-      </div>
-    </div>
+    </form>
   </div>
 
-  <div id="alert-container"></div>
-
-  <script src="../../assets/general.js"></script>
-
-  <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
-
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
-
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
-
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
-
-
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
-
-
-  </script>
+  <!-- Agrega los enlaces a los scripts de Bootstrap 5 y, opcionalmente, jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
