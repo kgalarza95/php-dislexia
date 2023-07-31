@@ -63,6 +63,30 @@ label {
     font-family: var(--fuente-principal) !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-primario8) !important;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px #333;
+}
+
+* {
+    border-color: var(--color-primario8) !important;
+}
+
+/* Cambiar el color del texto dentro del select a azul */
+option {
+    color: var(--color-primario7) !important;
+}
+
+
+
 /* .fondo_container {
     background-color: rgba(0, 0, 0, 0.5);
 } */
@@ -76,3 +100,28 @@ label {
     margin-top: 50px;
     text-align: left;
 }
+
+
+.btn {
+   /*  width: 100% !important; */
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important; 
+  }
+
+  .btn {
+    border-radius: 20px !important;
+    background-color: #3CA48D !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+
+    padding: 10px 20px !important;
+    cursor: pointer !important;
+   /*  width: 100% !important; */
+
+  }
+
+  .btn:hover {
+    background-color: #00ffd5 !important;
+    color: #000000 !important;
+  }

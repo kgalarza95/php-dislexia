@@ -1,263 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Bootstrap con Radios</title>
+  <!-- Agregar el enlace al CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/general.css">
-  <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
-    <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
-      </div>
+  <div class="container mt-4">
+    <h2>En cuál oración, se usa de forma adecuada los puntos suspensivos.</h2>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="opcion1" name="opcion" value="S" checked>
+      <label class="form-check-label" for="opcion1">El niño compró lápices, gomas, cuadernos…</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="opcion2" name="opcion" value="N">
+      <label class="form-check-label" for="opcion2">El niño compró lápices… gomas y cuadernos.</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="opcion3" name="opcion" value="N">
+      <label class="form-check-label" for="opcion3">El niño Compro láqices, gomas, cuabernos…</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="opcion4" name="opcion" value="N">
+      <label class="form-check-label" for="opcion4">La niña compró 4 blusas, dos jeans… y unos tennis</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="opcion5" name="opcion" value="N">
+      <label class="form-check-label" for="opcion5">el niño comqró lápices… gomas y Cuadernos</label>
     </div>
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row text-center">
-      <div class="col-sm-2 ">
-      </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
-      </div>
-    </div>
+    <button type="button" class="btn btn-primary mt-3" onclick="imprimirRespuesta()">Evaluar</button>
   </div>
-
-  <div id="alert-container"></div>
-
-  <script src="../../assets/general.js"></script>
+  <!-- Agregar el enlace al JS de Bootstrap y jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
-
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
-
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
-
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
-
-
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
+    function imprimirRespuesta() {
+      const opciones = document.getElementsByName('opcion');
+      let respuestaSeleccionada;
+      for (const opcion of opciones) {
+        if (opcion.checked) {
+          respuestaSeleccionada = opcion.value;
+          break;
         }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
-
-
+      }
+      alert('Respuesta seleccionada: ' + respuestaSeleccionada);
+    }
   </script>
 </body>
 
