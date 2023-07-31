@@ -2,262 +2,196 @@
 <html>
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-  <link rel="stylesheet" href="../../assets/general.css">
+  <title>Ejemplo con Bootstrap</title>
+  <!-- Agregar los enlaces para utilizar Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
+    .form-select {
+      width: 150px;
     }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
+    p{
       font-weight: bold;
     }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
-    }
   </style>
+  <link rel="stylesheet" href="../../assets/general.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
+  <div class="container mt-5">
+    <h1>Identificar la palabra mal escrita y seleccionar si el adjetivo es superlativo o comparativo de
+      cada oración.</h1>
+
     <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
-      </div>
-    </div>
+      <div class="col-sm-12 my-4 py-4 border">
+        <p>Julia es menos alta que su becino Tomás.</p>
+        <label>
+          Escoja el adjetivo
+        </label>
+        <select class="form-select select-word">
 
-    <div class="container">
+          <option value="superlativo">superlativo</option>
+          <option value="comparativo">comparativo</option>
+        </select>
 
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
-          </div>
-        </div>
-
+        <label>
+          Escoja la palabra mal escrita
+        </label>
+        <select class="form-select select-word">
+          <option value="">Julia</option>
+          <option value="superlativo">es</option>
+          <option value="comparativo">menos</option>
+          <option value="comparativo">alta</option>
+          <option value="comparativo">que</option>
+          <option value="comparativo">su</option>
+          <option value="comparativo">becino</option>
+          <option value="comparativo">Tomas</option>
+        </select>
       </div>
 
-      <div class="row">
+      <div class="col-sm-12 my-4 border py-4">
+        <p>El arbol del parque es altísimo. </p>
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
+        <label>
+          Escoja el adjetivo
+        </label>
+        <select class="form-select select-word">
+
+          <option value="superlativo">superlativo</option>
+          <option value="comparativo">comparativo</option>
+        </select>
+
+        <label>
+          Escoja la palabra mal escrita
+        </label>
+        <select class="form-select select-word">
+          <option value="">El</option>
+          <option value="superlativo">arbol</option>
+          <option value="comparativo">del</option>
+          <option value="comparativo">parque</option>
+          <option value="comparativo">es</option>
+          <option value="comparativo">altísimo</option>
+        </select>
+      </div>
 
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-12 my-4 border py-4">
+
+        <p>
+          María tiene el tamvor más bonito de la orquesta.
+        </p>
+
+        <label>
+          Escoja el adjetivo
+        </label>
+        <select class="form-select select-word">
+
+          <option value="superlativo">superlativo</option>
+          <option value="comparativo">comparativo</option>
+        </select>
+
+
+        <label>
+          Escoja la palabra mal escrita
+        </label>
+        <select class="form-select select-word">
+          <option value="">María</option>
+          <option value="superlativo">tiene</option>
+          <option value="comparativo">el</option>
+          <option value="comparativo">tamvor</option>
+          <option value="comparativo">más</option>
+          <option value="comparativo">bonito</option>
+          <option value="comparativo">de</option>
+          <option value="comparativo">la</option>
+          <option value="comparativo">orquesta</option>
+        </select>
 
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col-sm-2 ">
+
+      <div class="col-sm-12 my-4 border py-4">
+        <p>
+          El sapato de Marcos está sucísimo.
+        </p>
+        <label>
+          Escoja el adjetivo
+        </label>
+        <select class="form-select select-word">
+
+          <option value="superlativo">superlativo</option>
+          <option value="comparativo">comparativo</option>
+        </select>
+
+        <label>
+          Escoja la palabra mal escrita
+        </label>
+        <select class="form-select select-word">
+          <option value="">El</option>
+          <option value="superlativo">sapato</option>
+          <option value="comparativo">de</option>
+          <option value="comparativo">Marcos</option>
+          <option value="comparativo">está</option>
+          <option value="comparativo">sucísimo</option>
+        </select>
       </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
+
+      <div class="col-sm-12 text-center">
+        <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
       </div>
     </div>
   </div>
 
-  <div id="alert-container"></div>
 
-  <script src="../../assets/general.js"></script>
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Agregar el enlace para el archivo JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Función para cambiar el color de la palabra seleccionada
+    function changeColor(select) {
+      const optionValue = select.value;
+      const paragraph = select.parentNode;
+      const words = paragraph.getElementsByTagName('span');
+      for (const word of words) {
+        if (word.dataset.type === optionValue) {
+          word.style.color = 'red';
+        } else {
+          word.style.color = 'black';
+        }
+      }
+    }
+  </script>
 
   <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
+    // Función para generar un número aleatorio
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
 
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = numeroAleatorio;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
-
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
-
-
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
-
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
-    });
-
-
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
   </script>
 </body>
 
