@@ -11,7 +11,7 @@
     --color-primario8: #2c2c2c;
 
     --color-blanco: #FFFFFF;
-    --fuente-principal:  sans-serif;
+    --fuente-principal: sans-serif;
 }
 
 @font-face {
@@ -69,7 +69,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6{
     color: var(--color-primario8) !important;
 }
 
@@ -104,13 +104,13 @@ option {
 
 
 .btn {
-   /*  width: 100% !important; */
+    /*  width: 100% !important; */
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-    overflow: hidden !important; 
-  }
+    overflow: hidden !important;
+}
 
-  .btn {
+.btn {
     border-radius: 20px !important;
     background-color: #3CA48D !important;
     color: #ffffff !important;
@@ -118,11 +118,11 @@ option {
 
     padding: 10px 20px !important;
     cursor: pointer !important;
-   /*  width: 100% !important; */
+    /*  width: 100% !important; */
 
-  }
+}
 
-  .btn:hover {
+.btn:hover {
     background-color: #00ffd5 !important;
     color: #000000 !important;
-  }
+}
