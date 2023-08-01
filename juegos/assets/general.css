@@ -7,10 +7,11 @@
     --color-primario5: #3CA48D;
     --color-primario6: #9DE8D3;
     --color-primario7: #09B1A2;
-    --color-primario8: #10868E;
+    /*-color-primario8: #10868E;*/
+    --color-primario8: #2c2c2c;
 
     --color-blanco: #FFFFFF;
-    --fuente-principal: "Arial", cursive, sans-serif;
+    --fuente-principal:  sans-serif;
 }
 
 @font-face {
