@@ -10,11 +10,11 @@
     --color-primario8: #10868E;
 
     --color-blanco: #FFFFFF;
-    --fuente-principal: "Comic Sans MS", cursive, sans-serif;
+    --fuente-principal: "Arial", cursive, sans-serif;
 }
 
 @font-face {
-    font-family: 'Comic Sans MS';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/l/font?kit=WWXUljiDYgyJJ8igRvwjKZhbdw_vzQ&skey=a4ba60ff9fc73cf8&v=v19) format('woff2');
@@ -23,7 +23,7 @@
 
 /* greek */
 @font-face {
-    font-family: 'Comic Sans MS';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/l/font?kit=WWXUljiDYgyJJ8igRvwjKZhbdwjvzQ&skey=a4ba60ff9fc73cf8&v=v19) format('woff2');
@@ -32,7 +32,7 @@
 
 /* latin-ext */
 @font-face {
-    font-family: 'Comic Sans MS';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/l/font?kit=WWXUljiDYgyJJ8igRvwjKZhbdwXvzQ&skey=a4ba60ff9fc73cf8&v=v19) format('woff2');
@@ -41,7 +41,7 @@
 
 /* latin */
 @font-face {
-    font-family: 'Comic Sans MS';
+    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/l/font?kit=WWXUljiDYgyJJ8igRvwjKZhbdwvvzQ&skey=a4ba60ff9fc73cf8&v=v19) format('woff2');
