@@ -61,3 +61,6 @@ function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
 function reload() {
     location.reload();
 }
+
+const btnNuevo = document.getElementById('btn_nuevo');
+btnNuevo.addEventListener('click', reload);

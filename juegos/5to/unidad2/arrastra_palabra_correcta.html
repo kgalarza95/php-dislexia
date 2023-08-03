@@ -76,7 +76,7 @@
         <div class="row my-4 ">
             <div class="col-md-12 text-center">
                 <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
-
+                <button id="btn_nuevo" class="btn btn-primary">Nuevo</button>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-
+    <script src="../../assets/general.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -143,6 +143,8 @@
             $(".word-input").val("").attr("data-word", "");
         });
 
+        const btnNuevo = document.getElementById('btn_nuevo');
+        btnNuevo.addEventListener('click', reload);
     </script>
     <script>
         $(document).ready(function () {
