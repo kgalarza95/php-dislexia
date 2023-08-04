@@ -1,2 +1,21 @@
-[2023-08-04 05:00:04] [OK] ..:validar_usuario:..
-[2023-08-04 05:00:04] [OK] Inicio de operacion op: consulta de
+[2023-08-04 09:24:05] [OK] ..:cons_estudiantes:..
+[2023-08-04 09:24:05] [OK] Estudiante por curso: 7
+[2023-08-04 09:24:05] [OK] respuesta ok: 7
+[2023-08-04 09:27:19] [OK] ..:cons_estudiantes:..
+[2023-08-04 09:27:19] [OK] Estudiante por curso: 2
+[2023-08-04 09:27:19] [OK] respuesta ok: 2
+[2023-08-04 09:28:37] [OK] ..:validar_usuario:..
+[2023-08-04 09:28:37] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-04 09:32:30] [OK] ..:cons_estudiantes:..
+[2023-08-04 09:32:30] [OK] Estudiante por curso: 2
+[2023-08-04 09:32:30] [OK] respuesta ok: 2
+[2023-08-04 09:44:14] [OK] ..:validar_usuario:..
+[2023-08-04 09:44:14] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-04 10:00:04] [OK] ..:validar_usuario:..
+[2023-08-04 10:00:04] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-04 10:05:46] [OK] ..:validar_usuario:..
+[2023-08-04 10:05:46] [OK] Inicio de operacion op: consulta deprofes
+[2023-08-04 10:05:59] [OK] ..:validar_usuario:..
+[2023-08-04 10:05:59] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-04 10:08:04] [OK] ..:validar_usuario:..
+[2023-08-04 10:08:04] [OK] Inicio de operacion op: consulta deprofesor
