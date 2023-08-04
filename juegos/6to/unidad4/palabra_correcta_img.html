@@ -76,6 +76,10 @@
       <div class="row my-4">
         <div class="col-md-12 text-center">
           <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
+         
+      <button id="btn_nuevo" class="btn btn-primary">
+        Nuevo
+      </button>
         </div>
       </div>
 
@@ -98,7 +102,14 @@
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../../assets/general.js"></script>
   <script>
+    var idEstudiante = 12;
+    const CURSO = "6";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "palabra_correcta_img";
+    var puntaje = 0;
+
     // Objeto con las respuestas correctas
     var respuestasCorrectas = {
       combo1: "OLA",
@@ -151,6 +162,9 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+    //  puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
     $(document).ready(function () {
 
