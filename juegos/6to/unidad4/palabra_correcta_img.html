@@ -2,262 +2,164 @@
 <html>
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
-  <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <title>Ejemplo de imágenes de 250px de ancho con Bootstrap 5</title>
+  <!-- Agregar las referencias a los archivos de Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../../assets/general.css">
-  <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
+  <div class="container my-4">
+    <h1>Lee las palabras que aparecen debajo de cada imagen. Al escoger la respuesta correcta</h1>
     <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
+      <div class="col-md-6 my-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616545.png" alt="Imagen 1" class="img-fluid" width="250">
+        <br>
+        <label for="select1">Selecciona una opción:</label>
+        <select class="form-select" id="select1">
+          <option value="opcion1">ODA</option>
+          <option value="OLA">OLA</option>
+          <option value="opcion3">ORA</option>
+        </select>
       </div>
+
+      <div class="col-md-6 my-4">
+        <img
+          src="data:image/png;base64,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"
+          alt="Imagen 2" class="img-fluid" width="250">
+        <br>
+        <label for="select2">Selecciona una opción:</label>
+        <select class="form-select" id="select2">
+          <option value="opcion1">PIDATA</option>
+          <option value="opcion2">PILATA</option>
+          <option value="PIRATA">PIRATA</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <img src="https://img.freepik.com/iconos-gratis/nido_318-371526.jpg" alt="Imagen 3" class="img-fluid"
+          width="250">
+        <br>
+        <label for="select3">Selecciona una opción:</label>
+        <select class="form-select" id="select3">
+          <option value="opcion2">NILO</option>
+          <option value="opcion3">NIRO</option>
+          <option value="NIDO">NIDO</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <img
+          src="https://png.pngtree.com/png-vector/20191208/ourmid/pngtree-beach-ball-illustration-vector-on-white-background-png-image_2050115.jpg"
+          alt="Imagen 4" class="img-fluid" width="250">
+        <br>
+        <label for="select4">Selecciona una opción:</label>
+        <select class="form-select" id="select4">
+          <option value="opcion1">PEDOTA</option>
+          <option value="PELOTA">PELOTA</option>
+          <option value="opcion3">PEROTA</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/822/822124.png" alt="Imagen 4" class="img-fluid" width="250">
+        <br>
+        <label for="select4">Selecciona una opción:</label>
+        <select class="form-select" id="select5">
+          <option value="opcion2">POMALA</option>
+          <option value="POMADA">POMADA</option>
+          <option value="opcion3">POMARA</option>
+        </select>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
-          </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
         </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row text-center">
-      <div class="col-sm-2 ">
-      </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
       </div>
     </div>
   </div>
 
-  <div id="alert-container"></div>
 
-  <script src="../../assets/general.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
+    // Objeto con las respuestas correctas
+    var respuestasCorrectas = {
+      combo1: "OLA",
+      combo2: "PIRATA",
+      combo3: "NIDO",
+      combo4: "PELOTA",
+      combo5: "POMADA"
+    };
+
     var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
+    // Función para evaluar las respuestas
+    function evaluarRespuestas() {
+      puntaje = 0;
 
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
+      // Obtener las respuestas seleccionadas por el usuario
+      var respuestaCombo1 = $("#select1").val();
+      var respuestaCombo2 = $("#select2").val();
+      var respuestaCombo3 = $("#select3").val();
+      var respuestaCombo4 = $("#select4").val();
+      var respuestaCombo5 = $("#select5").val();
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
+      // Comparar con las respuestas correctas y aumentar el puntaje
+      if (respuestaCombo1 === respuestasCorrectas.combo1) {
+        puntaje += 2;
+      }
 
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
+      if (respuestaCombo2 === respuestasCorrectas.combo2) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo3 === respuestasCorrectas.combo3) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo4 === respuestasCorrectas.combo4) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo5 === respuestasCorrectas.combo5) {
+        puntaje += 2;
+      }
+
+      // Actualizar el puntaje en la página
 
 
 
 
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = puntaje;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+    $(document).ready(function () {
 
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
-        }
-      });
 
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
+
+
+      // Asignar la función de evaluación al botón
+      $("#btn-evaluar").on("click", _ => evaluarRespuestas());
     });
-
-
   </script>
 </body>
 

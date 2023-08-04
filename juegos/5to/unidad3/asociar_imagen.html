@@ -2,220 +2,204 @@
 <html>
 
 <head>
-
-  <title>..:App UG:..</title>
-  <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <title>Ejemplo de imágenes de 250px de ancho con Bootstrap 5</title>
+  <!-- Agregar las referencias a los archivos de Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../../assets/general.css">
-  <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
-      display: flex;
-      justify-content: center;
-    }
-
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
-      width: 100px;
-      height: 50px;
-      border: 1px solid black;
-      text-align: center;
-      margin: 10px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mt-2">Seleccione la rima escrita correctamente.</h1>
+  <div class="container my-4">
+    <h1>Seleccione la palabra bien escrita</h1>
     <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <img src="../../assets/img/5/u3/sol_bien.png" class="img-fluid" alt="img1">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <input type="radio" class="btn-check" name="fila1" id="chk_col1" autocomplete="off" checked>
-              <label class="btn btn-outline-success" for="chk_col1">seleccione</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <img src="../../assets/img/5/u3/sol_mal.png" class="img-fluid" alt="img2">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <input type="radio" class="btn-check" name="fila1" id="chk_col2" autocomplete="off">
-              <label class="btn btn-outline-success" for="chk_col2">seleccione</label>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6 my-4">
+        <img src="https://japonesenlanube.com/wp-content/uploads/2016/05/hola-en-japones-chico.png" alt="Imagen 1"
+          class="img-fluid" width="250">
+        <br>
+        <label for="select1">Selecciona una opción:</label>
+        <select class="form-select" id="select1">
+          <option value="HOLA">HOLA</option>
+          <option value="EJERCICIO">ORA</option>
+          <option value="EJERCICIO">HIERBA</option>
+          <option value="EJERCICIO">OLA</option>
+          <option value="EJERCICIO">HIERVA</option>
+          <option value="EJERCICIO">HORA</option>
+        </select>
       </div>
 
-      <br>
+      <div class="col-md-6 my-4">
+        <img
+          src="https://images.vexels.com/media/users/3/192750/isolated/preview/b1dddd043648cc01b231473f1e0ba90b-hombre-silueta-rezando.png"
+          alt="Imagen 2" class="img-fluid" width="250">
+        <br>
+        <label for="select2">Selecciona una opción:</label>
+        <select class="form-select" id="select2">
+          <option value="opcion1">HOLA</option>
+          <option value="ORA">ORA</option>
+          <option value="EJERCICIO">HIERBA</option>
+          <option value="EJERCICIO">OLA</option>
+          <option value="EJERCICIO">HIERVA</option>
+          <option value="EJERCICIO">HORA</option>
+        </select>
+      </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <img src="../../assets/img/5/u3/gallina_mal.png" class="img-fluid" alt="img3">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <input type="radio" class="btn-check" name="fila2" id="chk_col3" autocomplete="off" checked>
-              <label class="btn btn-outline-success" for="chk_col3">seleccione</label>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6 my-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/7105/7105088.png" alt="Imagen 3" class="img-fluid" width="250">
+        <br>
+        <label for="select3">Selecciona una opción:</label>
+        <select class="form-select" id="select3">
+          <option value="opcion1">HOLA</option>
+          <option value="EJERCICIO">ORA</option>
+          <option value="HIERBA">HIERBA</option>
+          <option value="EJERCICIO">OLA</option>
+          <option value="EJERCICIO">HIERVA</option>
+          <option value="EJERCICIO">HORA</option>
+        </select>
+      </div>
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <img src="../../assets/img/5/u3/gallina_bien.png" class="img-fluid" alt="img4">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <input type="radio" class="btn-check" name="fila2" id="chk_col4" autocomplete="off">
-              <label class="btn btn-outline-success" for="chk_col4">seleccione</label>
-            </div>
-          </div>
+      <div class="col-md-6 my-4">
+        <img
+          src="https://images.vexels.com/media/users/3/158861/isolated/preview/c7db8764f69eca14c7c7c1905b246ead-ilustracion-de-mar-de-olas.png"
+          alt="Imagen 4" class="img-fluid" width="380">
+        <br>
+        <label for="select4">Selecciona una opción:</label>
+        <select class="form-select" id="select4">
+          <option value="opcion1">HOLA</option>
+          <option value="EJERCICIO">ORA</option>
+          <option value="EJERCICIO">HIERBA</option>
+          <option value="OLA">OLA</option>
+          <option value="EJERCICIO">HIERVA</option>
+          <option value="EJERCICIO">HORA</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/2226/2226293.png" alt="Imagen 4" class="img-fluid" width="250">
+        <br>
+        <label for="select4">Selecciona una opción:</label>
+        <select class="form-select" id="select5">
+          <option value="opcion1">HOLA</option>
+          <option value="EJERCICIO">ORA</option>
+          <option value="EJERCICIO">HIERBA</option>
+          <option value="EJERCICIO">OLA</option>
+          <option value="HIERVA">HIERVA</option>
+          <option value="EJERCICIO">HORA</option>
+        </select>
+      </div>
+      <!-- DE LA 6 AL 7 -->
+      <div class="col-md-6 my-4">
+        <img
+          src="https://images.vexels.com/media/users/3/234490/isolated/preview/b19efc2a6bd8c1af9b15bd36fbcfe90a-hora-del-despertador-plano.png"
+          alt="Imagen 4" class="img-fluid" width="250">
+        <br>
+        <label for="select4">Selecciona una opción:</label>
+        <select class="form-select" id="select6">
+          <option value="opcion1">HOLA</option>
+          <option value="EJERCICIO">ORA</option>
+          <option value="EJERCICIO">HIERBA</option>
+          <option value="EJERCICIO">OLA</option>
+          <option value="EJERCICIO">HIERVA</option>
+          <option value="HORA">HORA</option>
+        </select>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
         </div>
       </div>
 
     </div>
-
-    <br>
-
-    <div class="text-center">
-
-      <button id="btn_evaluar" class="btn btn-primary ">
-        Evaluar Juego
-      </button>
-
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
-    </div>
-
   </div>
 
-  <div id="alert-container"></div>
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <script src="../../assets/general.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    // Variables globales
-    var idEstudiante = 999;
-    const CURSO = "5";
-    const UNIDAD = "unidad 3";
-    const JUEGO = "asociar_imagen";
+    // Objeto con las respuestas correctas
+
+    var respuestasCorrectas = {
+      combo1: "HOLA",
+      combo2: "ORA",
+      combo3: "HIERBA",
+      combo4: "OLA",
+      combo5: "HIERVA",
+      combo6: "HORA",
+    };
+
     var puntaje = 0;
+    // Función para evaluar las respuestas
+    function evaluarRespuestas() {
+      puntaje = 0;
 
-    var evaluacion = 5;
-    var puntaje = 0;
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
+      // Obtener las respuestas seleccionadas por el usuario
+      var respuestaCombo1 = $("#select1").val();
+      var respuestaCombo2 = $("#select2").val();
+      var respuestaCombo3 = $("#select3").val();
+      var respuestaCombo4 = $("#select4").val();
+      var respuestaCombo5 = $("#select5").val();
+      var respuestaCombo6 = $("#select6").val();
 
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
+      // Comparar con las respuestas correctas y aumentar el puntaje
+      if (respuestaCombo1 === respuestasCorrectas.combo1) {
+        puntaje += 2;
+      }
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
+      if (respuestaCombo2 === respuestasCorrectas.combo2) {
+        puntaje += 2;
+      }
 
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
+      if (respuestaCombo3 === respuestasCorrectas.combo3) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo4 === respuestasCorrectas.combo4) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo5 === respuestasCorrectas.combo5) {
+        puntaje += 2;
+      }
+
+      if (respuestaCombo6 === respuestasCorrectas.combo6) {
+        puntaje += 2;
+      }
+
+
+
+      // Actualizar el puntaje en la página
 
 
 
 
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = puntaje;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+    $(document).ready(function () {
+
+
+
+
+      // Asignar la función de evaluación al botón
+      $("#btn-evaluar").on("click", _ => evaluarRespuestas());
+    });
   </script>
 </body>
 

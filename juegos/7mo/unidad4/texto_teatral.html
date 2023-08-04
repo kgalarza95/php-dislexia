@@ -1,264 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-  <title>..:seleccione palabra correcta:..</title>
   <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop Quiz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/general.css">
   <style>
-    body {
-      /*  background-image: url(fondo.jpg); */
-      /* background-color: var(--color-primario3); */
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .text-line {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .container_boton {
+    .drag-container {
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .boton_dislexia {
-      border-radius: 20px;
-      background-color: #3CA48D;
-      color: #ffffff;
-      border: 1px solid #000000;
-
-      padding: 10px 20px;
-      cursor: pointer;
-      width: 100%;
-
-    }
-
-    .boton_dislexia:hover {
-      background-color: #00ffd5;
-      color: #000000;
-    }
-
-
-
-    .fondo_container {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 50px;
-      text-align: center;
-    }
-
-
-    p {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .incorrecto {
-      color: red;
-      /* Otros estilos para resaltar la opción incorrecta */
-    }
-
-    .correcto {
-      color: green;
-      /* Otros estilos para resaltar la opción correcta */
-    }
-
-    .btn_dislexia {
-      width: 100%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-
-
-
-    .word-input {
+    .drag-item {
       width: 100px;
       height: 50px;
-      border: 1px solid black;
+      background-color: #4CAF50;
+      color: white;
       text-align: center;
-      margin: 10px;
+      line-height: 50px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: move;
+    }
+
+    .question-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .answer-input {
+      width: 200px;
+      height: 50px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #score {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="mt-2">Seleccione la palabra escrita correctamente y coloque la letra en el recuadro del concepto según
-      corresponda.</h1>
-    <div class="row">
-      <div class="col-sm-12 text-end">
-        <h3>PUNTAJE:<span id="txt_score"></span></h3>
-      </div>
+    <h1>Arrastro según corresponda la estructura de un texto teatral, y verifique que la opción esté
+      escrita correctamente.
+    </h1>
+    <div class="drag-container my-4">
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">personajes</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">actos</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">escenas</div>
+
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">acotaciones</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">acOtaCiones</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">qersonajes</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">acTos</div>
+      <div class="drag-item" draggable="true" ondragstart="dragStart(event)">esCenAs</div>
     </div>
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
-                <label class="form-check-label" for="opciona1">
-                  A) LA NARRACIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
-                <label class="form-check-label" for="opciona2">
-                  A) LA NARRASIÓN ORAL
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Son narraciones casi siempre de origen oral, basadas en algún hecho histórico que se ha recreado
-                muchísimas veces, y que han sido enriquecidas con la fantasía y la imaginación popular. Por ello, han
-                perdido su carácter de hecho real.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
-                <label class="form-check-label" for="opcionb1">
-                  B) LA LELLENDA
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
-                <label class="form-check-label" for="opcionb2">
-                  B) LA LEYENDA
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="text" class="form-control">
-            </div>
-            <div class="col-sm-8">
-              <p>Es una forma de expresión que tiene su origen en la necesidad de comunicación de los seres humanos.
-                Narrar es un acto muy cercano a la conversación que ha unido a las familias, a los pueblos y a las
-                comunidades desde la antigüedad. </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="question-container">
+      <div class="question">1. Javier invita a Sofia a unirse a él en una sesión de fotos</div>
+      <input type="text" class="answer-input" id="answerInput1" placeholder="Arrastra la respuesta correcta aquí">
     </div>
 
-    <div class="row text-center">
-      <div class="col-sm-2 ">
-      </div>
-      <div class="col-sm-3">
-        <button id="btn_evaluar" class="boton_dislexia ">
-          Evaluar Juego
-        </button>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-3 ">
-        <button id="btn_nuevo" class="boton_dislexia">
-          Nuevo
-        </button>
-      </div>
-      <div class="col-sm-2 ">
+    <div class="question-container">
+      <div class="question">2. En la escena, Sofia muestra su novela inacabada a Javier, quien la alienta y elogia su
+        talento. Se comprometen a apoyarse mutuamente en sus sueños artísticos.</div>
+      <input type="text" class="answer-input" id="answerInput2" placeholder="Arrastra la respuesta correcta aquí">
+    </div>
+
+    <div class="question-container">
+      <div class="question">3. El protagonista descubre una carta misteriosa dejada en su puerta.</div>
+      <input type="text" class="answer-input" id="answerInput3" placeholder="Arrastra la respuesta correcta aquí">
+    </div>
+
+    <div class="question-container">
+      <div class="question">4. (Se abre el telón)
+        (El personaje susurra)
+        (La música se intensifica)
+        (El escenario se oscurece)
+        (El personaje camina lentamente hacia la puerta)
+        (Se escucha un estruendo a lo lejos)
+        (El personaje mira a la audiencia con tristeza)
+        (Se enciende una luz tenue en el fondo del escenario)
+        (El personaje sonríe nerviosamente)
+        (Se escucha un fuerte aplauso)</div>
+      <input type="text" class="answer-input" id="answerInput4" placeholder="Arrastra la respuesta correcta aquí">
+    </div>
+
+    <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
+    <div id="score">Puntuación: 0</div>
+  </div>
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
       </div>
     </div>
   </div>
 
-  <div id="alert-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <!--  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
-  <script src="../../assets/general.js"></script>
 
   <script>
-    // Variables globales
-    var idEstudiante;
-    var evaluacion = 5;
-    var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
+    let currentDraggedData = "";
+    let score = 0;
 
-    // Asignar eventos a los botones
-    const btnEvaluar = document.getElementById('btn_evaluar');
-    btnEvaluar.addEventListener('click', evaluarJuego);
+    function dragStart(event) {
+      // Establecer el tipo de datos que se transferirá al arrastrar
+      event.dataTransfer.setData("text/plain", event.target.textContent);
+      currentDraggedData = event.target.textContent;
+    }
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
+    document.addEventListener("dragover", function (event) {
+      // Prevenir el comportamiento predeterminado para permitir soltar
+      event.preventDefault();
+    });
 
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
+    document.addEventListener("drop", function (event) {
+      // Prevenir el comportamiento predeterminado (por ejemplo, abrir un enlace al soltar fuera del área)
+      event.preventDefault();
+      // Obtener los datos que se arrastraron
+      const data = event.dataTransfer.getData("text/plain");
+      // Establecer el valor del input con el contenido arrastrado
+      const targetInput = event.target.closest(".question-container").querySelector(".answer-input");
+      targetInput.value = data;
+      currentDraggedData = data;
+    });
 
+    document.getElementById("btn-evaluar").addEventListener("click", function () {
+      const answers = {
+        "answerInput1": "personajes",
+        "answerInput2": "actos",
+        "answerInput3": "escenas",
+        "answerInput4": "acotaciones"
+      };
 
-
-
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
+      score = 0;
+      for (const inputId in answers) {
+        const input = document.getElementById(inputId);
+        if (input.value.trim().toLowerCase() === answers[inputId].toLowerCase()) {
+          score += 2;
         }
-      });
+      }
 
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
-      });
+      document.getElementById("score").textContent = `Puntuación: ${score}`;
     });
 
 
+
+
+    function handleClick() {
+     // var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+
+      modalBody.textContent = document.getElementById("score").textContent;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+
+
   </script>
+
+
+
+
+  <!-- <script>
+  // Código JS para implementar el arrastrar y soltar con Sortable de jQuery UI
+
+  $(function () {
+    $(".drag-container").sortable({
+      connectWith: ".drag-container",
+      tolerance: "pointer"
+    }).disableSelection();
+  });
+</script> -->
 </body>
 
 </html>
