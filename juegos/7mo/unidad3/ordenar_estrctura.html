@@ -7,7 +7,7 @@
   <title>Ordena la Carta</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/general.css">
+  <link rel="stylesheet" href="../../assets/general.css">
   <style>
     body {
       background-color: #f0f0f0;
@@ -159,14 +159,19 @@
   </div>
 
 
-  
- <script src="../../assets/general.js"></script>
+
+  <script src="../../assets/general.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
   <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "ordenar_estrctura";
+    var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -176,7 +181,10 @@
     function handleClick() {
       var numeroAleatorio = generarNumeroAleatorio(1, 10);
       var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent =  numeroAleatorio;
+      modalBody.textContent = numeroAleatorio;
+      puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
