@@ -19,6 +19,7 @@ function mostrarAlerta(tipo, mensaje) {
 // Configurar la URL de la solicitud
 //var url = `http://${IP}/php_api_dislexia/save_score.php`;
 var url = `http://localhost/php_api_dislexia/save_score.php`;
+//var url = `http://localhost/php-dislexia/save_score.php`;
 
 // Función para enviar la puntuación al servidor
 function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
@@ -33,6 +34,7 @@ function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
     var opciones = {
         method: 'POST',
         headers: {
+            'accept': 'application/json ',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(datos)

@@ -153,9 +153,7 @@
         Evaluar Juego
       </button>
 
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
+      <button id="clearButton" class="btn btn-secondary">Nuevo</button>
     </div>
   </div>
 
@@ -200,6 +198,10 @@
 
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+
+    document.getElementById('clearButton').addEventListener('click', () => {
+      location.reload();
+    });
   </script>
 </body>
 
