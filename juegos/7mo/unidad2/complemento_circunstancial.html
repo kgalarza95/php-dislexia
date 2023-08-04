@@ -151,10 +151,21 @@
       </ul>
 
     </div>
-    <div class="row my-4">
+    <!--  <div class="row my-4">
       <div class="col-md-12 text-center">
         <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
       </div>
+    </div> -->
+
+    <div class="text-center">
+
+      <button id="btn-evaluar" class="btn btn-primary ">
+        Evaluar Juego
+      </button>
+
+      <button id="btn_nuevo" class="btn btn-primary">
+        Nuevo
+      </button>
     </div>
 
   </div>
@@ -174,7 +185,7 @@
       </div>
     </div>
   </div>
-
+  <script src="../../assets/general.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -221,7 +232,7 @@
     function handleClick() {
       var numeroAleatorio = generarNumeroAleatorio(1, 10);
       var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent =  numeroAleatorio;
+      modalBody.textContent = numeroAleatorio;
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();

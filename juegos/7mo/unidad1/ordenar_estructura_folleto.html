@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../assets/general.css">
   <style>
     /* Estilos adicionales para centrar el contenido */
-  
+
 
     .arrow {
       font-size: 2rem;
@@ -131,7 +131,7 @@
 
 <body>
   <div class="container">
-   
+
     <div class="row">
       <div class="col text-center">
         <!-- Título del diseño infantil -->
@@ -142,7 +142,7 @@
         <div class="img-container">
           <img
             src="https://marketplace.canva.com/EAFYPK679HU/1/0/1600w/canva-folleto-educaci%C3%B3n-ambiental-recortes-verde-y-marr%C3%B3n-kRDY1NtpY5A.jpg"
-            alt="Imagen"  class="img-fluid">
+            alt="Imagen" class="img-fluid">
         </div>
 
         <div class="col-md-10">
@@ -195,15 +195,27 @@
       </div>
     </div>
 
-    <div class="row my-4">
+    <!-- <div class="row my-4">
       <div class="col-sm-12 text-center">
         <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
       </div>
+    </div> -->
+
+    <div class="text-center">
+
+      <button id="btn-evaluar" class="btn btn-primary ">
+        Evaluar Juego
+      </button>
+
+      <button id="btn_nuevo" class="btn btn-primary">
+        Nuevo
+      </button>
     </div>
+
   </div>
 
-   <!-- Modal -->
-   <div class="modal" id="modalPuntaje">
+  <!-- Modal -->
+  <div class="modal" id="modalPuntaje">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -217,6 +229,7 @@
     </div>
   </div>
 
+  <script src="../../assets/general.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -282,7 +295,7 @@
     function handleClick() {
       var numeroAleatorio = generarNumeroAleatorio(1, 10);
       var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent =  numeroAleatorio;
+      modalBody.textContent = numeroAleatorio;
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
