@@ -162,3 +162,35 @@
 [2023-08-04 14:12:36] [OK] Inicio de operación
 [2023-08-04 14:12:36] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 3","juego":"asocie_imagen","puntaje":3}
 [2023-08-04 14:12:36] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 14:16:04] [OK] ..:save_score:..
+[2023-08-04 14:16:04] [OK] Inicio de operación
+[2023-08-04 14:16:04] [OK] entrada: null
+[2023-08-04 14:16:04] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 14:16:04] [OK] ..:save_score:..
+[2023-08-04 14:16:04] [OK] Inicio de operación
+[2023-08-04 14:16:04] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 2","juego":"refran_correcto","puntaje":7}
+[2023-08-04 14:16:04] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 14:16:07] [OK] ..:save_score:..
+[2023-08-04 14:16:07] [OK] Inicio de operación
+[2023-08-04 14:16:07] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 2","juego":"refran_correcto","puntaje":5}
+[2023-08-04 14:16:07] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 14:17:39] [OK] ..:save_score:..
+[2023-08-04 14:17:39] [OK] Inicio de operación
+[2023-08-04 14:17:39] [OK] entrada: null
+[2023-08-04 14:17:39] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 14:17:39] [OK] ..:save_score:..
+[2023-08-04 14:17:39] [OK] Inicio de operación
+[2023-08-04 14:17:39] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 2","juego":"verbo_impersonal","puntaje":3}
+[2023-08-04 14:17:39] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 14:18:00] [OK] ..:save_score:..
+[2023-08-04 14:18:00] [OK] Inicio de operación
+[2023-08-04 14:18:00] [OK] entrada: null
+[2023-08-04 14:18:00] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 14:18:00] [OK] ..:save_score:..
+[2023-08-04 14:18:00] [OK] Inicio de operación
+[2023-08-04 14:18:00] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 2","juego":"verbo_impersonal","puntaje":4}
+[2023-08-04 14:18:00] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 14:18:04] [OK] ..:save_score:..
+[2023-08-04 14:18:04] [OK] Inicio de operación
+[2023-08-04 14:18:04] [OK] entrada: {"id_estudiante":12,"curso":"6","unidad":"unidad 2","juego":"verbo_impersonal","puntaje":8}
+[2023-08-04 14:18:04] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}

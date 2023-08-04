@@ -94,6 +94,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script>
+    var idEstudiante = 11;
+    const CURSO = "6";
+    const UNIDAD = "unidad 1";
+    const JUEGO = "nucleo_sujeto";
+    var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -107,6 +112,9 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+      puntaje = numeroAleatorio;
+
+guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     // Vincular el evento de clic al botón

@@ -135,6 +135,11 @@
     crossorigin="anonymous"></script>
 
   <script>
+    var idEstudiante = 11;
+    const CURSO = "6";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "refran_correcto";
+    var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -148,6 +153,9 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+      puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     // Vincular el evento de clic al botón
