@@ -2,3 +2,39 @@
 [2023-08-04 13:12:19] [OK] Inicio de operación
 [2023-08-04 13:12:19] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"numero_a_imagen","puntaje":0}
 [2023-08-04 13:12:19] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:16:49] [OK] ..:save_score:..
+[2023-08-04 13:16:49] [OK] Inicio de operación
+[2023-08-04 13:16:49] [OK] entrada: null
+[2023-08-04 13:16:49] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 13:16:49] [OK] ..:save_score:..
+[2023-08-04 13:16:49] [OK] Inicio de operación
+[2023-08-04 13:16:49] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"numero_a_imagen","puntaje":0}
+[2023-08-04 13:16:49] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:16:57] [OK] ..:save_score:..
+[2023-08-04 13:16:57] [OK] Inicio de operación
+[2023-08-04 13:16:57] [OK] entrada: null
+[2023-08-04 13:16:57] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 13:16:57] [OK] ..:save_score:..
+[2023-08-04 13:16:57] [OK] Inicio de operación
+[2023-08-04 13:16:57] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"numero_a_imagen","puntaje":0}
+[2023-08-04 13:16:57] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:18:55] [OK] ..:save_score:..
+[2023-08-04 13:18:55] [OK] Inicio de operación
+[2023-08-04 13:18:55] [OK] entrada: null
+[2023-08-04 13:18:55] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-04 13:18:55] [OK] ..:save_score:..
+[2023-08-04 13:18:55] [OK] Inicio de operación
+[2023-08-04 13:18:55] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"numero_a_imagen","puntaje":0}
+[2023-08-04 13:18:55] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:20:08] [OK] ..:save_score:..
+[2023-08-04 13:20:08] [OK] Inicio de operación
+[2023-08-04 13:20:08] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"numero_a_imagen","puntaje":6}
+[2023-08-04 13:20:08] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:27:24] [OK] ..:save_score:..
+[2023-08-04 13:27:24] [OK] Inicio de operación
+[2023-08-04 13:27:24] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"oracion_escrita_correctamente","puntaje":0}
+[2023-08-04 13:27:24] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-04 13:32:03] [OK] ..:save_score:..
+[2023-08-04 13:32:03] [OK] Inicio de operación
+[2023-08-04 13:32:03] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"texto_teatral","puntaje":"Puntuaci\u00f3n: 0"}
+[2023-08-04 13:32:03] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
