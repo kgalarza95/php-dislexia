@@ -140,9 +140,7 @@
 
         <!-- Imagen con diseño infantil -->
         <div class="img-container">
-          <img
-            src="../../assets/img/7/folleto.jpg"
-            alt="Imagen" class="img-fluid">
+          <img src="../../assets/img/7/folleto.jpg" alt="Imagen" class="img-fluid">
           <!-- <img
             src="https://marketplace.canva.com/EAFYPK679HU/1/0/1600w/canva-folleto-educaci%C3%B3n-ambiental-recortes-verde-y-marr%C3%B3n-kRDY1NtpY5A.jpg"
             alt="Imagen" class="img-fluid"> -->
@@ -239,7 +237,11 @@
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
   <script>
-
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 1";
+    const JUEGO = "ordenar_estructura_folleto";
+    var puntaje = 0;
     /*  $(function () {
          $(".draggable-word").draggable({ revert: "invalid" });
          $(".word-input").droppable({
@@ -289,6 +291,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 
   <script>
+    
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -302,6 +305,9 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+      puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     // Vincular el evento de clic al botón

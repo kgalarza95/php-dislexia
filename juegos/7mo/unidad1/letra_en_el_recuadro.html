@@ -244,9 +244,10 @@
     var idEstudiante;
     var evaluacion = 5;
     var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
+    const JUEGO = "letra_en_el_recuadro";
+    const CURSO = "7to";
+    const UNIDAD = "unidad 1";
+    
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
 
@@ -300,6 +301,7 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     // Vincular el evento de clic al botón
