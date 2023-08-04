@@ -193,7 +193,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
   <script>
 
-
+var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "complemento_circunstancial";
+    var puntaje = 0;
 
     $(function () {
       $(".draggable-word").draggable({ revert: "invalid", zIndex: 100 });
@@ -235,6 +239,9 @@
       modalBody.textContent = numeroAleatorio;
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      puntaje = numeroAleatorio;
+
+guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       modal.show();
     }
 
