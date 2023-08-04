@@ -36,3 +36,26 @@
 [2023-08-01 07:07:25] [OK] Inicio de operacion op: consulta dealumno
 [2023-08-01 07:18:13] [OK] ..:validar_usuario:..
 [2023-08-01 07:18:13] [OK] Inicio de operacion op: consulta deseptimo
+[2023-08-01 12:41:58] [OK] ..:validar_usuario:..
+[2023-08-01 12:41:58] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-01 12:43:08] [OK] ..:validar_usuario:..
+[2023-08-01 12:43:08] [OK] Inicio de operacion op: consulta desexto
+[2023-08-01 12:44:21] [OK] ..:validar_usuario:..
+[2023-08-01 12:44:21] [OK] Inicio de operacion op: consulta deseptimo 
+[2023-08-01 12:46:14] [OK] ..:validar_usuario:..
+[2023-08-01 12:46:14] [OK] Inicio de operacion op: consulta deprofesor 
+[2023-08-01 12:46:24] [OK] ..:validar_usuario:..
+[2023-08-01 12:46:24] [OK] Inicio de operacion op: consulta deprofesor 
+[2023-08-01 12:46:28] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"11","USUARIO":"sexto","NOMBRES":"Ericka  Once","SCORE":"0","ID_JUEGO":1,"NOMBRE_JUEGO":"Palabras con d, b, p, q"}]}
+[2023-08-01 14:20:13] [OK] ..:validar_usuario:..
+[2023-08-01 14:20:13] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-01 14:23:52] [OK] ..:validar_usuario:..
+[2023-08-01 14:23:52] [OK] Inicio de operacion op: consulta desexto
+[2023-08-01 14:25:20] [OK] ..:validar_usuario:..
+[2023-08-01 14:25:20] [OK] Inicio de operacion op: consulta deseptimo
+[2023-08-01 14:37:49] [OK] ..:validar_usuario:..
+[2023-08-01 14:37:49] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-01 14:37:58] [OK] ..:validar_usuario:..
+[2023-08-01 14:37:58] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-01 14:39:53] [OK] ..:validar_usuario:..
+[2023-08-01 14:39:53] [OK] Inicio de operacion op: consulta desexto
