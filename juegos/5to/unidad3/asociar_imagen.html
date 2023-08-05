@@ -132,6 +132,12 @@
   <script>
     // Objeto con las respuestas correctas
 
+    var idEstudiante = 4;
+    const CURSO = "5";
+    const UNIDAD = "unidad 3";
+    const JUEGO = "asociar_imagen";
+    var puntaje = 0;
+
     var respuestasCorrectas = {
       combo1: "HOLA",
       combo2: "ORA",
@@ -188,9 +194,10 @@
 
       var modalBody = document.getElementById("modalPuntajeBody");
       modalBody.textContent = puntaje;
-      // Mostrar el modal
+      // Mostrar el modal        
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
     $(document).ready(function () {
 

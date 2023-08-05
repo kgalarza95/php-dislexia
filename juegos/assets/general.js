@@ -22,7 +22,9 @@ var url = `http://localhost/php_api_dislexia/save_score.php`;
 //var url = `http://localhost/php-dislexia/save_score.php`;
 
 // Función para enviar la puntuación al servidor
-function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
+async function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
+    //  var url = 'YOUR_API_ENDPOINT'; // Replace this with the actual API endpoint URL
+
     var datos = {
         id_estudiante: idEstudiante,
         curso: curso,
@@ -34,28 +36,24 @@ function guardarScore(idEstudiante, curso, unidad, juego, puntaje) {
     var opciones = {
         method: 'POST',
         headers: {
-            'accept': 'application/json ',
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(datos)
     };
 
-    // Realizar la solicitud al servidor
-    fetch(url, opciones)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            if (data.codResponse === '00') {
-                //mostrarAlerta('success', data.msjResponse);
-            } else {
-                mostrarAlerta('danger', data.msjResponse);
-            }
-        })
-        .catch(function (error) {
-            mostrarAlerta('danger', 'Error al enviar la solicitud al servidor');
-        });
+    try {
+        const response = await fetch(url, opciones);
+        const data = await response.json();
+       // console.log(data);
+        if (data.codResponse === '00') {
+            //mostrarAlerta('success', data.msjResponse);
+        } else {
+            mostrarAlerta('danger', data.msjResponse);
+        }
+    } catch (error) {
+        mostrarAlerta('danger', 'Error al enviar la solicitud al servidor');
+    }
 }
 
 
