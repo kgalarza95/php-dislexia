@@ -35,31 +35,31 @@
             <li class="list-group-item d-flex align-items-center">
                 ¿
                 <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
-                    placeholder="" name="pregunta1">
+                    placeholder="">
                 de estas peliculas prefieres ver?
             </li>
             <li class="list-group-item d-flex align-items-center">
                 Te llamé por teléfono
                 <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
-                    placeholder="" name="pregunta2">
+                    placeholder="">
                 me expliques la tarea de Ciencias Naturales.
             </li>
             <li class="list-group-item d-flex align-items-center">
                 Cuando llegues de la escuela, ¿
                 <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
-                    placeholder="" name="pregunta3">
+                    placeholder="">
                 harás primero?
             </li>
             <li class="list-group-item d-flex align-items-center">
                 No te lo dije
                 <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
-                    placeholder="" name="pregunta4">
+                    placeholder="">
                 te ibas a enojar.
             </li>
             <li class="list-group-item d-flex align-items-center">
                 ¿
                 <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word=""
-                    placeholder="" name="pregunta5">
+                    placeholder="">
                 no me llamas por teléfono?
             </li>
         </ul>
@@ -112,15 +112,24 @@
         const UNIDAD = "unidad 2";
         const JUEGO = "arrastra_palabra_correcta";
         var puntaje = 0;
-
-        const respuestasCorrectas = {
-            pregunta1: "Cuál",
-            pregunta2: "Para que",
-            pregunta3: "Qué",
-            pregunta4: "Porque",
-            pregunta5: "Por qué"
-        };
-
+        /*  $(function () {
+             $(".draggable-word").draggable({ revert: "invalid" });
+             $(".word-input").droppable({
+                 drop: function (event, ui) {
+                     var currentInput = $(this);
+                     var previousWord = currentInput.attr("data-word");
+                     if (previousWord !== "") {
+                         var previousWordElement = $('<div class="draggable-word">' + previousWord + '</div>');
+                         previousWordElement.draggable({ revert: "invalid" });
+                         currentInput.parent().append(previousWordElement);
+                     }
+                     currentInput.attr("data-word", ui.draggable.text());
+                     currentInput.val(ui.draggable.text());
+                     ui.draggable.remove();
+                 }
+             });
+             $(".word-input").val("").attr("data-word", "");
+         }); */
 
         $(function () {
             $(".draggable-word").draggable({ revert: "invalid", zIndex: 100 });
@@ -141,7 +150,8 @@
             $(".word-input").val("").attr("data-word", "");
         });
 
-
+        const btnNuevo = document.getElementById('btn_nuevo');
+        btnNuevo.addEventListener('click', reload);
     </script>
     <script>
         $(document).ready(function () {
@@ -152,7 +162,9 @@
     </script>
     <script>
         // Función para generar un número aleatorio
-     
+        function generarNumeroAleatorio(minimo, maximo) {
+            return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        }
 
         // Función que se ejecutará cuando se haga clic en el botón
         function handleClick() {
@@ -167,29 +179,8 @@
             modal.show();
         }
 
-
-        function evaluarRespuestas() {
-            // Recorrer todas las preguntas
-            for (let i = 1; i <= 5; i++) {
-                const pregunta = `pregunta${i}`;
-                const respuestaUsuario = $(`input[name="${pregunta}"]`).val().trim();
-                const respuestaCorrecta = respuestasCorrectas[pregunta];
-
-                // Comparar la respuesta del usuario con la respuesta correcta (ignorando mayúsculas/minúsculas)
-                if (respuestaUsuario.toLowerCase() === respuestaCorrecta.toLowerCase()) {
-                    puntaje += 2; // Sumar 2 puntos por cada respuesta correcta
-                }
-            }
-
-            // Mostrar el puntaje en un modal
-            $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
-            $("#modalPuntaje").modal("show");
-            guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
-        }
-
-
         // Vincular el evento de clic al botón
-        document.getElementById("btn-evaluar").addEventListener("click", evaluarRespuestas);
+        document.getElementById("btn-evaluar").addEventListener("click", handleClick);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

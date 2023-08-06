@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Texto con Puntos y Comas</title>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="../../assets/general.css">
+  <style>
+    body {
+      /*  background-image: url(fondo.jpg); */
+      /* background-color: var(--color-primario3); */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .text-line {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .container_boton {
+      display: flex;
+      justify-content: center;
+    }
+
+    .boton_dislexia {
+      border-radius: 20px;
+      background-color: #3CA48D;
+      color: #ffffff;
+      border: 1px solid #000000;
+
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 100%;
+
+    }
+
+    .boton_dislexia:hover {
+      background-color: #00ffd5;
+      color: #000000;
+    }
+
+
+
+    .fondo_container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      text-align: center;
+    }
+
+
+    p {
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .incorrecto {
+      color: red;
+      /* Otros estilos para resaltar la opción incorrecta */
+    }
+
+    .correcto {
+      color: green;
+      /* Otros estilos para resaltar la opción correcta */
+    }
+
+    .btn_dislexia {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-2">Según las reglas ortográficas, seleccione si es punto o coma en cada oración </h1>
+    <div class="row">
+      <div class="col-sm-12 text-end">
+        <h3>PUNTAJE:<span id="txt_score"></span></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>◉ Juan ha trabajado de fontanero
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+          cajero
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+          camarero y carpintero
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>◉ Cuando termines los deberes
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) podrás ir al parque
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>◉ Ha llovido toda la tarde
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) Al final
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) no iremos mañana al campo
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>◉ Mariana
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) la hermana de Pedro
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) no viene a la boda
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>◉ Hemos comprado patatas
+          (<select class="punctuation-select" data-correcta=",">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>) gusanitos y piruletas para el cumpleaños
+          (<select class="punctuation-select" data-correcta=".">
+            <option value=".">.</option>
+            <option value=",">,</option>
+          </select>)
+        </p>
+      </div>
+    </div>
+
+    <div class=" text-center">
+
+      <button id="btn_evaluar" class="btn btn-primary">Evaluar</button>
+      <button id="btn_nuevo" class="btn btn-primary">Nuevo</button>
+<!-- 
+
+      <div class="col-sm-2 ">
+      </div>
+      <div class="col-sm-3">
+        <button id="btn_evaluar" class="boton_dislexia ">
+          Evaluar Juego
+        </button>
+      </div>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-3 ">
+        <button id="btn_nuevo" class="boton_dislexia">
+          Nuevo
+        </button>
+      </div>
+      <div class="col-sm-2 ">
+      </div> -->
+    </div>
+  </div>
+
+  <div id="alert-container"></div>
+
+  <script src="../../assets/general.js"></script>
+
+  <script>
+    // Variables globales
+    var idEstudiante = 999;
+    const CURSO = "5";
+    const UNIDAD = "unidad 1";
+    const JUEGO = "punto_coma";
+    var puntaje = 0;
+
+    var evaluacion = 5;
+    const txtScore = document.getElementById('txt_score');
+    const alertContainer = document.getElementById('alert-container');
+
+    // Asignar eventos a los botones
+    const btnEvaluar = document.getElementById('btn_evaluar');
+    btnEvaluar.addEventListener('click', evaluarJuego);
+
+   
+
+    // Mostrar puntaje inicial
+    txtScore.innerHTML = puntaje;
+
+    function asignarIdEstudiante(valor) {
+      idEstudiante = valor;
+    }
+
+
+
+    // Función para evaluar los selectores
+    function evaluarJuego() {
+      const selects = document.querySelectorAll('.punctuation-select');
+      let resultado = true;
+      puntaje = 0;
+
+      selects.forEach(select => {
+        const opcionSeleccionada = select.value;
+        const opcionCorrecta = select.dataset.correcta;
+
+        if (opcionSeleccionada !== opcionCorrecta) {
+          resultado = false;
+          select.classList.add('incorrecto');
+          select.classList.remove('correcto');
+        } else {
+          puntaje += evaluacion;
+          txtScore.innerHTML = puntaje;
+          select.classList.remove('incorrecto');
+          select.classList.add('correcto');
+        }
+      });
+
+      // Mostrar el resultado final
+      if (resultado) {
+        mostrarAlerta('success', '¡Todas las respuestas son correctas!');
+      } else {
+        mostrarAlerta('danger', 'Algunos selectores son incorrectos. Por favor, revísalos nuevamente.');
+      }
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

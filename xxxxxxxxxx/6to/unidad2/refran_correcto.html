@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Agrega los enlaces a Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Opciones con Radios</title>
+  <link rel="stylesheet" href="../../assets/general.css">
+</head>
+
+<body>
+  <div class="container my-4">
+    <h1 class="text-center">Seleccione el refrán correctamente escrito</h1>
+    <form>
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://images.vexels.com/media/users/3/149524/isolated/preview/059ef5ac23f89494f3954f6f706197dc-ilustracion-de-tiroteo-de-fogata.png"
+            width="20%" class="mx-auto d-block">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion1" value="N1" id="opcion1-1">
+            <label class="form-check-label" for="opcion1-1">En octubre la casa con leña se cudre.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion1" value="N2" id="opcion1-2">
+            <label class="form-check-label" for="opcion1-2">En octubre la casa con leña se cubre.</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/009/398/166/non_2x/tree-clipart-design-illustration-free-png.png"
+            width="10%" class="mx-auto d-block">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion2" value="N1" id="opcion2-1">
+            <label class="form-check-label" for="opcion2-1">Quien a duen Arbol se arrima, buena sombra le
+              cobija.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion2" value="N2" id="opcion2-2">
+            <label class="form-check-label" for="opcion2-2">Quien a buen árbol se arrima, buena sombra le
+              cobija.</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1f381.png" width="20%"
+            class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion3" value="N1" id="opcion3-1">
+            <label class="form-check-label" for="opcion3-1">A caballo REegalado, no le mires el bentado.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion3" value="N2" id="opcion3-2">
+            <label class="form-check-label" for="opcion3-2">A caballo regalado, no le mires el dentado.</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/009/665/205/non_2x/father-hugging-his-son-inside-a-house-vector-flat-character-illustration-with-a-home-interior-concept-father-and-son-hugging-house-interior-with-blue-sofa-wall-clock-table-lamp-and-bookshelf-free-png.png"
+            width="20%" class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion4" value="N1" id="opcion4-1">
+            <label class="form-check-label" for="opcion4-1">De tal Palo, tal astillA</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion4" value="N2" id="opcion4-2">
+            <label class="form-check-label" for="opcion4-2">De tal palo, tal astilla</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4 justify-content-center">
+        <div class="col text-center">
+          <img src="https://i.pinimg.com/originals/5a/61/a7/5a61a78270bc986dbc40ca71a2b5c6d4.png" width="20%"
+            class="mx-auto d-block" alt="">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion5" value="N1" id="opcion5-1">
+            <label class="form-check-label" for="opcion5-1">Las flores de mayo, me eleban el Animo.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion5" value="N2" id="opcion5-2">
+            <label class="form-check-label" for="opcion5-2">Las flores de mayo, me elevan el ánimo.</label>
+          </div>
+        </div>
+      </div>
+
+      <!--  <div class="row justify-content-center">
+        <div class="col text-center">
+          <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
+        </div>
+      </div> -->
+
+      <div class="text-center">
+
+        <button type="button" id="btn-evaluar" class="btn btn-primary ">
+          Evaluar Juego
+        </button>
+
+        <button id="btn_nuevo" class="btn btn-primary">
+          Nuevo
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/general.js"></script>
+  <!-- Agrega los enlaces a los scripts de Bootstrap 5 y, opcionalmente, jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var idEstudiante = 11;
+    const CURSO = "6";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "refran_correcto";
+    var puntaje = 0;
+    // Función para generar un número aleatorio
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = numeroAleatorio;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+      puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+  </script>
+</body>
+
+</html>

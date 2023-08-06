@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Imágenes Alineadas</title>
+  <!-- Enlaces a los archivos CSS y JS de Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/general.css">
+  <style>
+    /* Estilos personalizados para los checkboxes */
+    .custom-checkbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+
+
+    /* Estilos para el título del formulario con diseño infantil */
+    .form-title {
+      font-size: 24px;
+      color: #ff6b6b;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Estilos para las imágenes con bordes redondeados */
+    .img-fluid {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para los checkboxes con diseño infantil */
+    .custom-checkbox .form-check-input {
+      width: 30px;
+      height: 30px;
+      margin-top: 25px;
+      margin-bottom: 50px;
+    }
+
+    .custom-checkbox .form-check-input:checked {
+      background-color: #ff6b6b;
+      border-color: #ff6b6b;
+    }
+
+    /* Estilos para los contenedores col con bordes y colores para niños */
+    .col-infantil {
+      border: 4px solid #ff6b6b;
+      background-color: #ffefef;
+      border-radius: 10px;
+      padding: 10px;
+      position: relative;
+      /* Para posicionar el texto en relación a este contenedor */
+    }
+
+    /* Estilos para el texto de "Imagen A" y "Imagen B" */
+    .imagen-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff6b6b;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Estilos para el botón de "Evaluar" con colores para niños */
+    .btn-evaluar {
+      background-color: #ff6b6b;
+      border-color: #ff6b6b;
+      color: #fff;
+    }
+
+    .btn-evaluar:hover {
+      background-color: #ff8f8f;
+      border-color: #ff8f8f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container my-4">
+    <h1 class="form-title">Seleccione cuál de las dos imágenes es una poesía, según su estructura.</h1>
+    <div class="row my-4">
+      <div class="col-md-6 col-infantil">
+        <img src="https://cdn0.parabebes.com/es/posts/1/6/1/dentro_de_una_pera_5161_10_600.jpg" alt="Imagen Izquierda"
+          class="img-fluid float-start">
+        <div class="imagen-label">Imagen A</div>
+      </div>
+      <div class="col-md-6 col-infantil">
+        <img src="https://files.liveworksheets.com/def_files/2021/11/8/111080502452572193/111080502452572193001.jpg"
+          alt="Imagen Derecha" class="img-fluid float-end">
+        <div class="imagen-label">Imagen B</div>
+      </div>
+    </div>
+    <div class="row my-4">
+      <h1>Seleccione la imagen correcta:</h1>
+      <div class="col-md-6 d-flex justify-content-start align-items-center">
+        <!-- Utilizamos flexbox para centrar el checkbox -->
+        <div class="custom-checkbox form-check-inline">
+          <input type="radio" class="form-check-input" name="option" id="option1">
+          <label class="form-check-label ms-2" for="option1">Imagen A</label>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-start align-items-start">
+        <div class="custom-checkbox form-check-inline">
+          <input type="radio" class="form-check-input" name="option" id="option2">
+          <label class="form-check-label ms-2" for="option2">Imagen B</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center">
+
+      <button id="btn-evaluar" class="btn btn-primary ">
+        Evaluar Juego
+      </button>
+
+      <button id="btn_nuevo" class="btn btn-secondary">Limpiar</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../../assets/general.js"></script>
+  <!-- Enlace al archivo JS de Bootstrap 5 (jQuery requerido) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <script>
+        var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 3";
+    const JUEGO = "poesia";
+    var puntaje = 0;
+    // Función para generar un número aleatorio
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = numeroAleatorio;
+      puntaje = numeroAleatorio;
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+  </script>
+</body>
+
+</html>

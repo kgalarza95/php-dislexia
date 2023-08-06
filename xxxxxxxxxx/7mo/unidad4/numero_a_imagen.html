@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Bootstrap 5 con Canvas</title>
+  <!-- Enlace a Bootstrap 5 CSS (se asume que está disponible en línea) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/general.css">
+  <style>
+    .image-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .image-item {
+      position: relative;
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Dibuja en el recuadro de cada descripción el número de la imagen correspondiente.</h1>
+
+    <div class="image-container my-4">
+      <div class="image-item">
+        <img src="../../assets/img/7/pelota-de-playa.png" class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 1</div>
+      </div>
+
+      <div class="image-item">
+        <img src="../../assets/img/7/cuchillo-cebollero.png"
+          class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 2</div>
+      </div>
+
+      <div class="image-item">
+        <img src="../../assets/img/7/vaso-de-agua.png"
+          class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 3</div>
+      </div>
+
+      <div class="image-item">
+        <img
+          src="../../assets/img/7/paraguas.png"
+          class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 4</div>
+      </div>
+
+      <div class="image-item">
+        <img
+          src="../../assets/img/7/oso-de-peluche.png"
+          class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 5</div>
+      </div>
+
+      <div class="image-item">
+        <img src="../../assets/img/7/moneda-de-dolar.png" class="img-fluid" style="width: 100%;">
+        <div class="image-label">Imagen 6</div>
+      </div>
+    </div>
+
+    <!-- primera parte -->
+    <div class="row">
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Es azul, tiene un mango de metal y sirve para protegernos del agua.</h6>
+        <canvas id="canvas1" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Cabe en un bolsillo, es de metal y sirve para pagar.</h6>
+        <canvas id="canvas2" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Es redonda y de muchos cobres. Bota mucho. </h6>
+        <canvas id="canvas3" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+    </div>
+
+    <!-- segunda parte -->
+    <div class="row mt-4">
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Es de cristal y transparente. Se puede llenar de cualquier líquido.</h6>
+        <canvas id="canvas4" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Es afilado y tiene un mango de madera.</h6>
+        <canvas id="canvas5" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+      <div class="col-md-4 col-sm-12 my-4">
+        <h6>Es suave y blandito, tiene forma de animal</h6>
+        <canvas id="canvas6" width="200" height="100" style="border: 1px solid #000;"></canvas>
+      </div>
+    </div>
+
+
+    <div class="row my-4">
+      <div class="col-sm-12 text-center">
+        <button id="btn_nuevo" class="btn btn-secondary">Limpiar</button>
+        <button id="btn-evaluar" class="btn btn-primary">Evaluar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enlace a Bootstrap 5 JS (se asume que está disponible en línea) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="../../assets/general.js"></script>
+  <script>
+    // Variables globales
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "numero_a_imagen";
+    var puntaje = 0;
+
+    // Función para generar un número aleatorio
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    function limpiarBordes() {
+      document.getElementById("canvas1").classList.remove("border-danger");
+      document.getElementById("canvas2").classList.remove("border-danger");
+      document.getElementById("canvas3").classList.remove("border-danger");
+      document.getElementById("canvas4").classList.remove("border-danger");
+      document.getElementById("canvas5").classList.remove("border-danger");
+      document.getElementById("canvas6").classList.remove("border-danger");
+
+      document.getElementById("canvas1").classList.remove("border-success");
+      document.getElementById("canvas2").classList.remove("border-success");
+      document.getElementById("canvas3").classList.remove("border-success");
+      document.getElementById("canvas4").classList.remove("border-success");
+      document.getElementById("canvas5").classList.remove("border-success");
+      document.getElementById("canvas6").classList.remove("border-success");
+    }
+
+    var countClick = 0;
+    function handleClick() {
+      countClick = countClick + 1;
+
+      var modalBody = document.getElementById("modalPuntajeBody");
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+
+      switch (countClick) {
+        case 1:
+          modalBody.textContent = '0';
+          modal.show();
+          limpiarBordes();
+          document.getElementById("canvas1").classList.add("border-danger");
+          document.getElementById("canvas2").classList.add("border-danger");
+          document.getElementById("canvas3").classList.add("border-danger");
+          document.getElementById("canvas4").classList.add("border-danger");
+          document.getElementById("canvas5").classList.add("border-danger");
+          document.getElementById("canvas6").classList.add("border-danger");
+
+          break;
+
+        case 2:
+          puntaje = 6;
+          modalBody.textContent = '6';
+          modal.show();
+
+          limpiarBordes();
+
+          document.getElementById("canvas1").classList.add("border-success");
+          document.getElementById("canvas2").classList.add("border-danger");
+          document.getElementById("canvas3").classList.add("border-danger");
+          document.getElementById("canvas3").classList.add("border-success");
+          document.getElementById("canvas4").classList.add("border-success");
+          document.getElementById("canvas6").classList.add("border-danger");
+
+          break;
+
+        case 3:
+          puntaje = 12;
+          modalBody.textContent = '12';
+          modal.show();
+
+          limpiarBordes();
+          document.getElementById("canvas1").classList.add("border-success");
+          document.getElementById("canvas2").classList.add("border-success");
+          document.getElementById("canvas3").classList.add("border-success");
+          document.getElementById("canvas4").classList.add("border-success");
+          document.getElementById("canvas5").classList.add("border-success");
+          document.getElementById("canvas6").classList.add("border-success");
+          break;
+
+        default:
+
+          modalBody.textContent = '0';
+          countClick = 0;
+          modal.show();
+
+          limpiarBordes();
+          document.getElementById("canvas1").classList.add("border-danger");
+          document.getElementById("canvas2").classList.add("border-danger");
+          document.getElementById("canvas3").classList.add("border-danger");
+          document.getElementById("canvas4").classList.add("border-danger");
+          document.getElementById("canvas5").classList.add("border-danger");
+          document.getElementById("canvas6").classList.add("border-danger");
+          break;
+      }
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
+
+
+    // Función para obtener el contexto del canvas
+    function getContext(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      return canvas.getContext('2d');
+    }
+
+    // Función para limpiar el canvas
+    function clearCanvas(canvasId) {
+      const ctx = getContext(canvasId);
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    }
+
+    // Evento clic del botón para limpiar los canvases
+   /*  document.getElementById('clearButton').addEventListener('click', () => {
+      location.reload();
+      clearCanvas('canvas1');
+      // Limpia los demás canvases si los tienes.
+      clearCanvas('canvas2');
+      clearCanvas('canvas3');
+      clearCanvas('canvas4');
+      clearCanvas('canvas5');
+      clearCanvas('canvas6');
+    }); */
+
+    // Función para obtener las coordenadas táctiles relativas al canvas
+    function getTouchPos(canvas, evt) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.touches[0].clientX - rect.left,
+        y: evt.touches[0].clientY - rect.top
+      };
+    }
+
+    // Función para dibujar en el canvas usando eventos táctiles
+    function drawOnCanvasWithTouch(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        const pos = getMousePos(canvas, e);
+        lastX = pos.x;
+        lastY = pos.y;
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (isDrawing) {
+          const pos = getMousePos(canvas, e);
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          lastX = pos.x;
+          lastY = pos.y;
+        }
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        isDrawing = false;
+      });
+
+      // Eventos táctiles
+      canvas.addEventListener('touchstart', (e) => {
+        isDrawing = true;
+        const pos = getTouchPos(canvas, e);
+        lastX = pos.x;
+        lastY = pos.y;
+      });
+
+      canvas.addEventListener('touchmove', (e) => {
+        if (isDrawing) {
+          const pos = getTouchPos(canvas, e);
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          lastX = pos.x;
+          lastY = pos.y;
+        }
+      });
+
+      canvas.addEventListener('touchend', () => {
+        isDrawing = false;
+      });
+    }
+
+
+    //EVENTO POR MOUSE
+    function getMousePos(canvas, evt) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+
+    // Función para dibujar en el canvas
+    function drawOnCanvas(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        const pos = getMousePos(canvas, e);
+        lastX = pos.x;
+        lastY = pos.y;
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (isDrawing) {
+          const pos = getMousePos(canvas, e);
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          lastX = pos.x;
+          lastY = pos.y;
+        }
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        isDrawing = false;
+      });
+    }
+
+
+    // Llamar a la función para habilitar el dibujo con eventos táctiles en el canvas1
+    drawOnCanvasWithTouch('canvas1');
+    drawOnCanvasWithTouch('canvas2');
+    drawOnCanvasWithTouch('canvas3');
+    drawOnCanvasWithTouch('canvas4');
+    drawOnCanvasWithTouch('canvas5');
+    drawOnCanvasWithTouch('canvas6');
+
+    // Llamar a la función para habilitar el dibujo en el canvas
+    drawOnCanvas('canvas1');
+    drawOnCanvas('canvas2');
+    drawOnCanvas('canvas3');
+    drawOnCanvas('canvas4');
+    drawOnCanvas('canvas5');
+    drawOnCanvas('canvas6');
+  </script>
+</body>
+
+</html>

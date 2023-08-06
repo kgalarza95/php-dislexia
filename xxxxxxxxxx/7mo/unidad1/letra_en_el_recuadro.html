@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>..:seleccione palabra correcta:..</title>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="../../assets/general.css">
+  <style>
+    body {
+      /*  background-image: url(fondo.jpg); */
+      /* background-color: var(--color-primario3); */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .text-line {
+      /* font-family: Arial, sans-serif; */
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .container_boton {
+      display: flex;
+      justify-content: center;
+    }
+
+    .boton_dislexia {
+      border-radius: 20px;
+      background-color: #3CA48D;
+      color: #ffffff;
+      border: 1px solid #000000;
+
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 100%;
+
+    }
+
+    .boton_dislexia:hover {
+      background-color: #00ffd5;
+      color: #000000;
+    }
+
+
+
+    .fondo_container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      text-align: center;
+    }
+
+
+    p {
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .incorrecto {
+      color: red;
+      /* Otros estilos para resaltar la opción incorrecta */
+    }
+
+    .correcto {
+      color: green;
+      /* Otros estilos para resaltar la opción correcta */
+    }
+
+    .btn_dislexia {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+
+
+
+    .word-input {
+      width: 100px;
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      margin: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-2">Seleccione la palabra escrita correctamente, y coloque la letra en el recuadro del concepto
+      según corresponda.</h1>
+    <div class="row">
+      <div class="col-sm-12 text-end">
+        <h3>PUNTAJE:<span id="txt_score"></span></h3>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="opciona" id="opciona1">
+                <label class="form-check-label" for="opciona1">
+                  A) Exposición oral
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="opciona" id="opciona2">
+                <label class="form-check-label" for="opciona2">
+                  A) Exqosición oral
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-8">
+              <p>Es un impreso de varias hojas que sirve
+                como instrumento informativo o
+                publicitario.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="opcionb" id="opcionb1">
+                <label class="form-check-label" for="opcionb1">
+                  B) El folleto
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="opcionb" id="opcionb2">
+                <label class="form-check-label" for="opcionb2">
+                  B) El folleto
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-8">
+              <p>consiste en hablar en público sobre un
+                tema determinado. Esta práctica es muy
+                usada en ambientes escolares,
+                universitarios y también en espacios en
+                los que se quiere informar con más
+                detalle.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-sm-2 ">
+      </div>
+      <div class="col-sm-3">
+        <!--   <button id="btn_evaluar" class="boton_dislexia ">
+          Evaluar Juego
+        </button> -->
+
+        <input type="button" value=" Evaluar Juego" class="boton_dislexia " id="btn_evaluar">
+      </div>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-3 ">
+        <button id="btn_nuevo" class="boton_dislexia">
+          Nuevo
+        </button>
+      </div>
+      <div class="col-sm-2 ">
+      </div>
+    </div>
+  </div>
+
+  <div id="alert-container"></div>
+
+  <!-- Modal -->
+  <div class="modal" id="modalPuntaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Puntaje</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalPuntajeBody">
+          <!-- Aquí se mostrará el número aleatorio -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/general.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script>
+    // Variables globales
+    var idEstudiante;
+    var evaluacion = 5;
+    var puntaje = 0;
+    const JUEGO = "letra_en_el_recuadro";
+    const CURSO = "7to";
+    const UNIDAD = "unidad 1";
+    
+    const txtScore = document.getElementById('txt_score');
+    const alertContainer = document.getElementById('alert-container');
+
+    // Asignar eventos a los botones
+    /*     const btnEvaluar = document.getElementById('btn_evaluar');
+        btnEvaluar.addEventListener('click', evaluarJuego); */
+
+    const btnNuevo = document.getElementById('btn_nuevo');
+    btnNuevo.addEventListener('click', reload);
+
+    // Mostrar puntaje inicial
+    txtScore.innerHTML = puntaje;
+
+
+
+
+
+    // Lógica para comprobar si las palabras son correctas al soltar la letra
+    const wordInputs = document.querySelectorAll('.word-input');
+    wordInputs.forEach(input => {
+      input.addEventListener('drop', function (event) {
+        event.preventDefault();
+        const draggedWord = event.dataTransfer.getData('text');
+        const targetWord = this.getAttribute('data-word');
+        if (draggedWord === targetWord) {
+          this.value = draggedWord;
+        }
+      });
+
+      input.addEventListener('dragover', function (event) {
+        event.preventDefault();
+      });
+    });
+
+
+
+
+
+
+
+    /* aleatorio */
+    function generarNumeroAleatorio(minimo, maximo) {
+      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+    }
+
+    // Función que se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      var modalBody = document.getElementById("modalPuntajeBody");
+      modalBody.textContent = numeroAleatorio;
+      // Mostrar el modal
+      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Vincular el evento de clic al botón
+    document.getElementById("btn_evaluar").addEventListener("click", handleClick);
+  </script>
+</body>
+
+</html>
