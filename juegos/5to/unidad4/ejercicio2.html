@@ -89,9 +89,12 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
+        <button id="btn_nuevo" class="btn btn-primary">
+          Nuevo
+        </button>
       </div>
     </div>
-    
+
   </div>
 
   <!-- Modal para mostrar el puntaje -->
@@ -117,8 +120,15 @@
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../../assets/general.js"></script>
 
   <script>
+    var idEstudiante = 4;
+    const CURSO = "5";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "ejercicio2";
+    var puntaje = 10;
+
     $(document).ready(function () {
       // Objeto con las respuestas correctas
       const respuestasCorrectas = {
@@ -154,7 +164,7 @@
         var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
         //puntaje = totalPuntos;
 
-        //guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+        guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntos);
         modal.show();
       });
     });

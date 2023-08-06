@@ -124,9 +124,9 @@
   <script>
     var idEstudiante = 4;
     const CURSO = "5";
-    const UNIDAD = "unidad 1";
-    const JUEGO = "oracion_correcta";
-    var puntaje = 10;
+    const UNIDAD = "unidad 3";
+    const JUEGO = "rima_escrita_correctamente";
+    var puntaje = 0;
 
     const correctAnswers = {
       fila1: "S",
@@ -153,9 +153,9 @@
 
       });
 
-      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       document.getElementById("txt_score").innerText = score;
       actualizarColoresFilas();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     function actualizarColoresFilas() {

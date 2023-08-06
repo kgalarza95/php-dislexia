@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Puntos Suspensivos</title>
   <!-- Agregar el enlace al CSS de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="../../assets/general.css">
 </head>
 
@@ -62,33 +62,56 @@
         <div class="modal-body" id="modalPuntajeBody">
           <!-- Aquí se mostrará el número aleatorio -->
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">aceptar</button>
-
-        </div>
       </div>
     </div>
   </div>
+
   <script src="../../assets/general.js"></script>
   <!-- Agregar el enlace al JS de Bootstrap y jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-  <!--   <script>
-    function imprimirRespuesta() {
-      const opciones = document.getElementsByName('opcion');
-      let respuestaSeleccionada;
-      for (const opcion of opciones) {
-        if (opcion.checked) {
-          respuestaSeleccionada = opcion.value;
-          break;
-        }
-      }
-      alert('Respuesta seleccionada: ' + respuestaSeleccionada);
-    }
-  </script> -->
   <script>
+    var idEstudiante = 11;
+    const CURSO = "6";
+    const UNIDAD = "unidad 1";
+    const JUEGO = "puntos_suspensivos";
+    var puntaje = 0;
+
+    // Obtener el botón de evaluar y agregar un evento de clic
+    document.getElementById("btn-evaluar").addEventListener("click", function () {
+      // Obtener el valor del radio seleccionado por el usuario
+      const seleccionUsuario = document.querySelector('input[name="opcion"]:checked').value;
+
+      // Verificar si la selección del usuario es correcta
+      if (seleccionUsuario === "S") {
+        // Mostrar mensaje de puntaje ganado
+        mostrarPuntaje(10);
+      } else {
+        // Mostrar mensaje de puntaje 0 (incorrecto)
+        mostrarPuntaje(0);
+      }
+    });
+
+    // Función para mostrar el puntaje en un modal
+    function mostrarPuntaje(puntaje) {
+      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+      modalPuntajeBody.textContent = `¡Tu puntaje es: ${puntaje} puntos!`;
+
+      // Mostrar el modal
+      const modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modal.show();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Obtener el botón de nuevo y agregar un evento de clic para reiniciar el juego
+    document.getElementById("btn_nuevo").addEventListener("click", function () {
+      // Reiniciar el juego seleccionando el primer radio (valor "S") por defecto
+      document.getElementById("opcion1").checked = true;
+    });
+
+  </script>
+  <!--   <script>
 
     var idEstudiante = 11;
     const CURSO = "6";
@@ -122,7 +145,7 @@
 
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
-  </script>
+  </script> -->
 </body>
 
 </html>
