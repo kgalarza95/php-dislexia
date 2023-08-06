@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nucleo Sujeto</title>
+  <title>Núcleo Sujeto</title>
   <!-- Enlace al archivo CSS de Bootstrap 5 mediante CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/general.css">
@@ -18,63 +18,49 @@
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>El café lojano es sadroso.</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta1" placeholder="Ingresa tu respuesta">
       </div>
     </div>
 
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>El niño pasea en su dicicleta por el parque.</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta2" placeholder="Ingresa tu respuesta">
       </div>
     </div>
 
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>El bus azul no paró en donbe debía.</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta3" placeholder="Ingresa tu respuesta">
       </div>
     </div>
 
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>Nuestro gato besapareció hace un año.</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta4" placeholder="Ingresa tu respuesta">
       </div>
     </div>
 
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>La televisión nueva yega hoy.</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta5" placeholder="Ingresa tu respuesta">
       </div>
     </div>
 
     <div class="row my-4">
       <div class="col-md-6 offset-md-3">
         <label>La mamá le da el biderón a su bebé</label>
-        <input type="text" class="form-control" placeholder="Ingresa tu respuesta">
+        <input type="text" class="form-control" id="respuesta6" placeholder="Ingresa tu respuesta">
       </div>
     </div>
-
-    <!-- <div class="row my-4">
-      <div class="col-sm-12 text-center">
-        <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
-      </div>
-    </div> -->
 
     <div class="text-center">
-
-      <button id="btn-evaluar" class="btn btn-primary ">
-        Evaluar Juego
-      </button>
-
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
+      <button id="btn-evaluar" class="btn btn-primary">Evaluar Juego</button>
+      <button id="btn_nuevo" class="btn btn-primary">Nuevo</button>
     </div>
-
-
   </div>
 
   <div class="modal" id="modalPuntaje">
@@ -90,14 +76,83 @@
       </div>
     </div>
   </div>
+
   <!-- Enlace al archivo JS de Bootstrap 5 mediante CDN (opcional, para algunas funcionalidades) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="../../assets/general.js"></script>
+
   <script>
     var idEstudiante = 11;
     const CURSO = "6";
     const UNIDAD = "unidad 1";
     const JUEGO = "nucleo_sujeto";
+    let puntaje = 0;
+
+      // Objeto con las respuestas correctas
+      const respuestasCorrectas = {
+      respuesta1: "sabroso",
+      respuesta2: "bicicleta",
+      respuesta3: "donde",
+      respuesta4: "desapareció",
+      respuesta5: "llega",
+      respuesta6: "biberón"
+    };
+
+    document.getElementById("btn-evaluar").addEventListener("click", evaluarRespuestas);
+    document.getElementById("btn_nuevo").addEventListener("click", reiniciarJuego);
+
+    const respuestasEvaluadas = new Set();
+
+    function evaluarRespuestas() {
+      // Recorrer cada respuesta del usuario y evaluarla
+      for (let i = 1; i <= 6; i++) {
+        const respuestaUsuario = document.getElementById("respuesta" + i).value.trim();
+        const respuestaCorrecta = respuestasCorrectas["respuesta" + i];
+
+        // Verificar si la respuesta ya fue evaluada antes
+        if (!respuestasEvaluadas.has(respuestaUsuario)) {
+          respuestasEvaluadas.add(respuestaUsuario); // Agregar respuesta al conjunto
+
+          if (respuestaUsuario.toLowerCase() === respuestaCorrecta.toLowerCase()) {
+            puntaje += 2;
+          }
+        }
+      }
+
+
+      // Mostrar el puntaje en un modal
+      mostrarPuntajeModal();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    function mostrarPuntajeModal() {
+      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+      modalPuntajeBody.textContent = "Tu puntaje es: " + puntaje;
+
+      // Mostrar el modal
+      const modalPuntaje = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modalPuntaje.show();
+    }
+
+    function reiniciarJuego() {
+      // Reiniciar el puntaje, conjunto de respuestas evaluadas y borrar las respuestas ingresadas por el usuario
+      puntaje = 0;
+      respuestasEvaluadas.clear();
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById("respuesta" + i).value = "";
+      }
+
+      // Cerrar el modal si está abierto
+      const modalPuntaje = bootstrap.Modal.getInstance(document.getElementById("modalPuntaje"));
+      if (modalPuntaje) {
+        modalPuntaje.hide();
+      }
+    }
+  </script>
+
+
+<!--   <script>
+
     var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
@@ -114,12 +169,13 @@
       modal.show();
       puntaje = numeroAleatorio;
 
-guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+   
     }
 
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
-  </script>
+  </script> -->
+
 </body>
 
 </html>
