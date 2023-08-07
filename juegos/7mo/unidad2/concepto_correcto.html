@@ -40,6 +40,14 @@
       text-shadow: 2px 2px 4px #333;
       margin-bottom: 20px;
     }
+
+    input[type="radio"] {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      /* Espacio entre el botón de radio y el texto */
+     
+    }
   </style>
 </head>
 
@@ -53,11 +61,13 @@
         <p class="paragraph-style">Es un texto que cuenta la vida de alguien. Está relatado en tercera persona. Para
           elaborarla se debe hacer una investigación seria y documentada de manera que sean verificables y estén
           respaldados los datos que incluirá la narración. .</p>
+        <input type="radio" value="S" name="respuesta1" id="respuesta1">
       </div>
       <div class="col-md-6">
         <p class="paragraph-style">es un texto que Cuenta la vida de alguien. Esta reLatado en Tercera persona. Para
-          eladorarla se debe aser una investigación seria y documentada de manera pue sean veriFicables y estén
-          Respaldados los batos que incluirá la narración. </p>
+          eladorarla se debe aser una investigaciOn seria y documentada de manera pue sean veriFicables y estén
+          Respaldados los batos que incluirá la narraciOn. </p>
+        <input type="radio" value="N" name="respuesta1" id="respuesta1">
       </div>
     </div>
     <div class="row my-4">
@@ -65,10 +75,12 @@
       <div class="col-md-6">
         <p class="paragraph-style">Es la historia de una vida narrada por su protagonista. Es decir, contada por la
           misma persona, a diferencia de la biografía que es la vida narrada por otra persona. </p>
+        <input type="radio" value="S" name="respuesta2" id="respuesta2">
       </div>
       <div class="col-md-6">
         <p class="paragraph-style">es la istoria de una vida narrada por su Protagonista. es decir, contada por la misma
           qersona, a diferensia de la biografía pue es la vida narrada por otra pErsona. </p>
+        <input type="radio" value="N" name="respuesta2" id="respuesta2">
       </div>
     </div>
 
@@ -108,8 +120,55 @@
   <script src="../../assets/general.js"></script>
   <!-- Enlace al archivo de JavaScript de Bootstrap 5 (opcional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "concepto_correcto";
+    //var puntaje = 0;
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
+      respuesta1: "S",
+      respuesta2: "S",
+      // Agrega aquí más respuestas correctas si hay más preguntas
+    };
+
+    // Función para evaluar las respuestas y calcular el puntaje
+    function evaluarRespuestas() {
+      let puntaje = 0;
+
+      // Comparamos cada respuesta del usuario con la respuesta correcta
+      for (const pregunta in respuestasCorrectas) {
+        const respuestaUsuario = document.querySelector(`input[name="${pregunta}"]:checked`);
+        if (respuestaUsuario && respuestaUsuario.value === respuestasCorrectas[pregunta]) {
+          puntaje += 5; // Sumamos 2 puntos por cada respuesta correcta
+        }
+      }
+
+      // Mostramos el puntaje en el modal
+      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+      modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje} puntos`;
+
+      // Mostramos el modal con el puntaje
+      const modalPuntaje = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+      modalPuntaje.show();
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Event listener para el botón "Evaluar Juego"
+    const btnEvaluar = document.getElementById("btn-evaluar");
+    btnEvaluar.addEventListener("click", evaluarRespuestas);
+
+
+  </script>
+
+</body>
+
+</html>
+
+
+<!-- 
+    <script>
     var idEstudiante = 12;
     const CURSO = "7";
     const UNIDAD = "unidad 2";
@@ -137,6 +196,4 @@
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
   </script>
-</body>
-
-</html>
+ -->

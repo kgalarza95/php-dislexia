@@ -1,4 +1,4 @@
-var IP = "192.168.1.48";
+var IP = "192.168.100.5";
 
 
 
@@ -160,19 +160,19 @@ function showStudents(courseId) {
         });
 
 
-  /*   const studentsInCourse = [
-        { id: 1, name: "Estudiante 1" },
-        { id: 2, name: "Estudiante 2" },
-        // ... agregar más estudiantes
-    ];
-
-    studentsInCourse.forEach(student => {
-        const studentItem = document.createElement("li");
-        studentItem.className = "list-group-item";
-        studentItem.textContent = student.name;
-        studentItem.addEventListener("click", () => showActivities(student.id));
-        studentList.appendChild(studentItem);
-    }); */
+    /*   const studentsInCourse = [
+          { id: 1, name: "Estudiante 1" },
+          { id: 2, name: "Estudiante 2" },
+          // ... agregar más estudiantes
+      ];
+  
+      studentsInCourse.forEach(student => {
+          const studentItem = document.createElement("li");
+          studentItem.className = "list-group-item";
+          studentItem.textContent = student.name;
+          studentItem.addEventListener("click", () => showActivities(student.id));
+          studentList.appendChild(studentItem);
+      }); */
 
     console.log("fin de consulta de estudiantes");
 
@@ -201,18 +201,18 @@ function showActivities(studentId) {
 
     // Cargar y mostrar la lista de actividades y puntajes
     // Aquí puedes agregar el código para cargar y mostrar la lista de actividades y puntajes del estudiante seleccionado
-   /*  const studentActivities = [
-        { id: 1, name: "Actividad 1", score: 85 },
-        { id: 2, name: "Actividad 2", score: 92 },
-        // ... agregar más actividades
-    ];
-
-    studentActivities.forEach(activity => {
-        const activityItem = document.createElement("li");
-        activityItem.className = "list-group-item";
-        activityItem.textContent = `${activity.name} - Puntaje: ${activity.score}`;
-        activityList.appendChild(activityItem);
-    }); */
+    /*  const studentActivities = [
+         { id: 1, name: "Actividad 1", score: 85 },
+         { id: 2, name: "Actividad 2", score: 92 },
+         // ... agregar más actividades
+     ];
+ 
+     studentActivities.forEach(activity => {
+         const activityItem = document.createElement("li");
+         activityItem.className = "list-group-item";
+         activityItem.textContent = `${activity.name} - Puntaje: ${activity.score}`;
+         activityList.appendChild(activityItem);
+     }); */
 
     const url = `${URL_}${actividades}?estudiante_id=${studentId}`;
     fetch(url)
