@@ -15,8 +15,6 @@
       height: 100%;
     }
 
-
-
     /* Estilos para el título del formulario con diseño infantil */
     .form-title {
       font-size: 24px;
@@ -78,6 +76,16 @@
       background-color: #ff8f8f;
       border-color: #ff8f8f;
     }
+
+    /* Estilo para el borde verde en respuestas correctas */
+    .respuesta-correcta {
+      border-color: #2ecc71 !important;
+    }
+
+    /* Estilo para el borde rojo en respuestas incorrectas */
+    .respuesta-incorrecta {
+      border-color: #e74c3c !important;
+    }
   </style>
 </head>
 
@@ -92,8 +100,8 @@
         <div class="imagen-label">Imagen A</div>
       </div>
       <div class="col-md-6 col-infantil">
-        <img src="https://files.liveworksheets.com/def_files/2021/11/8/111080502452572193/111080502452572193001.jpg"
-          alt="Imagen Derecha" class="img-fluid float-end">
+        <img src="https://es-static.z-dn.net/files/db0/705b0513f9d720b0175dc2b819a74ee8.png"
+          alt="Imagen Derecha" class="img-fluid ">
         <div class="imagen-label">Imagen B</div>
       </div>
     </div>
@@ -102,28 +110,24 @@
       <div class="col-md-6 d-flex justify-content-start align-items-center">
         <!-- Utilizamos flexbox para centrar el checkbox -->
         <div class="custom-checkbox form-check-inline">
-          <input type="radio" class="form-check-input" name="option" id="option1">
+          <input type="radio" class="form-check-input" value="A" name="option" id="option1">
           <label class="form-check-label ms-2" for="option1">Imagen A</label>
         </div>
       </div>
       <div class="col-md-6 d-flex justify-content-start align-items-start">
         <div class="custom-checkbox form-check-inline">
-          <input type="radio" class="form-check-input" name="option" id="option2">
+          <input type="radio" class="form-check-input" value="B" name="option" id="option2">
           <label class="form-check-label ms-2" for="option2">Imagen B</label>
         </div>
       </div>
-
     </div>
 
     <div class="text-center">
-
-      <button id="btn-evaluar" class="btn btn-primary ">
+      <button id="btn-evaluar" class="btn btn-primary">
         Evaluar Juego
       </button>
 
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
+      <button id="btn_nuevo" class="btn btn-secondary">Limpiar</button>
     </div>
   </div>
 
@@ -141,12 +145,79 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+      var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 3";
+    const JUEGO = "poesia";
+    var puntaje = 0;
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
+      imagenCorrecta: 'A', // 'A' para la imagen A, 'B' para la imagen B
+    };
+
+    // Variable para almacenar el puntaje del usuario
+    let puntajeUsuario = 0;
+
+    // Función para evaluar las respuestas del usuario
+    function evaluarRespuestas() {
+      const opcionSeleccionada = document.querySelector('input[name="option"]:checked');
+      if (opcionSeleccionada) {
+        const respuestaUsuario = opcionSeleccionada.value;
+        const modalPuntajeBody = document.getElementById('modalPuntajeBody');
+        if (respuestaUsuario === respuestasCorrectas.imagenCorrecta) {
+          puntajeUsuario += 10;
+          modalPuntajeBody.textContent = `¡Respuesta correcta! Tu puntaje es: ${puntajeUsuario}`;
+          opcionSeleccionada.parentNode.parentNode.classList.add('respuesta-correcta');
+        } else {
+          modalPuntajeBody.textContent = `Respuesta incorrecta. Tu puntaje es: ${puntajeUsuario}`;
+          opcionSeleccionada.parentNode.parentNode.classList.add('respuesta-incorrecta');
+        }
+
+        $('#modalPuntaje').modal('show');
+        guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntajeUsuario);
+
+      } else {
+        modalPuntajeBody.textContent = `Debes seleccionar una respuesta antes de evaluar.`;
+        $('#modalPuntaje').modal('show');
+      }
+    }
+
+    // Función para limpiar las respuestas y el puntaje del usuario
+    function limpiarRespuestas() {
+      const opciones = document.querySelectorAll('input[name="option"]');
+      opciones.forEach(opcion => {
+        opcion.checked = false;
+        opcion.parentNode.parentNode.classList.remove('respuesta-correcta', 'respuesta-incorrecta');
+      });
+      puntajeUsuario = 0;
+    }
+
+    // Asignar eventos a los botones
+    document.getElementById('btn-evaluar').addEventListener('click', evaluarRespuestas);
+    document.getElementById('btn_nuevo').addEventListener('click', limpiarRespuestas);
+  </script>
 
   <script src="../../assets/general.js"></script>
   <!-- Enlace al archivo JS de Bootstrap 5 (jQuery requerido) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-  <script>
+</body>
+
+</html>
+
+
+
+
+<!-- 
+   <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 3";
+    const JUEGO = "poesia";
+    var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -157,6 +228,17 @@
       var numeroAleatorio = generarNumeroAleatorio(1, 10);
       var modalBody = document.getElementById("modalPuntajeBody");
       modalBody.textContent = numeroAleatorio;
+      puntaje = numeroAleatorio;
+
+
+      if (puntaje == 10) {
+        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
+
+      
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
@@ -165,6 +247,4 @@
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
   </script>
-</body>
-
-</html>
+ -->

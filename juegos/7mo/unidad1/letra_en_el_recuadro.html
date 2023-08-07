@@ -138,7 +138,10 @@
         <div class="col-sm-6">
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" class="form-control">
+              <select name="" id="combo1" class="form-select">
+                <option value="">A</option>
+                <option value="S">B</option>
+              </select>
             </div>
             <div class="col-sm-8">
               <p>Es un impreso de varias hojas que sirve
@@ -179,7 +182,11 @@
         <div class="col-sm-6">
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" class="form-control">
+
+              <select name="" id="combo2" class="form-select">
+                <option value="S">A</option>
+                <option value="">B</option>
+              </select>
             </div>
             <div class="col-sm-8">
               <p>consiste en hablar en público sobre un
@@ -234,77 +241,225 @@
     </div>
   </div>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../assets/general.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
   <script>
     // Variables globales
-    var idEstudiante;
+    var idEstudiante = 12;
     var evaluacion = 5;
     var puntaje = 0;
-    const JUEGO = "punto_coma";
-    const CURSO = "5to";
-    const UNIDAD = "1";
-    const txtScore = document.getElementById('txt_score');
-    const alertContainer = document.getElementById('alert-container');
 
-    // Asignar eventos a los botones
-    /*     const btnEvaluar = document.getElementById('btn_evaluar');
-        btnEvaluar.addEventListener('click', evaluarJuego); */
+    const JUEGO = "letra_en_el_recuadro";
+    const CURSO = "7mo";
+    const UNIDAD = "unidad 1";
 
-    const btnNuevo = document.getElementById('btn_nuevo');
-    btnNuevo.addEventListener('click', reload);
+    document.addEventListener("DOMContentLoaded", function () {
+      let score = 0;
+      let prevUserAnswers = {}; // Variable para almacenar las respuestas seleccionadas previamente
 
-    // Mostrar puntaje inicial
-    txtScore.innerHTML = puntaje;
+      const answers = {
+        opciona: "opciona1",
+        opcionb: "opcionb1",
+        opcionc1: "S", // Respuesta correcta del primer combo
+        opcionc2: "S", // Respuesta correcta del segundo combo
+      };
 
+      const inputs = {
+        opciona: document.getElementsByName("opciona"),
+        opcionb: document.getElementsByName("opcionb"),
+      };
 
+      const conceptInputs = document.querySelectorAll(".form-control");
+      const combo1 = document.querySelector("#combo1");
+      const combo2 = document.querySelector("#combo2");
 
+      function evaluateAnswers() {
+        let userAnswers = {};
 
-
-    // Lógica para comprobar si las palabras son correctas al soltar la letra
-    const wordInputs = document.querySelectorAll('.word-input');
-    wordInputs.forEach(input => {
-      input.addEventListener('drop', function (event) {
-        event.preventDefault();
-        const draggedWord = event.dataTransfer.getData('text');
-        const targetWord = this.getAttribute('data-word');
-        if (draggedWord === targetWord) {
-          this.value = draggedWord;
+        for (const key in inputs) {
+          for (let i = 0; i < inputs[key].length; i++) {
+            if (inputs[key][i].checked) {
+              userAnswers[key] = inputs[key][i].id;
+            }
+          }
         }
-      });
 
-      input.addEventListener('dragover', function (event) {
-        event.preventDefault();
+        userAnswers.opcionc1 = combo1.value; // Obtener la respuesta seleccionada del primer combo
+        userAnswers.opcionc2 = combo2.value; // Obtener la respuesta seleccionada del segundo combo
+
+        let conceptScores = 0;
+        for (let i = 0; i < conceptInputs.length; i++) {
+          if (conceptInputs[i].value.trim().toLowerCase() === answers[`opcion${String.fromCharCode(97 + i)}`]) {
+            conceptScores += 2.5;
+          }
+        }
+
+        let scoreChange = false;
+
+        // Verificar si el usuario seleccionó correctamente la opción de radio con la respuesta escrita correctamente
+        for (const key in userAnswers) {
+          if (userAnswers[key] === answers[key] && userAnswers[key] !== prevUserAnswers[key]) {
+            scoreChange = true;
+          } else if (userAnswers[key] !== answers[key] && prevUserAnswers[key] === answers[key]) {
+            scoreChange = true;
+          }
+
+
+        }
+
+        // Verificar si el usuario seleccionó "S" en ambos combos y la respuesta del radio es correcta
+        if (userAnswers.opcionc1 === answers.opcionc1 && userAnswers.opcionc2 === answers.opcionc2) {
+          const selectedRadioValue = document.querySelector(`input[name="opciona"]:checked`)?.value;
+          if (selectedRadioValue && selectedRadioValue.toLowerCase() === answers.opciona) {
+            scoreChange = true;
+          }
+        }
+
+        if (scoreChange) {
+          score = 0;
+
+          // Otorgar 2 puntos si el usuario seleccionó correctamente la opción de radio y el combo
+          for (const key in userAnswers) {
+            if (userAnswers[key] === answers[key]) {
+              score += 2.5;
+            }
+          }
+
+          // Verificar si el usuario seleccionó "S" en ambos combos y la respuesta del radio es correcta
+          const selectedRadioValue = document.querySelector(`input[name="opciona"]:checked`)?.value;
+          if (userAnswers.opcionc1 === answers.opcionc1 && userAnswers.opcionc2 === answers.opcionc2 && selectedRadioValue && selectedRadioValue.toLowerCase() === answers.opciona) {
+            score += 2.5;
+          }
+
+          prevUserAnswers = { ...userAnswers }; // Actualizar las respuestas seleccionadas previamente
+        }
+
+        score += conceptScores;
+        mostrarPuntaje(score);
+        guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, score);
+        displayScore();
+
+      }
+
+      function displayScore() {
+        const scoreElement = document.getElementById("txt_score");
+        scoreElement.textContent = score;
+      }
+
+      document.getElementById("btn_evaluar").addEventListener("click", evaluateAnswers);
+
+      document.getElementById("btn_nuevo").addEventListener("click", function () {
+        score = 0;
+        prevUserAnswers = {}; // Restablecer las respuestas seleccionadas previamente
+        displayScore();
+
+        for (const key in inputs) {
+          for (let i = 0; i < inputs[key].length; i++) {
+            inputs[key][i].checked = false;
+          }
+        }
+
+        for (let i = 0; i < conceptInputs.length; i++) {
+          conceptInputs[i].value = "";
+        }
+
+        combo1.value = ""; // Restablecer la selección del primer combo
+        combo2.value = ""; // Restablecer la selección del segundo combo
       });
     });
 
 
-
-
-
-
-
-    /* aleatorio */
-    function generarNumeroAleatorio(minimo, maximo) {
-      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
-    }
-
-    // Función que se ejecutará cuando se haga clic en el botón
-    function handleClick() {
-      var numeroAleatorio = generarNumeroAleatorio(1, 10);
-      var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent = numeroAleatorio;
-      // Mostrar el modal
-      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+    function mostrarPuntaje(puntaje) {
+      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+      modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje}`;
+      if (puntaje == 10) {
+        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
+      const modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
     }
-
-    // Vincular el evento de clic al botón
-    document.getElementById("btn_evaluar").addEventListener("click", handleClick);
   </script>
+
+
 </body>
 
 </html>
+
+<!-- 
+
+<script>
+  // Variables globales
+  var idEstudiante;
+  var evaluacion = 5;
+  var puntaje = 0;
+  const JUEGO = "letra_en_el_recuadro";
+  const CURSO = "7to";
+  const UNIDAD = "unidad 1";
+
+  const txtScore = document.getElementById('txt_score');
+  const alertContainer = document.getElementById('alert-container');
+
+  // Asignar eventos a los botones
+  /*     const btnEvaluar = document.getElementById('btn_evaluar');
+      btnEvaluar.addEventListener('click', evaluarJuego); */
+
+  const btnNuevo = document.getElementById('btn_nuevo');
+  btnNuevo.addEventListener('click', reload);
+
+  // Mostrar puntaje inicial
+  txtScore.innerHTML = puntaje;
+
+
+
+
+
+  // Lógica para comprobar si las palabras son correctas al soltar la letra
+  const wordInputs = document.querySelectorAll('.word-input');
+  wordInputs.forEach(input => {
+    input.addEventListener('drop', function (event) {
+      event.preventDefault();
+      const draggedWord = event.dataTransfer.getData('text');
+      const targetWord = this.getAttribute('data-word');
+      if (draggedWord === targetWord) {
+        this.value = draggedWord;
+      }
+    });
+
+    input.addEventListener('dragover', function (event) {
+      event.preventDefault();
+    });
+  });
+
+
+
+
+
+
+
+  /* aleatorio */
+  function generarNumeroAleatorio(minimo, maximo) {
+    return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+  }
+
+  // Función que se ejecutará cuando se haga clic en el botón
+  function handleClick() {
+    var numeroAleatorio = generarNumeroAleatorio(1, 10);
+    var modalBody = document.getElementById("modalPuntajeBody");
+    modalBody.textContent = numeroAleatorio;
+    // Mostrar el modal
+    var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+    modal.show();
+    guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+  }
+
+  // Vincular el evento de clic al botón
+  document.getElementById("btn_evaluar").addEventListener("click", handleClick);
+</script> -->

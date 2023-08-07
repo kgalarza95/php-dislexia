@@ -254,7 +254,7 @@
             </ul>
         </div>
         <div class="text-center">
-      <!--   <div style="display: flex; justify-content: center;"> -->
+            <!--   <div style="display: flex; justify-content: center;"> -->
             <!-- <button type="submit" class="btn btn-primary" id="btn_evaluar">Evaluar</button> -->
             <!-- <button type="button" id="btn_evaluar" class="btn btn-primary boton_dislexia" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
@@ -281,26 +281,30 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="modalPuntaje">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Puntuación</h5>
+                    <h5 class="modal-title">Puntaje</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <span id="sp_respuesta"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary boton_dislexia">Aceptar</button>
+                <div class="modal-body" id="modalPuntajeBody">
+                    <!-- Aquí se mostrará el número aleatorio -->
                 </div>
             </div>
         </div>
     </div>
 
+
     <script src="../../assets/general.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        var idEstudiante = 4;
+        const CURSO = "5";
+        const UNIDAD = "unidad 3";
+        const JUEGO = "ejercicio2";
+        var puntaje = 0;
 
         const letra = ['V', 'V', 'B', 'B', 'B', 'V', 'V', 'V', 'B', 'B', 'V', 'V', 'B', 'V'];
 
@@ -325,7 +329,19 @@
                     puntos += 0.714;
                 }
             }
-            document.getElementById('sp_respuesta').innerHTML = `Su puntuación es: ${redondearDecimal(puntos)}`;
+            puntaje = redondearDecimal(puntos);
+
+            if (puntaje == 10) {
+                $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${puntaje}`);
+            } else {
+                $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}.Tu puntaje es: ${puntaje} puntos`);
+            }
+            //$("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+            $("#modalPuntaje").modal("show");
+            // document.getElementById('sp_respuesta').innerHTML = `Su puntuación es: ${redondearDecimal(puntaje)}`;
+
+            guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+
 
         });
 

@@ -70,9 +70,33 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <label for="disabledSelect" class="form-label">Yo tomo agua en la escuela.</label>
-        <select class="form-select" aria-label="Default select example">
+        <label for="disabledSelect" id="label1" class="form-label">Yo tomo agua en la escuela.</label>
+        <select class="form-select" aria-label="Default select example" id="respuesta1">
           <option value="N">Figura A</option>
+          <option value="N">Figura B</option>
+          <option value="N">Figura C</option>
+          <option value="S">Figura D</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="disabledSelect" id="label2" class="form-label">Yo leo un libro el español. </label>
+        <select class="form-select" aria-label="Default select example" id="respuesta2">
+          <option value="N">Figura A</option>
+          <option value="N">Figura B</option>
+          <option value="S">Figura C</option>
+          <option value="N">Figura D</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="disabledSelect" id="label3" class="form-label">La señora lee una revista</label>
+        <select class="form-select" aria-label="Default select example" id="respuesta3">
+          <option value="S">Figura A</option>
           <option value="N">Figura B</option>
           <option value="N">Figura C</option>
           <option value="N">Figura D</option>
@@ -82,41 +106,17 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <label for="disabledSelect" class="form-label">Yo leo un libro el español. </label>
-        <select class="form-select" aria-label="Default select example">
+        <label for="disabledSelect" id="label4" class="form-label">La niña toma jugo de naranja.</label>
+        <select class="form-select" aria-label="Default select example" id="respuesta4">
           <option value="N">Figura A</option>
-          <option value="N">Figura B</option>
+          <option value="S">Figura B</option>
           <option value="N">Figura C</option>
           <option value="N">Figura D</option>
         </select>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <label for="disabledSelect" class="form-label">La señora lee una revista</label>
-        <select class="form-select" aria-label="Default select example">
-          <option value="N">Figura A</option>
-          <option value="N">Figura B</option>
-          <option value="N">Figura C</option>
-          <option value="N">Figura D</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <label for="disabledSelect" class="form-label">La niña toma jugo de naranja.</label>
-        <select class="form-select" aria-label="Default select example">
-          <option value="N">Figura A</option>
-          <option value="N">Figura B</option>
-          <option value="N">Figura C</option>
-          <option value="N">Figura D</option>
-        </select>
-      </div>
-    </div>
-
-   <!--  <div class="row">
+    <!--  <div class="row">
       <div class="col-sm-12 text-center">
         <input type="button" value="Evaluar" class="btn btn-primary" id="btn-evaluar">
       </div>
@@ -152,27 +152,115 @@
   <script src="../../assets/general.js"></script>
   <!-- Agregar los enlaces a los archivos JavaScript de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    // Función para generar un número aleatorio
-    function generarNumeroAleatorio(minimo, maximo) {
-      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+
+<!-- ... Tu código HTML anterior ... -->
+
+<script>
+  var idEstudiante = 11;
+  const CURSO = "6";
+  const UNIDAD = "unidad 3";
+  const JUEGO = "asocie_imagen";
+  // Objeto con las respuestas correctas
+  const respuestasCorrectas = {
+    pregunta1: "S",
+    pregunta2: "S",
+    pregunta3: "S",
+    pregunta4: "S",
+  };
+
+  document.getElementById("btn_evaluar").addEventListener("click", function () {
+    // Obtener las respuestas seleccionadas por el usuario
+    const respuesta1 = document.getElementById("respuesta1").value;
+    const respuesta2 = document.getElementById("respuesta2").value;
+    const respuesta3 = document.getElementById("respuesta3").value;
+    const respuesta4 = document.getElementById("respuesta4").value;
+
+    const label1 = document.getElementById("label1");
+    const label2 = document.getElementById("label1");
+    const label3 = document.getElementById("label1");
+    const label4 = document.getElementById("label1");
+
+    // Calcular el puntaje
+    let puntaje = 0;
+    if (respuesta1 === respuestasCorrectas.pregunta1) {
+      puntaje += 2.5;
+    } else {
+      label1.classList.add('text-danger');
     }
 
-    // Función que se ejecutará cuando se haga clic en el botón
-    function handleClick() {
-      var numeroAleatorio = generarNumeroAleatorio(1, 10);
-      var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent = numeroAleatorio;
-      // Mostrar el modal
-      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
-      modal.show();
+    if (respuesta2 === respuestasCorrectas.pregunta2) {
+      puntaje += 2.5;
+    } else {
+      label2.classList.add('text-danger');
     }
 
-    // Vincular el evento de clic al botón
-    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
-  </script>
+    if (respuesta3 === respuestasCorrectas.pregunta3) {
+      puntaje += 2.5;
+    } else {
+      label3.classList.add('text-danger');
+    }
+
+    if (respuesta4 === respuestasCorrectas.pregunta4) {
+      puntaje += 2.5;
+    } else {
+      label1.classList.add('text-danger');
+    }
+
+
+    // Mostrar el puntaje en un modal
+    const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+    modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje} puntos`;
+
+    if (puntaje == 10) {
+      modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+    } else {
+      modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+    }
+    $("#modalPuntaje").modal("show");
+    guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+  });
+
+  // Limpiar selecciones al hacer clic en el botón "Nuevo"
+  document.getElementById("btn_nuevo").addEventListener("click", function () {
+    const selects = document.querySelectorAll("select.form-select");
+    selects.forEach((select) => (select.value = ""));
+  });
+</script>
+
+<!-- ... Tu código HTML posterior ... -->
+
+
 </body>
 
 </html>
+
+
+<!-- <script>
+
+  var puntaje = 0;
+  // Función para generar un número aleatorio
+  function generarNumeroAleatorio(minimo, maximo) {
+    return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+  }
+
+  // Función que se ejecutará cuando se haga clic en el botón
+  function handleClick() {
+    var numeroAleatorio = generarNumeroAleatorio(1, 10);
+    var modalBody = document.getElementById("modalPuntajeBody");
+    modalBody.textContent = numeroAleatorio;
+    // Mostrar el modal
+    var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
+    modal.show();
+    puntaje = numeroAleatorio;
+
+ 
+  }
+
+  // Vincular el evento de clic al botón
+  document.getElementById("btn_evaluar").addEventListener("click", handleClick);
+</script> -->

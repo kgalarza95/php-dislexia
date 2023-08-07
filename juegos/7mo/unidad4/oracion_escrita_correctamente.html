@@ -153,9 +153,7 @@
         Evaluar Juego
       </button>
 
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
+      <button id="btn_nuevo" class="btn btn-secondary">Limpiar</button>
     </div>
   </div>
 
@@ -175,14 +173,69 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-
-
   <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "oracion_escrita_correctamente";
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
+      option1: 'opcion1',
+      option2: 'opcion4'
+    };
+
+    document.getElementById('btn-evaluar').addEventListener('click', evaluarRespuestas);
+
+    function evaluarRespuestas() {
+      let puntaje = 0;
+      const respuestasUsuario = {};
+
+      // Obtener las respuestas del usuario y almacenarlas en el objeto respuestasUsuario
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => {
+        if (radio.checked) {
+          respuestasUsuario[radio.name] = radio.value;
+        }
+      });
+
+      // Comparar las respuestas con las correctas y sumar puntos
+      for (const pregunta in respuestasCorrectas) {
+        if (respuestasCorrectas[pregunta] === respuestasUsuario[pregunta]) {
+          puntaje += 5;
+        }
+      }
+
+      // Mostrar el puntaje en el modal
+      document.getElementById('modalPuntajeBody').innerHTML = `Tu puntaje es: ${puntaje}`;
+      $('#modalPuntaje').modal('show');
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    document.getElementById('btn_nuevo').addEventListener('click', function () {
+      // Limpiar las selecciones de radio buttons
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => radio.checked = false);
+    });
+  </script>
+
+
+</body>
+
+</html>
+
+<!-- 
+  <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "oracion_escrita_correctamente";
+    var puntaje = 0;
     // Función para generar un número aleatorio
     function generarNumeroAleatorio(minimo, maximo) {
       return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
@@ -191,8 +244,21 @@
     // Función que se ejecutará cuando se haga clic en el botón
     function handleClick() {
       var numeroAleatorio = generarNumeroAleatorio(1, 10);
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+
       var modalBody = document.getElementById("modalPuntajeBody");
+      puntaje = numeroAleatorio;
+
+
+
       modalBody.textContent = numeroAleatorio;
+
+      if (puntaje == 10) {
+        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
@@ -200,7 +266,7 @@
 
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
-  </script>
-</body>
 
-</html>
+
+  </script>
+ -->
