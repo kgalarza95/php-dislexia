@@ -79,9 +79,21 @@
       <h1 class="text-center mb-4">Escoja la respuesta correcta:</h1>
       <div class="col-md-12">
         <p>
-          <select>
-            <option value="a">Asociar con Imagen A</option>
-            <option value="b">Asociar con Imagen B</option>
+          <select id="respuesta1">
+            <option value="N">Asociar con Imagen A</option>
+            <option value="N">Asociar con Imagen B</option>
+            <option value="S">Tiene faltas ortograficas</option>
+          </select>
+          En la istorieta, una viñeta es un recuadro delimitado por líneas negras que representa un instante
+          de la historia. Es el mínimo espacio para representar un momento del montaje de la historia.
+        </p>
+      </div>
+      <div class="col-md-12">
+        <p>
+          <select id="respuesta2">
+            <option value="N">Asociar con Imagen A</option>
+            <option value="S">Asociar con Imagen B</option>
+            <option value="N">Tiene faltas ortograficas</option>
           </select>
           En la historieta, una viñeta es un recuadro delimitado por líneas negras que representa un instante
           de la historia. Es el mínimo espacio para representar un momento del montaje de la historia.
@@ -89,19 +101,10 @@
       </div>
       <div class="col-md-12">
         <p>
-          <select>
-            <option value="a">Asociar con Imagen A</option>
-            <option value="b">Asociar con Imagen B</option>
-          </select>
-          En la historieta, una viñeta es un recuadro delimitado por líneas negras que representa un instante
-          de la historia. Es el mínimo espacio para representar un momento del montaje de la historia.
-        </p>
-      </div>
-      <div class="col-md-12">
-        <p>
-          <select>
-            <option value="a">Asociar con Imagen A</option>
-            <option value="b">Asociar con Imagen B</option>
+          <select id="respuesta3">
+            <option value="S">Asociar con Imagen A</option>
+            <option value="N">Asociar con Imagen B</option>
+            <option value="N">Tiene faltas ortograficas</option>
           </select>
           La historieta es un medio de expresión de difusión masiva. En una historieta se cuenta una historia
           en una secuencia de viñetas o representaciones graficas que la narran mediante imágenes y texto que aparece
@@ -111,12 +114,13 @@
       </div>
       <div class="col-md-12">
         <p>
-          <select>
-            <option value="a">Asociar con Imagen A</option>
-            <option value="b">Asociar con Imagen B</option>
+          <select id="respuesta4">
+            <option value="N">Asociar con Imagen A</option>
+            <option value="N">Asociar con Imagen B</option>
+            <option value="S">Tiene faltas ortograficas</option>
           </select>
           En la historieta, una viñeta es un recuadro delimitado por líneas negras que representa un instante
-          de la historia. Es el mínimo espacio para representar un momento del montaje de la historia.
+          de la istoria. Es el mínimo espacio para representar un momento del montaje de la historia.
         </p>
       </div>
     </div>
@@ -156,12 +160,73 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
+  <!-- Coloca este código en la sección <head> de tu documento HTML -->
   <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 2";
+    const JUEGO = "asociar_grafico";
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
+      pregunta1: "S",
+      pregunta2: "S",
+      pregunta3: "S",
+      pregunta4: "S",
+    };
+
+    // Función para evaluar las respuestas del usuario
+    function evaluarRespuestas() {
+      let puntaje = 0;
+
+      // Obtener todas las selecciones del usuario
+      var respuestasUsuario = {
+        pregunta1: document.getElementById("respuesta1").value,
+        pregunta2: document.getElementById("respuesta2").value,
+        pregunta3: document.getElementById("respuesta3").value,
+        pregunta4: document.getElementById("respuesta4").value,
+      };
+
+
+      // Comparar las respuestas del usuario con las respuestas correctas
+      for (var pregunta in respuestasCorrectas) {
+        if (respuestasCorrectas[pregunta] === respuestasUsuario[pregunta]) {
+          puntaje += 2.5;
+          console.log(pregunta);
+          //   document.getElementById(pregunta).classList.add("correcto");
+        } else {
+          //  document.getElementById(pregunta).classList.add("incorrecto");
+        }
+      }
+
+      // Mostrar el puntaje en el modal
+      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+      modalPuntajeBody.innerText = `Tu puntaje: ${puntaje}`;
+      $("#modalPuntaje").modal("show");
+
+      
+guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    // Asignar la función evaluarRespuestas al botón "Evaluar Juego"
+    document.getElementById("btn-evaluar").addEventListener("click", evaluarRespuestas);
+
+   
+
+  </script>
+
+</body>
+
+</html>
+
+<!-- 
+
+    <script>
     var idEstudiante = 12;
     const CURSO = "7";
     const UNIDAD = "unidad 2";
@@ -190,6 +255,4 @@ guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     // Vincular el evento de clic al botón
     document.getElementById("btn-evaluar").addEventListener("click", handleClick);
   </script>
-</body>
-
-</html>
+ -->

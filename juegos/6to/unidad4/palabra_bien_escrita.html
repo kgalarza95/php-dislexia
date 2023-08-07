@@ -41,7 +41,7 @@
         <label for="select3">Selecciona una opción:</label>
         <select class="form-select" id="select3">
           <option value="opcion3">EGERCITO</option>
-          <option value="NIDO">EJERCITO</option>
+          <option value="EJERCITO">EJERCITO</option>
         </select>
       </div>
 
@@ -93,10 +93,10 @@
       <div class="row my-4">
         <div class="col-md-12 text-center">
           <button class="btn btn-primary" id="btn-evaluar">Evaluar</button>
-          
-      <button id="btn_nuevo" class="btn btn-primary">
-        Nuevo
-      </button>
+
+          <button id="btn_nuevo" class="btn btn-primary">
+            Nuevo
+          </button>
         </div>
       </div>
 
@@ -121,7 +121,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script>
-         var idEstudiante = 11;
+    var idEstudiante = 11;
     const CURSO = "6";
     const UNIDAD = "unidad 4";
     const JUEGO = "palabra_bien_escrita";
@@ -153,36 +153,73 @@
 
       // Comparar con las respuestas correctas y aumentar el puntaje
       if (respuestaCombo1 === respuestasCorrectas.combo1) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select1").addClass("border-success") 
+        $("#select1").removeClass("border-danger") 
+      }else{
+        $("#select1").removeClass("border-success") 
+        $("#select1").addClass("border-danger") 
       }
 
       if (respuestaCombo2 === respuestasCorrectas.combo2) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select2").addClass("border-success") 
+        $("#select2").removeClass("border-danger") 
+      }else{
+        $("#select2").removeClass("border-success") 
+        $("#select2").addClass("border-danger") 
       }
 
       if (respuestaCombo3 === respuestasCorrectas.combo3) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select3").addClass("border-success") 
+        $("#select3").removeClass("border-danger") 
+      }else{
+        $("#select3").removeClass("border-success") 
+        $("#select3").addClass("border-danger") 
       }
 
       if (respuestaCombo4 === respuestasCorrectas.combo4) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select4").addClass("border-success") 
+        $("#select4").removeClass("border-danger") 
+      }else{
+        $("#select4").removeClass("border-success") 
+        $("#select4").addClass("border-danger") 
       }
 
       if (respuestaCombo5 === respuestasCorrectas.combo5) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select5").addClass("border-success") 
+        $("#select5").removeClass("border-danger") 
+      }else{
+        $("#select5").removeClass("border-success") 
+        $("#select5").addClass("border-danger") 
       }
 
       if (respuestaCombo6 === respuestasCorrectas.combo6) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select6").addClass("border-success") 
+        $("#select6").removeClass("border-danger") 
+      }else{
+        $("#select6").removeClass("border-success") 
+        $("#select6").addClass("border-danger") 
       }
 
       if (respuestaCombo7 === respuestasCorrectas.combo7) {
-        puntaje += 2;
+        puntaje += 1.5;
+        $("#select7").addClass("border-success") 
+        $("#select7").removeClass("border-danger") 
+      }else{
+        $("#select7").removeClass("border-success") 
+        $("#select7").addClass("border-danger") 
       }
 
       // Actualizar el puntaje en la página
 
-
+      if (puntaje > 9) {
+        puntaje = 10;
+      }
 
 
       var modalBody = document.getElementById("modalPuntajeBody");
@@ -190,9 +227,9 @@
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
-     // puntaje = numeroAleatorio;
+      // puntaje = numeroAleatorio;
 
-guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
     $(document).ready(function () {
 
