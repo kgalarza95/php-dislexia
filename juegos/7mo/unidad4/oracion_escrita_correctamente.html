@@ -173,13 +173,63 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
+  <script>
+    var idEstudiante = 12;
+    const CURSO = "7";
+    const UNIDAD = "unidad 4";
+    const JUEGO = "oracion_escrita_correctamente";
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
+      option1: 'opcion1',
+      option2: 'opcion4'
+    };
+
+    document.getElementById('btn-evaluar').addEventListener('click', evaluarRespuestas);
+
+    function evaluarRespuestas() {
+      let puntaje = 0;
+      const respuestasUsuario = {};
+
+      // Obtener las respuestas del usuario y almacenarlas en el objeto respuestasUsuario
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => {
+        if (radio.checked) {
+          respuestasUsuario[radio.name] = radio.value;
+        }
+      });
+
+      // Comparar las respuestas con las correctas y sumar puntos
+      for (const pregunta in respuestasCorrectas) {
+        if (respuestasCorrectas[pregunta] === respuestasUsuario[pregunta]) {
+          puntaje += 5;
+        }
+      }
+
+      // Mostrar el puntaje en el modal
+      document.getElementById('modalPuntajeBody').innerHTML = `Tu puntaje es: ${puntaje}`;
+      $('#modalPuntaje').modal('show');
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+    }
+
+    document.getElementById('btn_nuevo').addEventListener('click', function () {
+      // Limpiar las selecciones de radio buttons
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => radio.checked = false);
+    });
+  </script>
 
 
+</body>
+
+</html>
+
+<!-- 
   <script>
     var idEstudiante = 12;
     const CURSO = "7";
@@ -219,6 +269,4 @@
 
 
   </script>
-</body>
-
-</html>
+ -->
