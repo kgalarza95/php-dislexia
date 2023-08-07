@@ -142,6 +142,10 @@
         const respuestaUsuario = document.querySelector(`input[name="${pregunta}"]:checked`);
         if (respuestaUsuario && respuestaUsuario.value === respuestasCorrectas[pregunta]) {
           puntaje += 5; // Sumamos 2 puntos por cada respuesta correcta
+          respuestaUsuario.parentElement.style.backgroundColor = "green"; 
+          
+        }else{
+          respuestaUsuario.parentElement.style.backgroundColor = "red"; 
         }
       }
 
