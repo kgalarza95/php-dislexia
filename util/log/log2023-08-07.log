@@ -452,3 +452,15 @@
 [2023-08-07 09:44:03] [OK] Inicio de operación
 [2023-08-07 09:44:03] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 4","juego":"texto_teatral","puntaje":"Puntuaci\u00f3n: 10"}
 [2023-08-07 09:44:03] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-07 09:59:19] [OK] ..:save_score:..
+[2023-08-07 09:59:19] [OK] Inicio de operación
+[2023-08-07 09:59:19] [OK] entrada: null
+[2023-08-07 09:59:19] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-07 09:59:19] [OK] ..:save_score:..
+[2023-08-07 09:59:19] [OK] Inicio de operación
+[2023-08-07 09:59:19] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 3","juego":"poesia","puntaje":10}
+[2023-08-07 09:59:19] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-07 09:59:20] [OK] ..:save_score:..
+[2023-08-07 09:59:20] [OK] Inicio de operación
+[2023-08-07 09:59:20] [OK] entrada: {"id_estudiante":12,"curso":"7","unidad":"unidad 3","juego":"poesia","puntaje":10}
+[2023-08-07 09:59:20] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
