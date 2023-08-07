@@ -169,7 +169,7 @@
           palabraSelect.value === respuestasCorrectas[preguntaId].palabraMalEscrita
         ) {
           puntaje += 2;
-        } 
+        }
       }
 
       mostrarPuntaje(puntaje);
@@ -180,6 +180,11 @@
     function mostrarPuntaje(puntaje) {
       const modalPuntajeBody = document.getElementById("modalPuntajeBody");
       modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje}`;
+      if (puntaje == 10) {
+        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       const modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();
     }

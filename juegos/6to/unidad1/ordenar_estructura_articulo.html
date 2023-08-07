@@ -190,20 +190,26 @@
 
         // Comparar con las respuestas correctas
         if (respuesta1 === respuestasCorrectas.pregunta1) {
-          puntos += 2;
+          puntos += 2.5;
         }
         if (respuesta2 === respuestasCorrectas.pregunta2) {
-          puntos += 2;
+          puntos += 2.5;
         }
         if (respuesta3 === respuestasCorrectas.pregunta3) {
-          puntos += 2;
+          puntos += 2.5;
         }
         if (respuesta4 === respuestasCorrectas.pregunta4) {
-          puntos += 2;
+          puntos += 2.5;
+        }
+
+        if (puntos == 10) {
+          document.querySelector("#modalPuntajeBody").innerText = `${mensajeOk}. Tu puntaje es: ${puntos}`;
+        } else {
+          document.querySelector("#modalPuntajeBody").innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntos}`;
         }
 
         // Mostrar el puntaje en el modal
-        document.querySelector("#modalPuntajeBody").innerText = `Puntaje: ${puntos}`;
+        //document.querySelector("#modalPuntajeBody").innerText = `Puntaje: ${puntos}`;
         // Mostrar el modal
         const modalPuntaje = new bootstrap.Modal(document.getElementById("modalPuntaje"));
         modalPuntaje.show();

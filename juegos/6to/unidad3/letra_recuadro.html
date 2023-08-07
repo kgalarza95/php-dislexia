@@ -163,7 +163,7 @@
       const respuestaUsuario = document.getElementById(pregunta).value;
       if (respuestaUsuario === respuestasCorrectas[pregunta]) {
         puntaje += 5;
-      }else {
+      } else {
         label.classList.add('text-danger'); // Agregar el estilo rojo si la respuesta es incorrecta
       }
     }
@@ -175,6 +175,11 @@
   function mostrarPuntaje(puntaje) {
     const modalPuntajeBody = document.getElementById('modalPuntajeBody');
     modalPuntajeBody.innerHTML = `Tu puntaje es: ${puntaje}`;
+    if (puntaje == 10) {
+      modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+    } else {
+      modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+    }
     $('#modalPuntaje').modal('show');
   }
 

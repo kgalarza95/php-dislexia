@@ -184,6 +184,11 @@
 
       var modalBody = document.getElementById("modalPuntajeBody");
       modalBody.textContent = puntaje;
+      if (puntaje == 10) {
+        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();

@@ -154,65 +154,65 @@
       // Comparar con las respuestas correctas y aumentar el puntaje
       if (respuestaCombo1 === respuestasCorrectas.combo1) {
         puntaje += 1.5;
-        $("#select1").addClass("border-success") 
-        $("#select1").removeClass("border-danger") 
-      }else{
-        $("#select1").removeClass("border-success") 
-        $("#select1").addClass("border-danger") 
+        $("#select1").addClass("border-success")
+        $("#select1").removeClass("border-danger")
+      } else {
+        $("#select1").removeClass("border-success")
+        $("#select1").addClass("border-danger")
       }
 
       if (respuestaCombo2 === respuestasCorrectas.combo2) {
         puntaje += 1.5;
-        $("#select2").addClass("border-success") 
-        $("#select2").removeClass("border-danger") 
-      }else{
-        $("#select2").removeClass("border-success") 
-        $("#select2").addClass("border-danger") 
+        $("#select2").addClass("border-success")
+        $("#select2").removeClass("border-danger")
+      } else {
+        $("#select2").removeClass("border-success")
+        $("#select2").addClass("border-danger")
       }
 
       if (respuestaCombo3 === respuestasCorrectas.combo3) {
         puntaje += 1.5;
-        $("#select3").addClass("border-success") 
-        $("#select3").removeClass("border-danger") 
-      }else{
-        $("#select3").removeClass("border-success") 
-        $("#select3").addClass("border-danger") 
+        $("#select3").addClass("border-success")
+        $("#select3").removeClass("border-danger")
+      } else {
+        $("#select3").removeClass("border-success")
+        $("#select3").addClass("border-danger")
       }
 
       if (respuestaCombo4 === respuestasCorrectas.combo4) {
         puntaje += 1.5;
-        $("#select4").addClass("border-success") 
-        $("#select4").removeClass("border-danger") 
-      }else{
-        $("#select4").removeClass("border-success") 
-        $("#select4").addClass("border-danger") 
+        $("#select4").addClass("border-success")
+        $("#select4").removeClass("border-danger")
+      } else {
+        $("#select4").removeClass("border-success")
+        $("#select4").addClass("border-danger")
       }
 
       if (respuestaCombo5 === respuestasCorrectas.combo5) {
         puntaje += 1.5;
-        $("#select5").addClass("border-success") 
-        $("#select5").removeClass("border-danger") 
-      }else{
-        $("#select5").removeClass("border-success") 
-        $("#select5").addClass("border-danger") 
+        $("#select5").addClass("border-success")
+        $("#select5").removeClass("border-danger")
+      } else {
+        $("#select5").removeClass("border-success")
+        $("#select5").addClass("border-danger")
       }
 
       if (respuestaCombo6 === respuestasCorrectas.combo6) {
         puntaje += 1.5;
-        $("#select6").addClass("border-success") 
-        $("#select6").removeClass("border-danger") 
-      }else{
-        $("#select6").removeClass("border-success") 
-        $("#select6").addClass("border-danger") 
+        $("#select6").addClass("border-success")
+        $("#select6").removeClass("border-danger")
+      } else {
+        $("#select6").removeClass("border-success")
+        $("#select6").addClass("border-danger")
       }
 
       if (respuestaCombo7 === respuestasCorrectas.combo7) {
         puntaje += 1.5;
-        $("#select7").addClass("border-success") 
-        $("#select7").removeClass("border-danger") 
-      }else{
-        $("#select7").removeClass("border-success") 
-        $("#select7").addClass("border-danger") 
+        $("#select7").addClass("border-success")
+        $("#select7").removeClass("border-danger")
+      } else {
+        $("#select7").removeClass("border-success")
+        $("#select7").addClass("border-danger")
       }
 
       // Actualizar el puntaje en la página
@@ -224,6 +224,13 @@
 
       var modalBody = document.getElementById("modalPuntajeBody");
       modalBody.textContent = puntaje;
+
+      if (puntaje == 10) {
+        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
+      
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();

@@ -189,32 +189,38 @@
     let puntaje = 0;
     if (respuesta1 === respuestasCorrectas.pregunta1) {
       puntaje += 2.5;
-    }else{
-        label1.classList.add('text-danger');
+    } else {
+      label1.classList.add('text-danger');
     }
 
     if (respuesta2 === respuestasCorrectas.pregunta2) {
       puntaje += 2.5;
-    }else{
-        label2.classList.add('text-danger');
+    } else {
+      label2.classList.add('text-danger');
     }
 
     if (respuesta3 === respuestasCorrectas.pregunta3) {
       puntaje += 2.5;
-    }else{
-        label3.classList.add('text-danger');
+    } else {
+      label3.classList.add('text-danger');
     }
 
     if (respuesta4 === respuestasCorrectas.pregunta4) {
       puntaje += 2.5;
-    }else{
-        label1.classList.add('text-danger');
+    } else {
+      label1.classList.add('text-danger');
     }
 
 
     // Mostrar el puntaje en un modal
     const modalPuntajeBody = document.getElementById("modalPuntajeBody");
     modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje} puntos`;
+
+    if (puntaje == 10) {
+      modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+    } else {
+      modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+    }
     $("#modalPuntaje").modal("show");
     guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
   });

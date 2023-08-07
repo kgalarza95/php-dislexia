@@ -87,9 +87,9 @@
     const UNIDAD = "unidad 1";
     const JUEGO = "nucleo_sujeto";
     let puntaje = 0;
-
-      // Objeto con las respuestas correctas
-      const respuestasCorrectas = {
+    var evaluacion = (10 / 6);
+    // Objeto con las respuestas correctas
+    const respuestasCorrectas = {
       respuesta1: "sabroso",
       respuesta2: "bicicleta",
       respuesta3: "donde",
@@ -119,6 +119,7 @@
         }
       }
 
+      puntaje = parseInt(puntaje);
 
       // Mostrar el puntaje en un modal
       mostrarPuntajeModal();
@@ -127,8 +128,13 @@
 
     function mostrarPuntajeModal() {
       const modalPuntajeBody = document.getElementById("modalPuntajeBody");
-      modalPuntajeBody.textContent = "Tu puntaje es: " + puntaje;
+      //modalPuntajeBody.textContent = "Tu puntaje es: " + puntaje;
 
+      if (puntaje == 10) {
+        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       // Mostrar el modal
       const modalPuntaje = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modalPuntaje.show();
@@ -151,7 +157,7 @@
   </script>
 
 
-<!--   <script>
+  <!--   <script>
 
     var puntaje = 0;
     // Función para generar un número aleatorio
