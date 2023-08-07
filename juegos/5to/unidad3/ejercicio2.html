@@ -281,20 +281,20 @@
 
 
     <!-- Modal -->
-    <div class="modal"  id="modalPuntaje">
+    <div class="modal" id="modalPuntaje">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Puntaje</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Puntaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalPuntajeBody">
+                    <!-- Aquí se mostrará el número aleatorio -->
+                </div>
             </div>
-            <div class="modal-body" id="modalPuntajeBody">
-              <!-- Aquí se mostrará el número aleatorio -->
-            </div>
-          </div>
         </div>
-      </div>
-    
+    </div>
+
 
     <script src="../../assets/general.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -330,12 +330,17 @@
                 }
             }
             puntaje = redondearDecimal(puntos);
-            
-         $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
-        $("#modalPuntaje").modal("show");
-           // document.getElementById('sp_respuesta').innerHTML = `Su puntuación es: ${redondearDecimal(puntaje)}`;
 
-           guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+            if (puntaje == 10) {
+                $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${puntaje}`);
+            } else {
+                $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}.Tu puntaje es: ${puntaje} puntos`);
+            }
+            //$("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+            $("#modalPuntaje").modal("show");
+            // document.getElementById('sp_respuesta').innerHTML = `Su puntuación es: ${redondearDecimal(puntaje)}`;
+
+            guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
 
 
         });

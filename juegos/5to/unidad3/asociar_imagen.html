@@ -133,6 +133,7 @@
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../assets/general.js"></script>
   <script>
     // Objeto con las respuestas correctas
@@ -142,7 +143,7 @@
     const UNIDAD = "unidad 3";
     const JUEGO = "asociar_imagen";
     var puntaje = 0;
-
+    var evaluacion = (10 / 6);
     var respuestasCorrectas = {
       combo1: "HOLA",
       combo2: "ORA",
@@ -167,27 +168,27 @@
 
       // Comparar con las respuestas correctas y aumentar el puntaje
       if (respuestaCombo1 === respuestasCorrectas.combo1) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
       if (respuestaCombo2 === respuestasCorrectas.combo2) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
       if (respuestaCombo3 === respuestasCorrectas.combo3) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
       if (respuestaCombo4 === respuestasCorrectas.combo4) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
       if (respuestaCombo5 === respuestasCorrectas.combo5) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
       if (respuestaCombo6 === respuestasCorrectas.combo6) {
-        puntaje += 2;
+        puntaje += evaluacion;
       }
 
 
@@ -196,9 +197,18 @@
 
 
 
+      puntaje = parseInt(puntaje);
 
       var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent = puntaje;
+      //modalBody.textContent = puntaje;
+
+      if (puntaje == 10) {
+        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
+
+
       // Mostrar el modal        
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modal.show();

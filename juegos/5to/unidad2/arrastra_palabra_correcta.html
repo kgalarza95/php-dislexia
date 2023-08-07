@@ -152,7 +152,7 @@
     </script>
     <script>
         // Función para generar un número aleatorio
-     
+
 
         // Función que se ejecutará cuando se haga clic en el botón
         function handleClick() {
@@ -181,8 +181,15 @@
                 }
             }
 
+            if (puntaje == 10) {
+                $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${puntaje}`);
+            } else {
+                $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`);
+            }
             // Mostrar el puntaje en un modal
-            $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+           // $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+
+
             $("#modalPuntaje").modal("show");
             guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
         }

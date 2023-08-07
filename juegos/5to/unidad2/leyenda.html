@@ -169,7 +169,7 @@
 
   <div id="alert-container"></div>
 
-  <div class="modal"  id="modalPuntaje">
+  <div class="modal" id="modalPuntaje">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -241,7 +241,7 @@
 
         // Verificar si las respuestas son correctas y sumar puntos si aún no han sido evaluadas
         if (opcion1 === respuestasCorrectas.opcion1 && !respuestasEvaluadas.opcion1) {
-          score += 2;
+          score += evaluacion;
           respuestasEvaluadas.opcion1 = true;
           $("#cmb_opcion1").addClass("correcto");
         } else if (opcion1 !== respuestasCorrectas.opcion1) {
@@ -249,7 +249,7 @@
         }
 
         if (opcion2 === respuestasCorrectas.opcion2 && !respuestasEvaluadas.opcion2) {
-          score += 2;
+          score += evaluacion;
           respuestasEvaluadas.opcion2 = true;
           $("#cmb_opcion2").addClass("correcto");
         } else if (opcion2 !== respuestasCorrectas.opcion2) {
@@ -259,9 +259,14 @@
         // Actualizar el puntaje mostrado en pantalla
         $("#txt_score").text(score);
 
-         $("#modalPuntajeBody").text(`Tu puntaje es: ${score} puntos`);
+
+        if (score == 10) {
+          $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${score}`);
+        } else {
+          $("#modalPuntajeBody").text( `${mensajeIntentarNuevamente}. Tu puntaje es: ${score}`);
+        }
         $("#modalPuntaje").modal("show");
- 
+
         guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, score);
       });
 

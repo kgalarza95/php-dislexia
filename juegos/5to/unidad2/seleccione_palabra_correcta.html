@@ -126,7 +126,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="opciona" id="opciona2" es-correcto="false">
                 <label class="form-check-label" for="opciona2">
-                  B) LA NARRASIÓN ORAL
+                  A) LA NARRASIÓN ORAL
                 </label>
               </div>
             </div>
@@ -157,7 +157,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="opcionb" id="opcionb1" es-correcto="false">
                 <label class="form-check-label" for="opcionb1">
-                  C) LA LELLENDA
+                  B) LA LELLENDA
                 </label>
               </div>
             </div>
@@ -167,7 +167,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="opcionb" id="opcionb2" es-correcto="true">
                 <label class="form-check-label" for="opcionb2">
-                  D) LA LEYENDA
+                  B) LA LEYENDA
                 </label>
               </div>
             </div>
@@ -233,7 +233,7 @@
     const JUEGO = "seleccione_palabra_correcta";
     var puntaje = 0;
 
-    var evaluacion = 5;
+    var evaluacion = (10 / 4);
     var puntaje = 0;
     const txtScore = document.getElementById('txt_score');
     const alertContainer = document.getElementById('alert-container');
@@ -254,6 +254,7 @@
       puntaje = 0;
       let resultado = true;
 
+      console.log(puntaje);
       let dosChecked = 0;
       radioButtons.forEach(radioButton => {
         if (radioButton.checked) {
@@ -276,8 +277,12 @@
             resultado = false;
             label.classList.add('incorrecto');
             label.classList.remove('correcto');
+          } else if (esCorrecto === 'false' && !radioButton.checked) {
+            /*resultado = false;
+            label.classList.add('incorrecto');
+            label.classList.remove('correcto');*/
           } else {
-            puntaje += evaluacion;
+            puntaje += 2.5;
             txtScore.innerHTML = puntaje;
             label.classList.remove('incorrecto');
             label.classList.add('correcto');
@@ -323,19 +328,25 @@
         inputs.forEach(input => {
           // Obtener el párrafo correspondiente al input
           const paragraph = input.closest('.row').querySelector('p');
-          
+
           paragraph.classList.add('incorrecto');
         });
       }
-      $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
-      
+      puntaje = parseInt(puntaje);
+      if (puntaje == 10) {
+        $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${puntaje}`);
+      } else {
+        $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`);
+      }
+      // $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+
       $("#modalPuntaje").modal("show");
 
-    /*   if (resultado) {
-        mostrarAlerta('success', '¡Todas las respuestas son correctas!');
-      } else {
-        mostrarAlerta('danger', 'Algunas respuestas son incorrectas. Por favor, revísalas nuevamente.');
-      } */
+      /*   if (resultado) {
+          mostrarAlerta('success', '¡Todas las respuestas son correctas!');
+        } else {
+          mostrarAlerta('danger', 'Algunas respuestas son incorrectas. Por favor, revísalas nuevamente.');
+        } */
 
       guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
