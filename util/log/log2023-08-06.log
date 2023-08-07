@@ -1,0 +1,15 @@
+[2023-08-06 07:39:25] [OK] ..:validar_usuario:..
+[2023-08-06 07:39:25] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-06 07:40:02] [OK] ..:validar_usuario:..
+[2023-08-06 07:40:02] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-06 07:45:20] [OK] ..:validar_usuario:..
+[2023-08-06 07:45:20] [OK] Inicio de operacion op: consulta deADMIN
+[2023-08-06 07:48:03] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":null}
+[2023-08-06 07:48:29] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"CONTRASENIA":""}}
+[2023-08-06 07:48:32] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"CONTRASENIA":""}}
+[2023-08-06 07:48:33] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"CONTRASENIA":""}}
+[2023-08-06 07:48:33] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"CONTRASENIA":""}}
+[2023-08-06 07:52:43] [OK] ..:validar_usuario:..
+[2023-08-06 07:52:43] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-06 08:02:39] [OK] ..:validar_usuario:..
+[2023-08-06 08:02:39] [OK] Inicio de operacion op: consulta desexto
