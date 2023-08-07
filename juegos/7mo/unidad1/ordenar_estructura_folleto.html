@@ -170,6 +170,7 @@
 
 
     function evaluarRespuestas() {
+      puntaje = 0;
       // Recorrer todas las preguntas
       for (let i = 1; i <= 4; i++) {
         const pregunta = `pregunta${i}`;
@@ -187,7 +188,13 @@
       }
 
       // Mostrar el puntaje en un modal
-      $("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`);
+      //$("#modalPuntajeBody").text(`Tu puntaje es: ${puntaje} puntos`
+      if (puntaje == 10) {
+        $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${puntaje}`);
+      } else {
+        $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`);
+      }
+
       $("#modalPuntaje").modal("show");
       guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }

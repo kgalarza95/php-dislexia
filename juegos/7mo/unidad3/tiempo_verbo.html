@@ -225,6 +225,13 @@
       var modalBody = document.getElementById("modalPuntajeBody");
       modalBody.textContent = numeroAleatorio;
       puntaje = numeroAleatorio;
+
+      if (puntaje == 10) {
+        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
+      
       guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));

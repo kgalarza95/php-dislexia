@@ -207,16 +207,22 @@
       // Mostrar el puntaje en el modal
       const modalPuntajeBody = document.getElementById("modalPuntajeBody");
       modalPuntajeBody.innerText = `Tu puntaje: ${puntaje}`;
+
+      if (puntaje == 10) {
+        modalPuntajeBody.innerText = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalPuntajeBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       $("#modalPuntaje").modal("show");
 
-      
-guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
+
+      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
     }
 
     // Asignar la función evaluarRespuestas al botón "Evaluar Juego"
     document.getElementById("btn-evaluar").addEventListener("click", evaluarRespuestas);
 
-   
+
 
   </script>
 

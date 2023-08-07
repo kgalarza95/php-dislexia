@@ -123,7 +123,7 @@
     };
 
     const btnEvaluar = document.getElementById("btn-evaluar");
-  
+
 
     btnEvaluar.addEventListener("click", function () {
       let score = 0;
@@ -148,6 +148,14 @@
 
       // Show score in modal
       document.getElementById("modalPuntajeBody").textContent = `Puntaje: ${score}`;
+
+      if (score == 10) {
+        $("#modalPuntajeBody").text(`${mensajeOk}. Tu puntaje es: ${score}`);
+      } else {
+        $("#modalPuntajeBody").text(`${mensajeIntentarNuevamente}. Tu puntaje es: ${score}`);
+      }
+
+
       $('#modalPuntaje').modal('show');
       guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, score);
     });

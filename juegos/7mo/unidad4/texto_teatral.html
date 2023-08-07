@@ -123,8 +123,8 @@
   <script src="../../assets/general.js"></script>
 
   <script>
-       var idEstudiante = 12;
- const CURSO = "7";
+    var idEstudiante = 12;
+    const CURSO = "7";
     const UNIDAD = "unidad 4";
     const JUEGO = "texto_teatral";
     var puntaje = 0;
@@ -177,11 +177,17 @@
 
 
     function handleClick() {
-     // var numeroAleatorio = generarNumeroAleatorio(1, 10);
+      // var numeroAleatorio = generarNumeroAleatorio(1, 10);
       var modalBody = document.getElementById("modalPuntajeBody");
 
       modalBody.textContent = document.getElementById("score").textContent;
-      puntaje  = document.getElementById("score").textContent;
+      puntaje = document.getElementById("score").textContent;
+
+      if (puntaje == 10) {
+        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+      } else {
+        modalBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+      }
       guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       // Mostrar el modal
       var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
