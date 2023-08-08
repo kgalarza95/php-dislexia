@@ -73,9 +73,9 @@ h6{
     color: var(--color-primario8) !important;
 }
 
-h1 {
+/* h3 {
     text-shadow: 2px 2px 4px #333;
-}
+} */
 
 * {
     border-color: var(--color-primario8) !important;
