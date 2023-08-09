@@ -34,7 +34,8 @@
 
 <body>
   <div class="container mt-5">
-    <h1>Dibuja en el recuadro de cada descripción el número de la imagen correspondiente.</h1>
+    <h3 class="text-center">Unidad 4 - Actividad 2</h3>
+    <h3 class="text-center">Escribe al lado de cada descripción el número de dibujo al que corresponde.</h3>
 
     <div class="image-container my-4">
       <div class="image-item">
@@ -43,28 +44,22 @@
       </div>
 
       <div class="image-item">
-        <img src="../../assets/img/7/cuchillo-cebollero.png"
-          class="img-fluid" style="width: 100%;">
+        <img src="../../assets/img/7/cuchillo-cebollero.png" class="img-fluid" style="width: 100%;">
         <div class="image-label">Imagen 2</div>
       </div>
 
       <div class="image-item">
-        <img src="../../assets/img/7/vaso-de-agua.png"
-          class="img-fluid" style="width: 100%;">
+        <img src="../../assets/img/7/vaso-de-agua.png" class="img-fluid" style="width: 100%;">
         <div class="image-label">Imagen 3</div>
       </div>
 
       <div class="image-item">
-        <img
-          src="../../assets/img/7/paraguas.png"
-          class="img-fluid" style="width: 100%;">
+        <img src="../../assets/img/7/paraguas.png" class="img-fluid" style="width: 100%;">
         <div class="image-label">Imagen 4</div>
       </div>
 
       <div class="image-item">
-        <img
-          src="../../assets/img/7/oso-de-peluche.png"
-          class="img-fluid" style="width: 100%;">
+        <img src="../../assets/img/7/oso-de-peluche.png" class="img-fluid" style="width: 100%;">
         <div class="image-label">Imagen 5</div>
       </div>
 
@@ -249,16 +244,16 @@
     }
 
     // Evento clic del botón para limpiar los canvases
-   /*  document.getElementById('clearButton').addEventListener('click', () => {
-      location.reload();
-      clearCanvas('canvas1');
-      // Limpia los demás canvases si los tienes.
-      clearCanvas('canvas2');
-      clearCanvas('canvas3');
-      clearCanvas('canvas4');
-      clearCanvas('canvas5');
-      clearCanvas('canvas6');
-    }); */
+    /*  document.getElementById('clearButton').addEventListener('click', () => {
+       location.reload();
+       clearCanvas('canvas1');
+       // Limpia los demás canvases si los tienes.
+       clearCanvas('canvas2');
+       clearCanvas('canvas3');
+       clearCanvas('canvas4');
+       clearCanvas('canvas5');
+       clearCanvas('canvas6');
+     }); */
 
     // Función para obtener las coordenadas táctiles relativas al canvas
     function getTouchPos(canvas, evt) {
@@ -393,6 +388,44 @@
     drawOnCanvas('canvas4');
     drawOnCanvas('canvas5');
     drawOnCanvas('canvas6');
+
+
+    manejarCanvas('canvas1');
+    manejarCanvas('canvas2');
+    manejarCanvas('canvas3');
+    manejarCanvas('canvas4');
+    manejarCanvas('canvas5');
+    manejarCanvas('canvas6');
+
+    function manejarCanvas(canvasId) {
+      const canvas = document.getElementById(canvasId);
+
+      // Habilitar el scroll cuando se hace clic fuera del canvas
+      document.addEventListener('mousedown', () => {
+        document.body.style.overflow = 'auto';
+      });
+
+      // Deshabilitar el scroll cuando se hace clic en el canvas
+      canvas.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        document.body.style.overflow = 'hidden';
+        // Aquí puedes manejar el evento de dibujo en el canvas
+      });
+
+      // Habilitar el scroll cuando se levanta el dedo del canvas (para dispositivos táctiles)
+      canvas.addEventListener('touchend', () => {
+        document.body.style.overflow = 'auto';
+      });
+
+      // Deshabilitar el scroll cuando se toca el canvas (para dispositivos táctiles)
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        document.body.style.overflow = 'hidden';
+        // Aquí puedes manejar el evento de dibujo en el canvas
+      });
+    }
+
+
   </script>
 </body>
 
