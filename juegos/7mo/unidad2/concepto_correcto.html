@@ -36,8 +36,7 @@
     .title-style {
       color: #ff6600;
       font-size: 28px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #333;
+      text-align: left;
       margin-bottom: 20px;
     }
 
@@ -53,8 +52,9 @@
 
 <body>
   <div class="container mt-5">
-    <h1 class="title-style text-center title-style ">Seleccione el concepto correcto de cada uno y verificar que esté
-      bien escrito.</h1>
+    <h3 class="text-center">Unidad 2 - Actividad 3</h3>
+    <h3 class="title-style text-center mb-3">Arrastra con la oración escrita correctamente cada tipo de
+      complemento circunstancial del verbo según corresponda.</h3>
     <div class="row my-4">
       <h2 class="text-center">Biografía</h2>
       <div class="col-md-6">
@@ -153,11 +153,11 @@
       const modalPuntajeBody = document.getElementById("modalPuntajeBody");
       modalPuntajeBody.textContent = `¡Felicitaciones! .Tu puntaje es: ${puntaje} puntos`;
 
-     /*  if (puntaje == 10) {
-        modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
-      } else {
-        modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
-      } */
+      /*  if (puntaje == 10) {
+         modalPuntajeBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
+       } else {
+         modalPuntajeBody.textContent = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
+       } */
       // Mostramos el modal con el puntaje
       const modalPuntaje = new bootstrap.Modal(document.getElementById("modalPuntaje"));
       modalPuntaje.show();
