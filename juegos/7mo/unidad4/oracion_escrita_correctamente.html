@@ -72,8 +72,9 @@
 
 <body>
   <div class="container">
-    <h4 class="text-center">Unidad 4 - Actividad 1</h4>
-    <h4 class="mb-4">Selecione la oración escrita de forma correcta.</h4>
+    <p class="text-left">Unidad 4 - Actividad 1</p>
+    <h4 class="mb-4 text-center">Seleccione la oración escrita correctamente, luego lea cada situación comunicativa y
+      escoja la respuesta según el elemento.</h4>
 
     <div class="row">
       <div class="col-sm-12">
@@ -256,13 +257,13 @@
             puntos += 1.25;
           }
         });
-        
+
         $('#modalPuntajeBody').text('Puntos obtenidos: ' + puntos);
         $('#modalPuntaje').modal('show');
         guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntos);
       });
 
-   
+
     });
   </script>
 
