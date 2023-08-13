@@ -69,7 +69,7 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
     color: var(--color-primario8) !important;
 }
 
@@ -125,4 +125,10 @@ option {
 .btn:hover {
     background-color: #00ffd5 !important;
     color: #000000 !important;
+}
+
+p.text-justify,
+p.text-left {
+    font-size: 9pt !important;
+    font-weight: bold !important;
 }

@@ -1,0 +1,293 @@
+[2023-08-13 00:39:48] [OK] ..:validar_usuario:..
+[2023-08-13 00:39:48] [OK] Inicio de operacion op: consulta deseptimo
+[2023-08-13 00:40:59] [OK] ..:validar_usuario:..
+[2023-08-13 00:40:59] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 00:41:06] [OK] ..:validar_usuario:..
+[2023-08-13 00:41:06] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 00:41:10] [OK] ..:validar_usuario:..
+[2023-08-13 00:41:10] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 00:41:12] [OK] ..:validar_usuario:..
+[2023-08-13 00:41:12] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 00:41:26] [OK] ..:cons_estudiantes:..
+[2023-08-13 00:41:26] [OK] Estudiante por curso: 2
+[2023-08-13 00:41:26] [OK] respuesta ok: 2
+[2023-08-13 00:41:27] [OK] ..:cons_estudiantes:..
+[2023-08-13 00:41:27] [OK] Estudiante por curso: 7
+[2023-08-13 00:41:27] [OK] respuesta ok: 7
+[2023-08-13 00:41:28] [OK] ..:cons_estudiantes:..
+[2023-08-13 00:41:28] [OK] Estudiante por curso: 8
+[2023-08-13 00:41:28] [OK] respuesta ok: 8
+[2023-08-13 00:54:51] [OK] ..:validar_usuario:..
+[2023-08-13 00:54:51] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 01:07:49] [OK] ..:save_score:..
+[2023-08-13 01:07:49] [OK] Inicio de operación
+[2023-08-13 01:07:49] [OK] entrada: null
+[2023-08-13 01:07:49] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:07:49] [OK] ..:save_score:..
+[2023-08-13 01:07:49] [OK] Inicio de operación
+[2023-08-13 01:07:49] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":2}
+[2023-08-13 01:07:49] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:11:02] [OK] ..:save_score:..
+[2023-08-13 01:11:02] [OK] Inicio de operación
+[2023-08-13 01:11:02] [OK] entrada: null
+[2023-08-13 01:11:02] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:11:02] [OK] ..:save_score:..
+[2023-08-13 01:11:02] [OK] Inicio de operación
+[2023-08-13 01:11:02] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":6}
+[2023-08-13 01:11:02] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:11:07] [OK] ..:save_score:..
+[2023-08-13 01:11:07] [OK] Inicio de operación
+[2023-08-13 01:11:07] [OK] entrada: null
+[2023-08-13 01:11:07] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:11:07] [OK] ..:save_score:..
+[2023-08-13 01:11:07] [OK] Inicio de operación
+[2023-08-13 01:11:07] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":8}
+[2023-08-13 01:11:07] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:11:52] [OK] ..:save_score:..
+[2023-08-13 01:11:52] [OK] Inicio de operación
+[2023-08-13 01:11:52] [OK] entrada: null
+[2023-08-13 01:11:52] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:11:52] [OK] ..:save_score:..
+[2023-08-13 01:11:52] [OK] Inicio de operación
+[2023-08-13 01:11:52] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":8}
+[2023-08-13 01:11:52] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:11:55] [OK] ..:save_score:..
+[2023-08-13 01:11:55] [OK] Inicio de operación
+[2023-08-13 01:11:55] [OK] entrada: null
+[2023-08-13 01:11:55] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:11:55] [OK] ..:save_score:..
+[2023-08-13 01:11:55] [OK] Inicio de operación
+[2023-08-13 01:11:55] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":6}
+[2023-08-13 01:11:55] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:15:12] [OK] ..:save_score:..
+[2023-08-13 01:15:12] [OK] Inicio de operación
+[2023-08-13 01:15:12] [OK] entrada: null
+[2023-08-13 01:15:12] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:15:12] [OK] ..:save_score:..
+[2023-08-13 01:15:12] [OK] Inicio de operación
+[2023-08-13 01:15:12] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":2}
+[2023-08-13 01:15:12] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:15:46] [OK] ..:save_score:..
+[2023-08-13 01:15:46] [OK] Inicio de operación
+[2023-08-13 01:15:46] [OK] entrada: null
+[2023-08-13 01:15:46] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:15:46] [OK] ..:save_score:..
+[2023-08-13 01:15:46] [OK] Inicio de operación
+[2023-08-13 01:15:46] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":6}
+[2023-08-13 01:15:46] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:16:20] [OK] ..:save_score:..
+[2023-08-13 01:16:20] [OK] Inicio de operación
+[2023-08-13 01:16:20] [OK] entrada: null
+[2023-08-13 01:16:20] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:16:20] [OK] ..:save_score:..
+[2023-08-13 01:16:20] [OK] Inicio de operación
+[2023-08-13 01:16:20] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":6}
+[2023-08-13 01:16:20] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:19:39] [OK] ..:save_score:..
+[2023-08-13 01:19:39] [OK] Inicio de operación
+[2023-08-13 01:19:39] [OK] entrada: null
+[2023-08-13 01:19:39] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:19:39] [OK] ..:save_score:..
+[2023-08-13 01:19:39] [OK] Inicio de operación
+[2023-08-13 01:19:39] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":8}
+[2023-08-13 01:19:39] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:22:05] [OK] ..:save_score:..
+[2023-08-13 01:22:05] [OK] Inicio de operación
+[2023-08-13 01:22:05] [OK] entrada: null
+[2023-08-13 01:22:05] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:22:05] [OK] ..:save_score:..
+[2023-08-13 01:22:05] [OK] Inicio de operación
+[2023-08-13 01:22:05] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":10}
+[2023-08-13 01:22:05] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:22:09] [OK] ..:save_score:..
+[2023-08-13 01:22:09] [OK] Inicio de operación
+[2023-08-13 01:22:09] [OK] entrada: null
+[2023-08-13 01:22:09] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:22:09] [OK] ..:save_score:..
+[2023-08-13 01:22:09] [OK] Inicio de operación
+[2023-08-13 01:22:09] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":7}
+[2023-08-13 01:22:09] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:22:15] [OK] ..:save_score:..
+[2023-08-13 01:22:15] [OK] Inicio de operación
+[2023-08-13 01:22:15] [OK] entrada: null
+[2023-08-13 01:22:15] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:22:15] [OK] ..:save_score:..
+[2023-08-13 01:22:15] [OK] Inicio de operación
+[2023-08-13 01:22:15] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":5}
+[2023-08-13 01:22:15] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:22:18] [OK] ..:save_score:..
+[2023-08-13 01:22:18] [OK] Inicio de operación
+[2023-08-13 01:22:18] [OK] entrada: null
+[2023-08-13 01:22:18] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:22:18] [OK] ..:save_score:..
+[2023-08-13 01:22:18] [OK] Inicio de operación
+[2023-08-13 01:22:18] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":2}
+[2023-08-13 01:22:18] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:22:21] [OK] ..:save_score:..
+[2023-08-13 01:22:21] [OK] Inicio de operación
+[2023-08-13 01:22:21] [OK] entrada: null
+[2023-08-13 01:22:21] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:22:21] [OK] ..:save_score:..
+[2023-08-13 01:22:21] [OK] Inicio de operación
+[2023-08-13 01:22:21] [OK] entrada: {"id_estudiante":4,"curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":0}
+[2023-08-13 01:22:21] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:39:11] [OK] ..:save_score:..
+[2023-08-13 01:39:11] [OK] Inicio de operación
+[2023-08-13 01:39:11] [OK] entrada: null
+[2023-08-13 01:39:11] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:39:11] [OK] ..:save_score:..
+[2023-08-13 01:39:11] [OK] Inicio de operación
+[2023-08-13 01:39:11] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 01:39:11] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:39:14] [OK] ..:save_score:..
+[2023-08-13 01:39:14] [OK] Inicio de operación
+[2023-08-13 01:39:14] [OK] entrada: null
+[2023-08-13 01:39:14] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:39:14] [OK] ..:save_score:..
+[2023-08-13 01:39:14] [OK] Inicio de operación
+[2023-08-13 01:39:14] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":0}
+[2023-08-13 01:39:14] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 01:45:59] [OK] ..:save_score:..
+[2023-08-13 01:45:59] [OK] Inicio de operación
+[2023-08-13 01:45:59] [OK] entrada: null
+[2023-08-13 01:45:59] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 01:45:59] [OK] ..:save_score:..
+[2023-08-13 01:45:59] [OK] Inicio de operación
+[2023-08-13 01:45:59] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 01:45:59] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:19:56] [OK] ..:save_score:..
+[2023-08-13 02:19:56] [OK] Inicio de operación
+[2023-08-13 02:19:56] [OK] entrada: null
+[2023-08-13 02:19:56] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:19:56] [OK] ..:save_score:..
+[2023-08-13 02:19:56] [OK] Inicio de operación
+[2023-08-13 02:19:56] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 02:19:56] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:20:02] [OK] ..:save_score:..
+[2023-08-13 02:20:02] [OK] Inicio de operación
+[2023-08-13 02:20:02] [OK] entrada: null
+[2023-08-13 02:20:02] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:20:02] [OK] ..:save_score:..
+[2023-08-13 02:20:02] [OK] Inicio de operación
+[2023-08-13 02:20:02] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 02:20:02] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:20:05] [OK] ..:save_score:..
+[2023-08-13 02:20:05] [OK] Inicio de operación
+[2023-08-13 02:20:05] [OK] entrada: null
+[2023-08-13 02:20:05] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:20:05] [OK] ..:save_score:..
+[2023-08-13 02:20:05] [OK] Inicio de operación
+[2023-08-13 02:20:05] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":0}
+[2023-08-13 02:20:05] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:20:08] [OK] ..:save_score:..
+[2023-08-13 02:20:08] [OK] Inicio de operación
+[2023-08-13 02:20:08] [OK] entrada: null
+[2023-08-13 02:20:08] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:20:08] [OK] ..:save_score:..
+[2023-08-13 02:20:08] [OK] Inicio de operación
+[2023-08-13 02:20:08] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":0}
+[2023-08-13 02:20:09] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:20:24] [OK] ..:save_score:..
+[2023-08-13 02:20:24] [OK] Inicio de operación
+[2023-08-13 02:20:24] [OK] entrada: null
+[2023-08-13 02:20:24] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:20:24] [OK] ..:save_score:..
+[2023-08-13 02:20:24] [OK] Inicio de operación
+[2023-08-13 02:20:24] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 02:20:24] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:20:28] [OK] ..:save_score:..
+[2023-08-13 02:20:28] [OK] Inicio de operación
+[2023-08-13 02:20:28] [OK] entrada: null
+[2023-08-13 02:20:28] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:20:28] [OK] ..:save_score:..
+[2023-08-13 02:20:28] [OK] Inicio de operación
+[2023-08-13 02:20:28] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":0}
+[2023-08-13 02:20:28] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:23:06] [OK] ..:save_score:..
+[2023-08-13 02:23:06] [OK] Inicio de operación
+[2023-08-13 02:23:06] [OK] entrada: null
+[2023-08-13 02:23:06] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:23:06] [OK] ..:save_score:..
+[2023-08-13 02:23:06] [OK] Inicio de operación
+[2023-08-13 02:23:06] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":5}
+[2023-08-13 02:23:06] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 02:23:12] [OK] ..:save_score:..
+[2023-08-13 02:23:12] [OK] Inicio de operación
+[2023-08-13 02:23:12] [OK] entrada: null
+[2023-08-13 02:23:12] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 02:23:12] [OK] ..:save_score:..
+[2023-08-13 02:23:12] [OK] Inicio de operación
+[2023-08-13 02:23:12] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 1","juego":"puntos_suspensivos","puntaje":10}
+[2023-08-13 02:23:12] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 03:13:48] [OK] ..:crud_cursos:..
+[2023-08-13 03:13:48] [OK] Inicio de operacion op: CN
+[2023-08-13 03:13:48] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"CUurso de 5to","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"Sexto","DESCRIPCION":"Sexto Curso","ANIO":0,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"Septimo","DESCRIPCION":"7mo Curso","ANIO":0,"ESTADO":"S"}]}
+[2023-08-13 03:14:32] [OK] ..:asignaciones_no_entregadas:..
+[2023-08-13 03:14:32] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-08-13 03:14:32] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-08-13 03:20:50] [OK] ..:crud_asignaciones:..
+[2023-08-13 03:20:50] [OK] Inicio de operacion op: CNA
+[2023-08-13 03:20:50] [OK] filaString: {"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigaci\u00f3n de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Cindy Elizabeth P\u00e9rez Ortiz"}
+[2023-08-13 03:20:50] [OK] filaString: {"ID":"16","ENTREGA":"estoy entregando una nueva tarea","FECHA_ENTREGA":"2023-05-30","CALIFICACION":10,"TITULO":"Leer un cuento","FECHA_VENCIMIENTO":"2023-05-31","NOMBRES":"Cindy Elizabeth P\u00e9rez Ortiz"}
+[2023-08-13 03:20:50] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigación de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Cindy Elizabeth Pérez Ortiz"},{"ID":"16","ENTREGA":"estoy entregando una nueva tarea","FECHA_ENTREGA":"2023-05-30","CALIFICACION":10,"TITULO":"Leer un cuento","FECHA_VENCIMIENTO":"2023-05-31","NOMBRES":"Cindy Elizabeth Pérez Ortiz"}]}
+[2023-08-13 03:20:52] [OK] ..:asignaciones_no_entregadas:..
+[2023-08-13 03:20:52] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-08-13 03:20:52] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-08-13 03:21:16] [OK] ..:asignaciones_no_entregadas:..
+[2023-08-13 03:21:16] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-08-13 03:21:16] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-08-13 03:21:24] [OK] ..:asignaciones_no_entregadas:..
+[2023-08-13 03:21:24] [OK] Inicio de operacion op: CN_ASIGNACIONES
+[2023-08-13 03:21:24] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ID_CURSO":"1","TITULO":"investigación de la antropologia","INSTRUCCIONES":"solo agregar el contenido en texto","FECHA_VENCIMIENTO":"2023-02-27"},{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"2023-04-24"},{"ID":"16","ID_CURSO":"3","TITULO":"Leer un cuento","INSTRUCCIONES":"Debe leer el cuento del siguiente link: wwwwww","FECHA_VENCIMIENTO":"2023-05-31"}]}
+[2023-08-13 03:21:27] [OK] ..:crud_asignaciones:..
+[2023-08-13 03:21:27] [OK] Inicio de operacion op: CNA
+[2023-08-13 03:21:27] [OK] filaString: {"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigaci\u00f3n de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Cindy Elizabeth P\u00e9rez Ortiz"}
+[2023-08-13 03:21:27] [OK] filaString: {"ID":"16","ENTREGA":"estoy entregando una nueva tarea","FECHA_ENTREGA":"2023-05-30","CALIFICACION":10,"TITULO":"Leer un cuento","FECHA_VENCIMIENTO":"2023-05-31","NOMBRES":"Cindy Elizabeth P\u00e9rez Ortiz"}
+[2023-08-13 03:21:27] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"6","ENTREGA":"New content","FECHA_ENTREGA":"2023-02-26","CALIFICACION":20,"TITULO":"investigación de la antropologia","FECHA_VENCIMIENTO":"2023-02-27","NOMBRES":"Cindy Elizabeth Pérez Ortiz"},{"ID":"16","ENTREGA":"estoy entregando una nueva tarea","FECHA_ENTREGA":"2023-05-30","CALIFICACION":10,"TITULO":"Leer un cuento","FECHA_VENCIMIENTO":"2023-05-31","NOMBRES":"Cindy Elizabeth Pérez Ortiz"}]}
+[2023-08-13 03:24:36] [OK] ..:validar_usuario:..
+[2023-08-13 03:24:36] [OK] Inicio de operacion op: consulta deADMIN
+[2023-08-13 03:24:48] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"ID":"3","ROL":"PROFESOR","USUARIO":"profesor","CAMBIAR_CONTRASENIA":"N","NOMBRES":"Javier Prof","APELLIDOS":"Fernandez Vera","CEDULA":"0930988807","SEXO":"M","EDAD":"40","ID_ROL":"2","CURSO":"5"}}
+[2023-08-13 03:28:26] [OK] ..:validar_usuario:..
+[2023-08-13 03:28:26] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 03:28:29] [OK] ..:validar_usuario:..
+[2023-08-13 03:28:29] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 03:28:34] [OK] ..:validar_usuario:..
+[2023-08-13 03:28:34] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 03:28:46] [OK] ..:validar_usuario:..
+[2023-08-13 03:28:46] [OK] Inicio de operacion op: consulta deprofesor
+[2023-08-13 03:29:02] [OK] ..:crud_cursos:..
+[2023-08-13 03:29:02] [OK] Inicio de operacion op: CN
+[2023-08-13 03:29:02] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"CUurso de 5to","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"Sexto","DESCRIPCION":"Sexto Curso","ANIO":0,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"Septimo","DESCRIPCION":"7mo Curso","ANIO":0,"ESTADO":"S"}]}
+[2023-08-13 03:29:36] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"ID":"3","ROL":"PROFESOR","USUARIO":"profesor","CAMBIAR_CONTRASENIA":"N","NOMBRES":"Javier Prof","APELLIDOS":"Fernandez Vera","CEDULA":"0930988807","SEXO":"M","EDAD":"40","ID_ROL":"2","CURSO":"5"}}
+[2023-08-13 03:29:41] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"ID":"3","ROL":"PROFESOR","USUARIO":"profesor","CAMBIAR_CONTRASENIA":"N","NOMBRES":"Javier Prof","APELLIDOS":"Fernandez Vera","CEDULA":"0930988807","SEXO":"M","EDAD":"40","ID_ROL":"2","CURSO":"5"}}
+[2023-08-13 03:29:47] [OK] ..:crud_cursos:..
+[2023-08-13 03:29:47] [OK] Inicio de operacion op: CN
+[2023-08-13 03:29:47] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"CUurso de 5to","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"Sexto","DESCRIPCION":"Sexto Curso","ANIO":0,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"Septimo","DESCRIPCION":"7mo Curso","ANIO":0,"ESTADO":"S"}]}
+[2023-08-13 03:29:53] [OK] ..:crud_cursos:..
+[2023-08-13 03:29:53] [OK] Inicio de operacion op: CN_CURSO
+[2023-08-13 03:29:53] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"CUurso de 5to","ANIO":2023,"ESTADO":"S"}}
+[2023-08-13 03:29:58] [OK] ..:crud_cursos:..
+[2023-08-13 03:29:58] [OK] Inicio de operacion op: AC_CURSO
+[2023-08-13 03:29:58] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 03:29:58] [OK] ..:crud_cursos:..
+[2023-08-13 03:29:58] [OK] Inicio de operacion op: CN
+[2023-08-13 03:29:58] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"Curso de 5to","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"Sexto","DESCRIPCION":"Sexto Curso","ANIO":0,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"Septimo","DESCRIPCION":"7mo Curso","ANIO":0,"ESTADO":"S"}]}
+[2023-08-13 03:30:35] [OK] ..:crud_cursos:..
+[2023-08-13 03:30:35] [OK] Inicio de operacion op: CN
+[2023-08-13 03:30:35] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","ID_PROFESOR":3,"NOMBRE":"Quinto","DESCRIPCION":"Curso de 5to","ANIO":2023,"ESTADO":"S"},{"ID":"7","ID_PROFESOR":3,"NOMBRE":"Sexto","DESCRIPCION":"Sexto Curso","ANIO":0,"ESTADO":"S"},{"ID":"8","ID_PROFESOR":3,"NOMBRE":"Septimo","DESCRIPCION":"7mo Curso","ANIO":0,"ESTADO":"S"}]}
+[2023-08-13 05:34:17] [OK] ..:save_score:..
+[2023-08-13 05:34:17] [OK] Inicio de operación
+[2023-08-13 05:34:17] [OK] entrada: null
+[2023-08-13 05:34:17] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 05:34:17] [OK] ..:save_score:..
+[2023-08-13 05:34:17] [OK] Inicio de operación
+[2023-08-13 05:34:17] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 4","juego":"palabra_mal_escrita","puntaje":0}
+[2023-08-13 05:34:17] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-13 05:34:27] [OK] ..:save_score:..
+[2023-08-13 05:34:27] [OK] Inicio de operación
+[2023-08-13 05:34:27] [OK] entrada: null
+[2023-08-13 05:34:27] [OK] Respuesta: {"codResponse":"99","msjResponse":"Faltan datos"}
+[2023-08-13 05:34:27] [OK] ..:save_score:..
+[2023-08-13 05:34:27] [OK] Inicio de operación
+[2023-08-13 05:34:27] [OK] entrada: {"id_estudiante":11,"curso":"6","unidad":"unidad 4","juego":"palabra_mal_escrita","puntaje":2}
+[2023-08-13 05:34:27] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
