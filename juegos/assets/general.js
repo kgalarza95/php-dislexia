@@ -109,7 +109,7 @@ const coursesData = {
 
 let selectedCourse = '';
 
-function showStudents(courseId) {
+function abrirListaEstudiantes(courseId) {
     console.log("==========================");
     console.log("consulta de estudiantes");
     selectedCourse = courseId;
@@ -118,11 +118,14 @@ function showStudents(courseId) {
     // Ocultar sección de cursos y mostrar sección de estudiantes
     document.getElementById("studentsSection").style.display = "block";
     document.getElementById("activitiesSection").style.display = "none";
+    document.getElementById("unitsSection").style.display = "none";
+    document.getElementById("activitiesSection2").style.display = "none";
+
 
     // Mostrar el nombre del curso y cargar la lista de estudiantes
     document.getElementById("studentsSection").innerHTML = `
     <h1>${course.name}</h1>
-    <button class="btn btn-secondary mb-3" onclick="showCourses()">Volver a la Lista de Cursos</button>
+    <button class="btn btn-secondary mb-3" onclick="abrirListaCursos()">Volver a la Lista de Cursos</button>
     <ul class="list-group" id="studentList">
      
     </ul >
@@ -150,7 +153,9 @@ function showStudents(courseId) {
                 const studentItem = document.createElement("li");
                 studentItem.className = "list-group-item";
                 studentItem.textContent = student.NOMBRES;
-                studentItem.addEventListener("click", () => showActivities(student.ID));
+                //funcionalidad anterior abrir actividades
+                //studentItem.addEventListener("click", () => showActivities(student.ID));
+                studentItem.addEventListener("click", () => abrirUnidades(student.ID));
                 studentList.appendChild(studentItem);
             });
         })
@@ -182,15 +187,23 @@ function showStudents(courseId) {
 }
 
 // Función para mostrar actividades de un estudiante
-function showActivities(studentId) {
+function showActivities(studentId, actividadId) {
+
     // Ocultar sección de estudiantes y mostrar sección de actividades y puntajes
     document.getElementById("studentsSection").style.display = "none";
     document.getElementById("activitiesSection").style.display = "block";
 
+
+    document.getElementById("unitsSection").style.display = "none";
+    document.getElementById("activitiesSection2").style.display = "none";
+    document.getElementById("unitsSection").style.display = "none";
+
+
+
     // Mostrar la lista de actividades y puntajes del estudiante seleccionado
     document.getElementById("activitiesSection").innerHTML = `
     <h1>Actividades y Puntajes</h1>
-    <button class="btn btn-secondary mb-3" onclick="showStudents(selectedCourse)">Volver a la Lista de Estudiantes</button>
+    <button class="btn btn-secondary mb-3" onclick="abrirListaEstudiantes(selectedCourse)">Volver a la Lista de Estudiantes</button>
     <ul class="list-group" id="activityList">
 
     </ul>
@@ -199,22 +212,9 @@ function showActivities(studentId) {
     const activityList = document.getElementById("activityList");
     activityList.innerHTML = '';
 
-    // Cargar y mostrar la lista de actividades y puntajes
-    // Aquí puedes agregar el código para cargar y mostrar la lista de actividades y puntajes del estudiante seleccionado
-    /*  const studentActivities = [
-         { id: 1, name: "Actividad 1", score: 85 },
-         { id: 2, name: "Actividad 2", score: 92 },
-         // ... agregar más actividades
-     ];
- 
-     studentActivities.forEach(activity => {
-         const activityItem = document.createElement("li");
-         activityItem.className = "list-group-item";
-         activityItem.textContent = `${activity.name} - Puntaje: ${activity.score}`;
-         activityList.appendChild(activityItem);
-     }); */
 
-    const url = `${URL_}${actividades}?estudiante_id=${studentId}`;
+
+    const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}`;
     fetch(url)
         .then(response => response.json())
         .then(studentActivities => {
@@ -231,8 +231,83 @@ function showActivities(studentId) {
 }
 
 // Función para volver a la lista de cursos
-function showCourses() {
+function abrirListaCursos() {
     selectedCourse = '';
     document.getElementById("studentsSection").style.display = "none";
     document.getElementById("activitiesSection").style.display = "none";
+    document.getElementById("activitiesSection2").style.display = "none";
+}
+
+
+
+var idEstudiante;
+//new
+
+function abrirUnidades(selectedStudent) {
+    idEstudiante = selectedStudent;
+    document.getElementById("unitsSection").style.display = "block";
+    document.getElementById("activitiesSection").style.display = "none";
+    document.getElementById("activitiesSection2").style.display = "none";
+
+    document.getElementById("studentsSection").style.display = "none";
+
+    /*   // Mostrar la lista de unidades del curso
+      document.getElementById("unitList").innerHTML = `
+      <li class="list-group-item" onclick="showActivities(selectedStudent, '1')">Unidad 1</li>
+      <li class="list-group-item" onclick="showActivities(selectedStudent, '2')">Unidad 2</li>
+      <li class="list-group-item" onclick="showActivities(selectedStudent, '3')">Unidad 3</li>
+      <li class="list-group-item" onclick="showActivities(selectedStudent, '4')">Unidad 4</li>
+    `; */
+}
+
+
+// Función para mostrar actividades de una unidad
+function abrirActividades(unitId) {
+    selectedUnit = unitId;
+    document.getElementById("unitsSection").style.display = "none";
+    document.getElementById("activitiesSection2").style.display = "block";
+
+    document.getElementById("unitsSection").style.display = "none";
+    document.getElementById("studentsSection").style.display = "none";
+
+
+    // Mostrar la lista de actividades de la unidad seleccionada
+    /*document.getElementById("activityList2").innerHTML = `
+    <h1>Actividades de la Unidad ${unitId}</h1>
+    <button class="btn btn-secondary mb-3" onclick="showUnits()">Volver a la Lista de Unidades</button>
+    <ul class="list-group" id="activityList2">
+      <li class="list-group-item" onclick="showScores(selectedStudent, selectedUnit, '1')">Actividad 1</li>
+      <li class="list-group-item" onclick="showScores(selectedStudent, selectedUnit, '2')">Actividad 2</li>
+      <li class="list-group-item" onclick="showScores(selectedStudent, selectedUnit, '3')">Actividad 3</li>
+      <li class="list-group-item" onclick="showScores(selectedStudent, selectedUnit, '4')">Actividad 4</li>
+    </ul>
+    `;*/
+}
+
+
+
+// Función para mostrar puntajes de una actividad
+function showScores(activityId) {
+
+    console.log({ idEstudiante });
+    console.log({ selectedUnit });
+    console.log({ activityId });
+
+    showActivities(idEstudiante, activityId);
+
+    /*document.getElementById("activitiesSection").style.display = "none";
+    document.getElementById("scoresSection").style.display = "block";
+
+    // Mostrar la lista de puntajes de la actividad seleccionada
+    document.getElementById("scoreList").innerHTML = `
+    <h1>Puntajes de la Actividad ${activityId}</h1>
+    <button class="btn btn-secondary mb-3" onclick="showActivities(selectedStudent, selectedUnit)">Volver a la Lista de Actividades</button>
+    <ul class="list-group" id="scoreList">
+      <li class="list-group-item">Puntaje 1</li>
+      <li class="list-group-item">Puntaje 2</li>
+      <li class="list-group-item">Puntaje 3</li>
+      <li class="list-group-item">Puntaje 4</li>
+    </ul>
+    `;
+    */
 }
