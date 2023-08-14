@@ -10,7 +10,11 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
 $estudianteId = $_GET['estudiante_id'];
+$unidad = $_GET['unidadId'];
+
 $actividad = $_GET['actividadId'];
+
+
 // Consulta de actividades y puntajes por estudiante
 $actividades = array();
 
@@ -36,7 +40,8 @@ $actividades = array();
     
           ) a
           WHERE id_estudiante = $estudianteId
-          and unidad like '%$actividad%' ";
+          and juego like '%$actividad%'
+          and unidad like '%$unidad%' ";
 
 
 $resultado = $conexion->query($query);
