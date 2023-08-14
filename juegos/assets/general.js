@@ -187,7 +187,7 @@ function abrirListaEstudiantes(courseId) {
 }
 
 // Función para mostrar actividades de un estudiante
-function showActivities(studentId, actividadId) {
+function showActivities(studentId, actividadId, idUnidad) {
 
     // Ocultar sección de estudiantes y mostrar sección de actividades y puntajes
     document.getElementById("studentsSection").style.display = "none";
@@ -203,7 +203,7 @@ function showActivities(studentId, actividadId) {
     // Mostrar la lista de actividades y puntajes del estudiante seleccionado
     document.getElementById("activitiesSection").innerHTML = `
     <h1>Actividades y Puntajes</h1>
-    <button class="btn btn-secondary mb-3" onclick="abrirListaEstudiantes(selectedCourse)">Volver a la Lista de Estudiantes</button>
+    <button class="btn btn-secondary mb-3" onclick="abrirActividades(selectedUnit)">Volver a la Lista de Actividades</button>
     <ul class="list-group" id="activityList">
 
     </ul>
@@ -214,6 +214,7 @@ function showActivities(studentId, actividadId) {
 
 
 
+    //const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}&idUnidad=${idUnidad}`;
     const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}`;
     fetch(url)
         .then(response => response.json())
@@ -269,6 +270,7 @@ function abrirActividades(unitId) {
 
     document.getElementById("unitsSection").style.display = "none";
     document.getElementById("studentsSection").style.display = "none";
+    document.getElementById("activitiesSection").style.display = "none";
 
 
     // Mostrar la lista de actividades de la unidad seleccionada
@@ -293,7 +295,7 @@ function showScores(activityId) {
     console.log({ selectedUnit });
     console.log({ activityId });
 
-    showActivities(idEstudiante, activityId);
+    showActivities(idEstudiante, selectedUnit);
 
     /*document.getElementById("activitiesSection").style.display = "none";
     document.getElementById("scoresSection").style.display = "block";

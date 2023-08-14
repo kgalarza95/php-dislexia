@@ -1,0 +1,65 @@
+[2023-08-14 07:58:52] [OK] ..:cons_estudiantes:..
+[2023-08-14 07:58:52] [OK] Estudiante por curso: 2
+[2023-08-14 07:58:52] [OK] respuesta ok: 2
+[2023-08-14 07:58:52] [OK] ..:cons_estudiantes:..
+[2023-08-14 07:58:52] [OK] Estudiante por curso: 2
+[2023-08-14 07:58:52] [OK] respuesta ok: 2
+[2023-08-14 08:01:01] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:01] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:01] [OK] respuesta ok: 2
+[2023-08-14 08:01:01] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:01] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:01] [OK] respuesta ok: 2
+[2023-08-14 08:01:07] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:07] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:07] [OK] respuesta ok: 2
+[2023-08-14 08:01:07] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:07] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:07] [OK] respuesta ok: 2
+[2023-08-14 08:01:27] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:27] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:27] [OK] respuesta ok: 2
+[2023-08-14 08:01:27] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:01:27] [OK] Estudiante por curso: 2
+[2023-08-14 08:01:27] [OK] respuesta ok: 2
+[2023-08-14 08:02:23] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:02:23] [OK] Estudiante por curso: 2
+[2023-08-14 08:02:23] [OK] respuesta ok: 2
+[2023-08-14 08:02:23] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:02:23] [OK] Estudiante por curso: 2
+[2023-08-14 08:02:23] [OK] respuesta ok: 2
+[2023-08-14 08:03:40] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:03:40] [OK] Estudiante por curso: 2
+[2023-08-14 08:03:40] [OK] respuesta ok: 2
+[2023-08-14 08:03:40] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:03:40] [OK] Estudiante por curso: 2
+[2023-08-14 08:03:40] [OK] respuesta ok: 2
+[2023-08-14 08:05:03] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:05:03] [OK] Estudiante por curso: 2
+[2023-08-14 08:05:03] [OK] respuesta ok: 2
+[2023-08-14 08:05:03] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:05:03] [OK] Estudiante por curso: 2
+[2023-08-14 08:05:03] [OK] respuesta ok: 2
+[2023-08-14 08:08:51] [OK] ..:validar_usuario:..
+[2023-08-14 08:08:51] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-14 08:09:07] [OK] ..:validar_usuario:..
+[2023-08-14 08:09:07] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-14 08:09:21] [OK] ..:save_score:..
+[2023-08-14 08:09:21] [OK] Inicio de operación
+[2023-08-14 08:09:21] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":2}
+[2023-08-14 08:09:21] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:09:38] [OK] ..:save_score:..
+[2023-08-14 08:09:38] [OK] Inicio de operación
+[2023-08-14 08:09:38] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"oracion_correcta","puntaje":0}
+[2023-08-14 08:09:38] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:09:41] [OK] ..:save_score:..
+[2023-08-14 08:09:41] [OK] Inicio de operación
+[2023-08-14 08:09:41] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"oracion_correcta","puntaje":2}
+[2023-08-14 08:09:41] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:09:49] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":{"ID":"4","ROL":"ESTUDIANTE","USUARIO":"alumno","CAMBIAR_CONTRASENIA":"N","NOMBRES":"Cindy Elizabeth","APELLIDOS":"Pérez Ortiz","CEDULA":"1234567890","SEXO":"F","EDAD":"40","ID_ROL":"3","CURSO":"5"}}
+[2023-08-14 08:09:51] [OK] ..:crud_cursos:..
+[2023-08-14 08:09:51] [OK] Inicio de operacion op: CX
+[2023-08-14 08:09:51] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"2","NOMBRE":"Quinto","DESCRIPCION":"Curso de 5to","ANIO":2023,"ESTADO":"S"}]}
+[2023-08-14 08:09:53] [OK] ..:crud_cursos:..
+[2023-08-14 08:09:53] [OK] Inicio de operacion op: CT
+[2023-08-14 08:09:53] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"24\/04\/2023"},{"ID":"17","ID_CURSO":"2","TITULO":"nueva tarea","INSTRUCCIONES":"leer un libro y subir archivos","FECHA_VENCIMIENTO":"14\/08\/2023"}]}
