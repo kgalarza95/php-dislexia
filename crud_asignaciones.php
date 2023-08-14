@@ -212,7 +212,8 @@ try {
         $SQL = " SELECT CAST(E.ID_TAREA AS VARCHAR(15)) ID, E.ENTREGA, E.FECHA_ENTREGA, E.CALIFICACION,
                         A.TITULO, 
                         A.FECHA_VENCIMIENTO, 
-                        CONCAT(P.NOMBRES, ' ', P.APELLIDOS) AS NOMBRES
+                        CONCAT(P.NOMBRES, ' ', P.APELLIDOS) AS NOMBRES,
+                        NVL(e.RUTA_FILE_TAREA, ' ') RUTA_FILE_TAREA
                 FROM DB_APP_DISLEXIA.APP_ENTREGA_ASIGNACION  E
                 JOIN APP_ASIGNACIONES A ON A.ID= E.ID_TAREA
                 JOIN APP_DATOS_PERSONALES P ON P.ID = E.ID_ESTUDIANTE  
