@@ -63,3 +63,51 @@
 [2023-08-14 08:09:53] [OK] ..:crud_cursos:..
 [2023-08-14 08:09:53] [OK] Inicio de operacion op: CT
 [2023-08-14 08:09:53] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK","data":[{"ID":"15","ID_CURSO":"2","TITULO":"tarea de matematicas","INSTRUCCIONES":"estas son\ninstrucciones de la entrega de la tarea","FECHA_VENCIMIENTO":"24\/04\/2023"},{"ID":"17","ID_CURSO":"2","TITULO":"nueva tarea","INSTRUCCIONES":"leer un libro y subir archivos","FECHA_VENCIMIENTO":"14\/08\/2023"}]}
+[2023-08-14 08:27:03] [OK] ..:validar_usuario:..
+[2023-08-14 08:27:03] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-14 08:29:15] [OK] ..:validar_usuario:..
+[2023-08-14 08:29:15] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-14 08:29:20] [OK] ..:save_score:..
+[2023-08-14 08:29:20] [OK] Inicio de operación
+[2023-08-14 08:29:20] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ordenar_relatos","puntaje":2}
+[2023-08-14 08:29:20] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:29:24] [OK] ..:save_score:..
+[2023-08-14 08:29:24] [OK] Inicio de operación
+[2023-08-14 08:29:24] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ACTIVIDAD 3","puntaje":4}
+[2023-08-14 08:29:24] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:29:31] [OK] ..:save_score:..
+[2023-08-14 08:29:31] [OK] Inicio de operación
+[2023-08-14 08:29:31] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"oracion_correcta","puntaje":6}
+[2023-08-14 08:29:31] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:32:31] [OK] ..:validar_usuario:..
+[2023-08-14 08:32:31] [OK] Inicio de operacion op: consulta dealumno
+[2023-08-14 08:32:36] [OK] ..:save_score:..
+[2023-08-14 08:32:36] [OK] Inicio de operación
+[2023-08-14 08:32:36] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ACTIVIDAD 1","puntaje":2}
+[2023-08-14 08:32:36] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:32:39] [OK] ..:save_score:..
+[2023-08-14 08:32:39] [OK] Inicio de operación
+[2023-08-14 08:32:39] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ACTIVIDAD 3","puntaje":4}
+[2023-08-14 08:32:39] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:32:45] [OK] ..:save_score:..
+[2023-08-14 08:32:45] [OK] Inicio de operación
+[2023-08-14 08:32:45] [OK] entrada: {"id_estudiante":"4","curso":"5","unidad":"unidad 1","juego":"ACTIVIDAD 2","puntaje":8}
+[2023-08-14 08:32:45] [OK] Respuesta: {"codResponse":"00","msjResponse":"TRANSACCIÓN OK"}
+[2023-08-14 08:32:56] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:32:56] [OK] Estudiante por curso: 2
+[2023-08-14 08:32:56] [OK] respuesta ok: 2
+[2023-08-14 08:32:56] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:32:56] [OK] Estudiante por curso: 2
+[2023-08-14 08:32:56] [OK] respuesta ok: 2
+[2023-08-14 08:34:08] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:34:08] [OK] Estudiante por curso: 2
+[2023-08-14 08:34:08] [OK] respuesta ok: 2
+[2023-08-14 08:34:08] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:34:08] [OK] Estudiante por curso: 2
+[2023-08-14 08:34:08] [OK] respuesta ok: 2
+[2023-08-14 08:36:57] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:36:57] [OK] Estudiante por curso: 2
+[2023-08-14 08:36:57] [OK] respuesta ok: 2
+[2023-08-14 08:36:57] [OK] ..:cons_estudiantes:..
+[2023-08-14 08:36:57] [OK] Estudiante por curso: 2
+[2023-08-14 08:36:57] [OK] respuesta ok: 2

@@ -1,4 +1,4 @@
-var IP = "192.168.100.185";
+var IP = "192.168.1.48";
 
 
 
@@ -187,7 +187,7 @@ function abrirListaEstudiantes(courseId) {
 }
 
 // Función para mostrar actividades de un estudiante
-function showActivities(studentId, actividadId, idUnidad) {
+function showActivities(studentId, idUnidad, actividadId) {
 
     // Ocultar sección de estudiantes y mostrar sección de actividades y puntajes
     document.getElementById("studentsSection").style.display = "none";
@@ -214,15 +214,15 @@ function showActivities(studentId, actividadId, idUnidad) {
 
 
 
-    //const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}&idUnidad=${idUnidad}`;
-    const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}`;
+    const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}&idUnidad=${idUnidad}`;
+    //const url = `${URL_}${actividades}?estudiante_id=${studentId}&actividadId=${actividadId}`;
     fetch(url)
         .then(response => response.json())
         .then(studentActivities => {
             studentActivities.forEach(activity => {
                 const activityItem = document.createElement("li");
                 activityItem.className = "list-group-item";
-                activityItem.textContent = `${activity.unidad} - ${activity.juego} - Puntaje: ${activity.puntaje}`;
+                activityItem.textContent = `${activity.unidad} - ${activity.juego} - PUNTAJE: ${activity.puntaje}`;
                 activityList.appendChild(activityItem);
             });
         })
@@ -295,7 +295,7 @@ function showScores(activityId) {
     console.log({ selectedUnit });
     console.log({ activityId });
 
-    showActivities(idEstudiante, selectedUnit);
+    showActivities(idEstudiante, selectedUnit, activityId);
 
     /*document.getElementById("activitiesSection").style.display = "none";
     document.getElementById("scoresSection").style.display = "block";

@@ -10,7 +10,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
 $estudianteId = $_GET['estudiante_id'];
-$unidad = $_GET['unidadId'];
+$unidad = $_GET['idUnidad'];
 
 $actividad = $_GET['actividadId'];
 
@@ -30,10 +30,10 @@ $actividades = array();
 
           $query = " select *
           from(
-                  SELECT id , id_estudiante , curso , unidad , juego , puntaje , fecha  
+                  SELECT id , id_estudiante , curso , UPPER(unidad) unidad , UPPER(juego) juego , puntaje , fecha  
                   FROM app_historial_juego 
                   union
-                  select a.id, e.id_estudiante, a.id_curso,'Tarea'unidad, a.titulo, e.calificacion,
+                  select a.id, e.id_estudiante, a.id_curso,'TAREA' unidad, UPPER(a.titulo) titulo, e.calificacion,
                             e.fecha_entrega 
                     from app_asignaciones a
                     join APP_ENTREGA_ASIGNACION e on e.id_tarea = a.id
