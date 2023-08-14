@@ -22,6 +22,7 @@ writeLog("Inicio de operacion op: " . $opcion);
 
 try {
     if ($opcion == "IN") {
+
         $conexion->set_charset("utf8");
 
         $id_curso = $_POST['id_curso'];
@@ -138,9 +139,26 @@ try {
         $fechaEntrega = $_POST['fecha_entrega'];
         $calificacion = $_POST['calificacion'];
 
+        $ruta = "";
+
+        if (isset($_POST['nombre'])) {
+            $base64_string = $_POST['encodedFile'];
+            $file_name = $_POST['nombre']; // Especifica el nombre que quieres que tenga el archivo guardado en el servidor
+            $ruta_general = "reapldos_archivos/";
+            $ruta_absoluta = __DIR__;
+
+            // Decodifica la cadena base64 y guarda el archivo en el servidor
+            $decoded = base64_decode($base64_string);
+            $file = fopen($ruta_absoluta . "/reapldos_archivos/" . $file_name, 'wb');
+            fwrite($file, $decoded);
+            fclose($file);
+
+            $ruta = $ruta_absoluta . "/reapldos_archivos/" . $file_name;
+        }
+
         // Preparar las consultas para la inserción en ambas tablas
-        $query1 = " INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion)
-                    VALUES (?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?)
+        $query1 = " INSERT INTO app_entrega_asignacion (id_tarea, id_estudiante, entrega, fecha_entrega, calificacion, ruta_file_tarea)
+                    VALUES (?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?, ?)
                      ON DUPLICATE KEY 
                      UPDATE entrega = ?,
                              fecha_entrega =  STR_TO_DATE(?, '%d/%m/%Y')
@@ -155,7 +173,17 @@ try {
         $stmt1 = $conexion->prepare($query1);
 
         // Vincular los parámetros con los marcadores de posición
-        $stmt1->bind_param("iisssss", $idTarea, $idEstudiante, $entrega, $fechaEntrega, $calificacion, $entrega, $fechaEntrega);
+        $stmt1->bind_param(
+            "iissssss",
+            $idTarea,
+            $idEstudiante,
+            $entrega,
+            $fechaEntrega,
+            $calificacion,
+            $ruta,
+            $entrega,
+            $fechaEntrega
+        );
 
 
         // Ejecutar las consultas
@@ -205,7 +233,7 @@ try {
                 $filas[] = $fila;
                 // Convertir la fila a una cadena de texto
                 $filaString = json_encode($fila);
-                writeLog("filaString: " . $filaString );
+                writeLog("filaString: " . $filaString);
             }
 
             // Crear respuesta
@@ -214,7 +242,6 @@ try {
                 'msjResponse' => 'TRANSACCIÓN OK',
                 'data' => $filas
             );
-
         } else {
             // Crear respuesta
             $respuesta = array(

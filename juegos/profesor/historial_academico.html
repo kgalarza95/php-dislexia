@@ -11,48 +11,84 @@
 <body>
   <div class="container mt-5">
     <div class="row">
+
+
       <div class="col">
         <h1>Lista de Cursos</h1>
-        <div class="card" onclick="showStudents('2')">
+        <div class="card" onclick="abrirListaEstudiantes('2')">
           <div class="card-body">
             <h5 class="card-title">5to Grado.</h5>
             <p class="card-text">Estudiantes del 5to Grado.</p>
           </div>
         </div>
-        <div class="card mt-3" onclick="showStudents('7')">
+        <div class="card mt-3" onclick="abrirListaEstudiantes('7')">
           <div class="card-body">
             <h5 class="card-title">6to Grado</h5>
             <p class="card-text">Estudiantes del 6to Grado.</p>
           </div>
         </div>
-        <div class="card mt-3" onclick="showStudents('8')">
+        <div class="card mt-3" onclick="abrirListaEstudiantes('8')">
           <div class="card-body">
             <h5 class="card-title">7mo Grado</h5>
             <p class="card-text">Estudiantes del 7mo Grado.</p>
           </div>
         </div>
       </div>
+
+
       <div class="col" id="studentsSection" style="display: none;">
         <h1>Estudiantes del Curso</h1>
-        <button class="btn btn-secondary mb-3" onclick="showCourses()">Volver a la Lista de Cursos</button>
+        <button class="btn btn-secondary mb-3" onclick="abrirListaCursos()">Volver a la Lista de Cursos</button>
         <ul class="list-group" id="studentList">
           <!-- Aquí se mostrará la lista de estudiantes -->
         </ul>
       </div>
+
+
+      <div class="col" id="unitsSection" style="display: none;">
+        <h1>Unidades del Curso</h1>
+        <button class="btn btn-secondary mb-3" onclick="abrirListaEstudiantes(selectedCourse)">Volver a la Lista de
+          Estudiantes</button>
+        <ul class="list-group" id="unitList">
+          <li class="list-group-item" onclick="abrirActividades('1')">Unidad 1</li>
+          <li class="list-group-item" onclick="abrirActividades('2')">Unidad 2</li>
+          <li class="list-group-item" onclick="abrirActividades('3')">Unidad 3</li>
+          <li class="list-group-item" onclick="abrirActividades('4')">Unidad 4</li>
+        </ul>
+       
+      </div>
+
+      <div class="col" id="activitiesSection2" style="display: none;">
+        <h1>Actividades del Curso</h1>
+        <button class="btn btn-secondary mb-3" onclick="abrirUnidades(idEstudiante)">Volver a la Lista de Unidades</button>
+        <ul class="list-group" id="activityList2">
+          <li class="list-group-item" onclick="showScores('1')">Actividad 1</li>
+          <li class="list-group-item" onclick="showScores('2')">Actividad 2</li>
+          <li class="list-group-item" onclick="showScores('3')">Actividad 3</li>
+          <li class="list-group-item" onclick="showScores('4')">Actividad 4</li>
+          <li class="list-group-item" onclick="showScores('Tarea')">Tareas</li>
+        </ul> 
+       
+      </div>
+      
+
       <div class="col" id="activitiesSection" style="display: none;">
         <h1>Actividades y Puntajes</h1>
-        <button class="btn btn-secondary mb-3" onclick="showStudents(selectedCourse)">Volver a la Lista de
+        <button class="btn btn-secondary mb-3" onclick="abrirListaEstudiantes(selectedCourse)">
+          Volver a la Lista de
           Estudiantes</button>
         <ul class="list-group" id="activityList">
           <!-- Aquí se mostrará la lista de actividades y puntajes -->
         </ul>
       </div>
+
+
     </div>
   </div>
   <script src="../assets/general.js"></script>
   <script>
 
-   
+
   </script>
 </body>
 
