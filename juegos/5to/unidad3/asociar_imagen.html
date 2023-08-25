@@ -173,30 +173,66 @@
       var respuestaCombo4 = $("#select4").val();
       var respuestaCombo5 = $("#select5").val();
       var respuestaCombo6 = $("#select6").val();
-
+      //validar respuesta
+      var validRespuestaCombo1 = document.getElementById("select1");
+      var validRespuestaCombo2 = document.getElementById("select2");
+      var validRespuestaCombo3 = document.getElementById("select3");
+      var validRespuestaCombo4 = document.getElementById("select4");
+      var validRespuestaCombo5 = document.getElementById("select5");
+      var validRespuestaCombo6 = document.getElementById("select6");
       // Comparar con las respuestas correctas y aumentar el puntaje
       if (respuestaCombo1 === respuestasCorrectas.combo1) {
         puntaje += evaluacion;
+        validRespuestaCombo1.classList.remove("bg-danger");
+        validRespuestaCombo1.classList.add("bg-success");
+      } else {
+        validRespuestaCombo1.classList.add("bg-danger");
+        validRespuestaCombo1.classList.remove("bg-success");
       }
 
       if (respuestaCombo2 === respuestasCorrectas.combo2) {
         puntaje += evaluacion;
+        validRespuestaCombo2.classList.remove("bg-danger");
+        validRespuestaCombo2.classList.add("bg-success");
+      } else {
+        validRespuestaCombo2.classList.add("bg-danger");
+        validRespuestaCombo2.classList.remove("bg-success");
       }
 
       if (respuestaCombo3 === respuestasCorrectas.combo3) {
         puntaje += evaluacion;
+        validRespuestaCombo3.classList.remove("bg-danger");
+        validRespuestaCombo3.classList.add("bg-success");
+      } else {
+        validRespuestaCombo3.classList.add("bg-danger");
+        validRespuestaCombo3.classList.remove("bg-success");
       }
 
       if (respuestaCombo4 === respuestasCorrectas.combo4) {
         puntaje += evaluacion;
+        validRespuestaCombo4.classList.remove("bg-danger");
+        validRespuestaCombo4.classList.add("bg-success");
+      } else {
+        validRespuestaCombo4.classList.add("bg-danger");
+        validRespuestaCombo4.classList.remove("bg-success");
       }
 
       if (respuestaCombo5 === respuestasCorrectas.combo5) {
         puntaje += evaluacion;
+        validRespuestaCombo5.classList.remove("bg-danger");
+        validRespuestaCombo5.classList.add("bg-success");
+      } else {
+        validRespuestaCombo5.classList.add("bg-danger");
+        validRespuestaCombo5.classList.remove("bg-success");
       }
 
       if (respuestaCombo6 === respuestasCorrectas.combo6) {
         puntaje += evaluacion;
+        validRespuestaCombo6.classList.remove("bg-danger");
+        validRespuestaCombo6.classList.add("bg-success");
+      } else {
+        validRespuestaCombo6.classList.add("bg-danger");
+        validRespuestaCombo6.classList.remove("bg-success");
       }
 
 
