@@ -174,41 +174,47 @@
   };
 
   document.getElementById("btn_evaluar").addEventListener("click", function () {
+    document.getElementById("btn_evaluar").disabled = true;
     // Obtener las respuestas seleccionadas por el usuario
     const respuesta1 = document.getElementById("respuesta1").value;
     const respuesta2 = document.getElementById("respuesta2").value;
     const respuesta3 = document.getElementById("respuesta3").value;
     const respuesta4 = document.getElementById("respuesta4").value;
 
-    const label1 = document.getElementById("label1");
-    const label2 = document.getElementById("label1");
-    const label3 = document.getElementById("label1");
-    const label4 = document.getElementById("label1");
+    const label1 = document.getElementById("respuesta1");
+    const label2 = document.getElementById("respuesta2");
+    const label3 = document.getElementById("respuesta3");
+    const label4 = document.getElementById("respuesta4");
 
     // Calcular el puntaje
     let puntaje = 0;
     if (respuesta1 === respuestasCorrectas.pregunta1) {
       puntaje += 2.5;
+      label1.classList.add('bg-success');
     } else {
-      label1.classList.add('text-danger');
+      label1.classList.add('bg-danger');
     }
 
     if (respuesta2 === respuestasCorrectas.pregunta2) {
       puntaje += 2.5;
+      label2.classList.add('bg-success');
     } else {
-      label2.classList.add('text-danger');
+      label2.classList.add('bg-danger');
     }
 
     if (respuesta3 === respuestasCorrectas.pregunta3) {
       puntaje += 2.5;
+      label3.classList.add('bg-success');
     } else {
-      label3.classList.add('text-danger');
+      label3.classList.add('bg-danger');
     }
 
     if (respuesta4 === respuestasCorrectas.pregunta4) {
       puntaje += 2.5;
+      label4.classList.add('bg-success');
+
     } else {
-      label1.classList.add('text-danger');
+      label4.classList.add('bg-danger');
     }
 
 

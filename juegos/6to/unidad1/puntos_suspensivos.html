@@ -119,13 +119,41 @@
       // Verificar si la selección del usuario es correcta
       if (seleccionUsuario === "S") {
         pntj += 5;
+        document.querySelector('label[for="opcion1"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion2"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion3"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion4"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion5"]').classList.remove("bg-danger");  // Respuesta incorrecta
+
+        document.querySelector('label[for="opcion1"]').classList.add("bg-success");
+      } else {
+        document.querySelector('label[for="opcion1"]').classList.remove("bg-success");
+
+        document.querySelector('label[for="opcion1"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion2"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion3"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion4"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion5"]').classList.add("bg-danger");  // Respuesta incorrecta
       }
 
       const seleccionUsuario2 = document.querySelector('input[name="opcion2s"]:checked').value;
 
       if (seleccionUsuario2 === "S") {
         pntj += 5;
+        document.querySelector('label[for="opcion6"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion7"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion8"]').classList.remove("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion9"]').classList.remove("bg-danger");  // Respuesta incorrecta
+
+        document.querySelector('label[for="opcion6"]').classList.add("bg-success"); // Respuesta correcta
         // Mostrar mensaje de puntaje ganado
+      } else {
+        document.querySelector('label[for="opcion6"]').classList.remove("bg-success");
+
+        document.querySelector('label[for="opcion6"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion7"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion8"]').classList.add("bg-danger");  // Respuesta incorrecta
+        document.querySelector('label[for="opcion9"]').classList.add("bg-danger");  // Respuesta incorrecta
       }
       mostrarPuntaje(pntj);
     });
