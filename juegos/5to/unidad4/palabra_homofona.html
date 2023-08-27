@@ -163,6 +163,11 @@
 
           if (respuestaUsuario === respuestasCorrectas[pregunta]) {
             puntos += 1;
+            $(this).removeClass("bg-danger");
+            $(this).addClass("bg-success");
+          }else{
+            $(this).removeClass("bg-success");
+            $(this).addClass("bg-danger");
           }
         });
 
