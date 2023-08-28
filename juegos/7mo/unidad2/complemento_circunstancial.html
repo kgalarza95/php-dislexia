@@ -30,7 +30,8 @@
 
   <div class="container">
     <p class="text-left">Unidad 2 - Actividad 2</p>
-    <h4 class="text-justify">Complete la oración con el tipo de complemento circunstancial del verbo, según corresponda.</h4>
+    <h4 class="text-justify">Complete la oración con el tipo de complemento circunstancial del verbo, según corresponda.
+    </h4>
 
     <ul class="list-group">
       <li class="list-group-item d-flex align-items-center">
@@ -64,7 +65,7 @@
         El juez llegó con la policía.
         <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word="" placeholder=""
           name="pregunta5">
-       
+
       </li>
 
       <li class="list-group-item d-flex align-items-center">
@@ -77,14 +78,14 @@
         Aquel año trabajamos mucho.
         <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word="" placeholder=""
           name="pregunta7">
-       
+
       </li>
 
       <li class="list-group-item d-flex align-items-center">
         La saludó cortésmente
         <input type="text" class="form-control form-control-sm input-width mx-2 word-input" data-word="" placeholder=""
           name="pregunta8">
-        
+
       </li>
     </ul>
 
@@ -195,6 +196,7 @@
 
 
     function evaluarRespuestas() {
+      document.getElementById("btn-evaluar").disabled = true;
       // Recorrer todas las preguntas
       for (let i = 1; i <= 8; i++) {
         const pregunta = `pregunta${i}`;
@@ -204,6 +206,10 @@
         // Comparar la respuesta del usuario con la respuesta correcta (ignorando mayúsculas/minúsculas)
         if (respuestaUsuario.toLowerCase() === respuestaCorrecta.toLowerCase()) {
           puntaje += 2; // Sumar 2 puntos por cada respuesta correcta
+          /*  $(`input[name="${pregunta}"]`).addClass("is-valid").removeClass("is-invalid"); */
+          $(`input[name="${pregunta}"]`).addClass("bg-success").removeClass("bg-danger");
+        } else {
+          $(`input[name="${pregunta}"]`).addClass("bg-danger").removeClass("bg-success");
         }
       }
 

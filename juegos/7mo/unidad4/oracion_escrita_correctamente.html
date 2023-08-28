@@ -78,14 +78,14 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="row">
-          <div class="col-sm-12">
+        <div id="trampa1" class="row">
+          <div class="col-sm-12 ">
             El abuelo lee en el periódico que la selección de Ecuador ganó el campeonato.
             <input type="radio" name="option1" value="S" id="option1">
           </div>
         </div>
 
-        <div class="row">
+        <div id="trampa2" class="row">
           <div class="col-sm-12">
             El aduelo lee eN el periodico que la Selección de ecuador gano el campeonato.
             <input type="radio" name="option1" value="opcion2" id="option2">
@@ -133,14 +133,14 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="row">
+        <div class="row" id="trampa3">
           <div class="col-sm-12">
             Luciana y Julián usan su teléfono casero para comunicarse.
             <input type="radio" name="option2" value="S" id="option3">
           </div>
         </div>
 
-        <div class="row">
+        <div id="trampa4" class="row">
           <div class="col-sm-12">
             luciana y julián usan su Telefono casero qara comuNicarse.
             <input type="radio" name="option2" value="opcion4" id="option4">
@@ -232,21 +232,34 @@
         option2: "S", // Respuesta correcta: Luciana y Julián usan su teléfono casero para comunicarse.
         emisor1: "S",  // Respuesta correcta: La selección de Ecuador ganó el campeonato
         mensaje1: "S", // Respuesta correcta: La selección de Ecuador ganó el campeonato
-        receptor1: "S", // Respuesta correcta: La selección de Ecuador ganó el campeonato
+        receptor: "S", // Respuesta correcta: La selección de Ecuador ganó el campeonato
         emisor2: "S",  // Respuesta correcta: Luciana
         mensaje2: "S", // Respuesta correcta: ¿Quieres jugar a las escondidas?
         receptor2: "S" // Respuesta correcta: Julián
       };
 
       $('#btn-evaluar').click(function () {
+        $(this).prop("disabled", true);
         let puntos = 0;
 
-        for (const pregunta in respuestasCorrectas) {
-          const respuestaUsuario = $('input[name=' + pregunta + ']:checked').val();
-
-          if (respuestaUsuario === respuestasCorrectas[pregunta]) {
-            puntos += 1.25;
-          }
+        if ($("#option1").is(":checked") && $("#option1").val() == respuestasCorrectas.option1) {
+          $(`#trampa1`).removeClass("bg-danger");
+          $(`#trampa1`).addClass("bg-success");
+          puntos += 1.25;
+        }else{
+          $(`#trampa1`).removeClass("bg-success");
+          $(`#trampa1`).addClass("bg-danger");
+          $(`#trampa2`).addClass("bg-danger");
+        }
+       
+        if ($("#option3").is(":checked") && $("#option3").val() == respuestasCorrectas.option2) {
+          $(`#trampa3`).removeClass("bg-danger");
+          $(`#trampa3`).addClass("bg-success");
+          puntos += 1.25;
+        }else{
+          $(`#trampa3`).removeClass("bg-success");
+          $(`#trampa3`).addClass("bg-danger");
+          $(`#trampa4`).addClass("bg-danger");
         }
 
         $('select').each(function () {
@@ -255,6 +268,9 @@
 
           if (respuestaUsuario === respuestasCorrectas[pregunta]) {
             puntos += 1.25;
+            $(this).addClass('bg-success');
+          } else {
+            $(this).addClass('bg-danger');
           }
         });
 
@@ -270,51 +286,3 @@
 </body>
 
 </html>
-
-<!-- 
-    <script>
-    var idEstudiante = 12;
-    const CURSO = "7";
-    const UNIDAD = "unidad 4";
-    const JUEGO = "oracion_escrita_correctamente";
-    // Objeto con las respuestas correctas
-    const respuestasCorrectas = {
-      option1: 'opcion1',
-      option2: 'opcion4'
-    };
-
-    document.getElementById('btn-evaluar').addEventListener('click', evaluarRespuestas);
-
-    function evaluarRespuestas() {
-      let puntaje = 0;
-      const respuestasUsuario = {};
-
-      // Obtener las respuestas del usuario y almacenarlas en el objeto respuestasUsuario
-      const radioButtons = document.querySelectorAll('input[type="radio"]');
-      radioButtons.forEach(radio => {
-        if (radio.checked) {
-          respuestasUsuario[radio.name] = radio.value;
-        }
-      });
-
-      // Comparar las respuestas con las correctas y sumar puntos
-      for (const pregunta in respuestasCorrectas) {
-        if (respuestasCorrectas[pregunta] === respuestasUsuario[pregunta]) {
-          puntaje += 5;
-        }
-      }
-
-      // Mostrar el puntaje en el modal
-      document.getElementById('modalPuntajeBody').innerHTML = `Tu puntaje es: ${puntaje}`;
-      $('#modalPuntaje').modal('show');
-      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
-    }
-
-    document.getElementById('btn_nuevo').addEventListener('click', function () {
-      // Limpiar las selecciones de radio buttons
-      const radioButtons = document.querySelectorAll('input[type="radio"]');
-      radioButtons.forEach(radio => radio.checked = false);
-    });
-  </script>
-
- -->

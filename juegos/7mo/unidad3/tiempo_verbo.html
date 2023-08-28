@@ -198,7 +198,7 @@
     </div>
   </div>
 
-  
+
 
   <!-- Scripts de Bootstrap y jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -207,103 +207,75 @@
     crossorigin="anonymous"></script>
   <script src="../../assets/general.js"></script>
   <!-- Agrega este bloque de JavaScript al final del cuerpo del documento -->
-<script>
-  var idEstudiante = 12;
+  <script>
+    var idEstudiante = 12;
     const CURSO = "7";
     const UNIDAD = "unidad 3";
     const JUEGO = "ACTIVIDAD 3";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const respuestasCorrectas = {
-      pregunta1: "S",
-      pregunta2: "S",
-      pregunta3: "S",
-      pregunta4: "S",
-      pregunta5: "S",
-      // Agrega aquí las respuestas correctas para las otras preguntas si es necesario
-    };
+    document.addEventListener("DOMContentLoaded", function () {
+      const respuestasCorrectas = {
+        pregunta1: "S",
+        pregunta2: "S",
+        pregunta3: "S",
+        pregunta4: "S",
+        pregunta5: "S",
+        // Agrega aquí las respuestas correctas para las otras preguntas si es necesario
+      };
 
-    document.getElementById("btn-evaluar").addEventListener("click", function () {
-      const preguntas = ["pregunta1", "pregunta2", "pregunta3", "pregunta4", "pregunta5"];
-      let puntaje = 0;
+      document.getElementById("btn-evaluar").addEventListener("click", function () {
+        document.getElementById("btn-evaluar").disabled = true;
+        const preguntas = ["pregunta1", "pregunta2", "pregunta3", "pregunta4", "pregunta5"];
+        let puntaje = 0;
+        
+        preguntas.forEach((pregunta) => {
+          const opciones = document.getElementsByName(pregunta);
+          let respuestaSeleccionada = null;
 
-      preguntas.forEach((pregunta) => {
-        const opciones = document.getElementsByName(pregunta);
-        let respuestaSeleccionada = null;
+          opciones.forEach((opcion) => {
+            if (opcion.checked) {
+              respuestaSeleccionada = opcion.value;
+            }
+          });
 
-        opciones.forEach((opcion) => {
-          if (opcion.checked) {
-            respuestaSeleccionada = opcion.value;
+          if (respuestaSeleccionada === respuestasCorrectas[pregunta]) {
+            puntaje += 2;
+
+            opciones.forEach((opcion) => {
+              opcion.parentNode.classList.remove("bg-danger");
+              opcion.parentNode.classList.add("bg-success");
+            });
+          } else {
+            opciones.forEach((opcion) => {
+              opcion.parentNode.classList.remove("bg-success");
+              opcion.parentNode.classList.add("bg-danger");
+            });
           }
         });
 
-        if (respuestaSeleccionada === respuestasCorrectas[pregunta]) {
-          puntaje += 2;
-        }
+        mostrarPuntaje(puntaje);
+        guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
       });
 
-      mostrarPuntaje(puntaje);
-      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
-    });
-
-    document.getElementById("btn_nuevo").addEventListener("click", function () {
-      limpiarRespuestas();
-    });
-
-    function mostrarPuntaje(puntaje) {
-      const modalPuntajeBody = document.getElementById("modalPuntajeBody");
-      modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje}`;
-      $("#modalPuntaje").modal("show");
-    }
-
-    function limpiarRespuestas() {
-      const opciones = document.querySelectorAll("input[type='radio']");
-      opciones.forEach((opcion) => {
-        opcion.checked = false;
+      document.getElementById("btn_nuevo").addEventListener("click", function () {
+        limpiarRespuestas();
       });
-    }
-  });
-</script>
+
+      function mostrarPuntaje(puntaje) {
+        const modalPuntajeBody = document.getElementById("modalPuntajeBody");
+        modalPuntajeBody.textContent = `Tu puntaje es: ${puntaje}`;
+        $("#modalPuntaje").modal("show");
+      }
+
+      function limpiarRespuestas() {
+        const opciones = document.querySelectorAll("input[type='radio']");
+        opciones.forEach((opcion) => {
+          opcion.checked = false;
+        });
+      }
+    });
+  </script>
 
 </body>
 
 </html>
-
-
-
-<!-- 
-
-   <script>
-    var idEstudiante = 12;
-    const CURSO = "7";
-    const UNIDAD = "unidad 3";
-    const JUEGO = "tiempo_verbo";
-    var puntaje = 0;
-    // Función para generar un número aleatorio
-    function generarNumeroAleatorio(minimo, maximo) {
-      return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
-    }
-
-    // Función que se ejecutará cuando se haga clic en el botón
-    function handleClick() {
-      var numeroAleatorio = generarNumeroAleatorio(1, 10);
-      var modalBody = document.getElementById("modalPuntajeBody");
-      modalBody.textContent = numeroAleatorio;
-      puntaje = numeroAleatorio;
-
-      if (puntaje == 10) {
-        modalBody.textContent = `${mensajeOk}. Tu puntaje es: ${puntaje}`;
-      } else {
-        modalBody.innerText = `${mensajeIntentarNuevamente}. Tu puntaje es: ${puntaje}`;
-      }
-      
-      guardarScore(idEstudiante, CURSO, UNIDAD, JUEGO, puntaje);
-      // Mostrar el modal
-      var modal = new bootstrap.Modal(document.getElementById("modalPuntaje"));
-      modal.show();
-    }
-
-    // Vincular el evento de clic al botón
-    document.getElementById("btn-evaluar").addEventListener("click", handleClick);
-  </script>
- -->
