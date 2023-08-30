@@ -44,8 +44,8 @@
 
     <div class="container">
 
-      <div class="row">
-        <div class="col-sm-6">
+      <div class="row trampa1 py-4 px-4">
+        <div class="col-sm-6 ">
           <div class="row">
             <div class="col-sm-12">
               <img src="../../assets/img/5/u3/sol_bien.png" class="img-fluid" alt="img1">
@@ -78,7 +78,7 @@
 
       <br>
 
-      <div class="row">
+      <div class="row trampa2 py-4 px-4">
         <div class="col-sm-6">
           <div class="row">
             <div class="col-sm-12">
@@ -165,13 +165,27 @@
     });
 
     function evaluarRespuestas() {
+      document.getElementById("btn_evaluar").disabled = true;
       let score = 0;
       const inputs = document.querySelectorAll('input[type="radio"]:checked');
       inputs.forEach((input) => {
         const name = input.name;
         const value = input.value;
+
+        console.log(name);
         if (correctAnswers[name] === value) {
           score += 5;
+          if (name == "fila1") {
+            document.querySelector(".trampa1").classList.add("bg-success");
+          } if (name == "fila2") {
+            document.querySelector(".trampa2").classList.add("bg-success");
+          }
+        } else {
+          if (name == "fila1") {
+            document.querySelector(".trampa1").classList.add("bg-danger");
+          } if (name == "fila2") {
+            document.querySelector(".trampa2").classList.add("bg-danger");
+          }
         }
 
       });
