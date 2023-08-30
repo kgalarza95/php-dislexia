@@ -59,14 +59,14 @@
                     <div class="form-check">
                         <label class="form-check-label" for="elemento1Opcion1">
                             <input class="form-check-input" type="radio" name="elemento1" id="elemento1Opcion1"
-                                value="correcta">
+                                value="correcta" data-respuesta="correcta">
                             Como no me gusta el café, voy a tomar té.
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" for="elemento1Opcion2">
                             <input class="form-check-input" type="radio" name="elemento1" id="elemento1Opcion2"
-                                value="incorrecta">
+                                value="incorrecta" data-respuesta="correcta">
                             Como no Me gusta el café, voy a tOmar te.
                         </label>
                     </div>
@@ -76,14 +76,14 @@
                     <div class="form-check">
                         <label class="form-check-label" for="elemento2Opcion1">
                             <input class="form-check-input" type="radio" name="elemento2" id="elemento2Opcion1"
-                                value="correcta">
+                                value="correcta" data-respuesta="correcta">
                             Tu lápiz tiene mas punta que el mío.
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" for="elemento2Opcion2">
                             <input class="form-check-input" type="radio" name="elemento2" id="elemento2Opcion2"
-                                value="incorrecta">
+                                value="incorrecta" data-respuesta="correcta">
                             Tu lapiz tieNe mas qunta que El mio.
                         </label>
                     </div>
@@ -95,14 +95,14 @@
                     <div class="form-check">
                         <label class="form-check-label" for="elemento3Opcion1">
                             <input class="form-check-input" type="radio" name="elemento3" id="elemento3Opcion1"
-                                value="correcta">
+                                value="correcta" data-respuesta="correcta">
                             Tomas y Alicia se casarán el año que viene.
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" for="elemento3Opcion2">
                             <input class="form-check-input" type="radio" name="elemento3" id="elemento3Opcion2"
-                                value="incorrecta">
+                                value="incorrecta" data-respuesta="correcta">
                             Tomas y Alicia se casaRan el año pue viene.
                         </label>
                     </div>
@@ -117,14 +117,14 @@
                     <div class="form-check">
                         <label class="form-check-label" for="elemento4Opcion1">
                             <input class="form-check-input" type="radio" name="elemento4" id="elemento4Opcion1"
-                                value="correcta">
+                                value="correcta" data-respuesta="correcta">
                             Mi sofá es más cómodo que el tuyo.
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" for="elemento4Opcion2">
                             <input class="form-check-input" type="radio" name="elemento4" id="elemento4Opcion2"
-                                value="incorrecta">
+                                value="incorrecta" data-respuesta="correcta">
                             Mi sofA es mas comodo pue el tUyo.
                         </label>
                     </div>
@@ -136,14 +136,14 @@
                     <div class="form-check">
                         <label class="form-check-label" for="elemento5Opcion1">
                             <input class="form-check-input" type="radio" name="elemento5" id="elemento5Opcion1"
-                                value="correcta">
+                                value="correcta" data-respuesta="correcta">
                             El bebé está llorando porque tiene frío.
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" for="elemento5Opcion2">
                             <input class="form-check-input" type="radio" name="elemento5" id="elemento5Opcion2"
-                                value="incorrecta">
+                                value="incorrecta" data-respuesta="correcta">
                             El bebe esta llOrando qorpue t iene frio.
                         </label>
                     </div>
@@ -178,8 +178,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/general.js"></script>
-
-
     <script>
         var idEstudiante = 4;
         const CURSO = "5";
@@ -197,28 +195,28 @@
 
         // Función para evaluar las respuestas y calcular el puntaje
         function evaluarRespuestas() {
+            document.getElementById('btn-evaluar').disabled = true;
             let puntaje = 0;
             let posicion = 0;
             // Obtener las respuestas seleccionadas
             const formulario = document.getElementById('ejercicioForm');
             const elementos = formulario.elements;
+            const opciones = formulario.querySelectorAll('input[type="radio"]:checked');
             // Comparar las respuestas seleccionadas con las respuestas correctas
-            for (const elemento in respuestasCorrectas) {
-                const respuestaSeleccionada = elementos[elemento].value;
+            opciones.forEach(opcion => {
+                const respuestaSeleccionada = opcion.value;
+                const respuestaCorrecta = opcion.getAttribute('data-respuesta');
+                const label = formulario.querySelector(`label[for="${opcion.id}"]`);
 
-                if (respuestaSeleccionada === respuestasCorrectas[elemento]) {
+                if (respuestaSeleccionada === respuestaCorrecta) {
                     // Respuesta correcta
                     puntaje += 2;
-                    elementos[posicion].style.backgroundColor = '';
+                    label.style.backgroundColor = 'green';
 
                 } else {
-
-                    elementos[posicion].style.backgroundColor = 'red';
-                    console.log(elementos[posicion]);
-
+                    label.style.backgroundColor = 'red';
                 }
-                posicion += 1;
-            }
+            });
 
             // Mostrar el puntaje en el modal
             const modalPuntajeBody = document.getElementById('modalPuntajeBody');
